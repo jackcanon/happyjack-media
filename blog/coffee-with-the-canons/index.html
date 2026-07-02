@@ -13,17 +13,7 @@
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body { font-family: 'Inter', sans-serif; background-color: var(--charcoal); color: var(--warm-white); -webkit-font-smoothing: antialiased; }
-
-    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 1.25rem 3rem; background: rgba(31,35,40,0.96); backdrop-filter: blur(12px); }
-    .nav-logo img { height: 28px; width: auto; filter: brightness(0) invert(1); }
-    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
-    .nav-links a { color: var(--warm-white); text-decoration: none; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.65; transition: opacity 0.2s; }
-    .nav-links a:hover, .nav-links a.active { opacity: 1; }
-    .nav-social { display: flex; gap: 1rem; align-items: center; }
-    .nav-social a { color: var(--warm-white); opacity: 0.65; transition: opacity 0.2s; display: flex; }
-    .nav-social a:hover { opacity: 1; }
-
-    .post-hero { padding-top: 6rem; max-height: 520px; overflow: hidden; position: relative; }
+    .post-hero { padding-top: 56px; max-height: 520px; overflow: hidden; position: relative; }
     .post-hero img { width: 100%; height: 520px; object-fit: cover; object-position: center 30%; display: block; }
     .post-hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(31,35,40,0) 30%, rgba(31,35,40,0.7)); }
 
@@ -63,31 +53,68 @@
     .footer-logo img { height: 24px; width: auto; opacity: 0.5; }
 
     @media (max-width: 900px) {
-      nav { padding: 1rem 1.5rem; }
+      nav { padding: 0 1.25rem; }
+      
+      .wc-pill span { display: none; }
       .nav-links { display: none; }
       .post-container { padding: 2rem 1.25rem 4rem; }
       .footer-inner { grid-template-columns: 1fr; gap: 2.5rem; }
       footer { padding: 2.5rem 1.5rem; }
     }
-  </style>
+
+    /* ── Unified nav ── */
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 2rem; height: 56px; background: rgba(31,35,40,0.96); backdrop-filter: blur(12px); gap: 1rem; }
+    .nav-logo { color: var(--warm-white); text-decoration: none; font-family: 'Libre Baskerville', Georgia, serif; font-size: 13px; letter-spacing: 0.04em; opacity: 0.95; white-space: nowrap; }
+    .nav-links { display: flex; gap: 0; list-style: none; flex: 1; justify-content: center; }
+    .nav-links a { color: rgba(247,244,238,0.45); text-decoration: none; font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 0 1.1rem; height: 56px; display: flex; align-items: center; border-bottom: 2px solid transparent; transition: color 0.2s; white-space: nowrap; }
+    .nav-links a:hover { color: rgba(247,244,238,0.85); }
+    .nav-links a.active { color: var(--gold); border-bottom-color: var(--gold); }
+    .nav-right { display: flex; align-items: center; gap: 1rem; flex-shrink: 0; }
+    .nav-social-link { color: var(--warm-white); opacity: 0.5; transition: opacity 0.2s; display: flex; }
+    .nav-social-link:hover { opacity: 1; }
+    .wc-pill { display: flex; align-items: center; gap: 6px; background: var(--copper); color: var(--warm-white); font-size: 0.6rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; padding: 5px 12px; border-radius: 100px; text-decoration: none; white-space: nowrap; transition: background 0.2s; }
+    .wc-pill:hover { background: #a05c34; color: var(--warm-white); text-decoration: none; }
+    .live-dot { width: 5px; height: 5px; border-radius: 50%; background: rgba(247,244,238,0.9); flex-shrink: 0; }
+    /* ── Article nav ── */
+    .article-nav { border-top: 1px solid rgba(247,244,238,0.1); }
+    .article-nav-strip { display: grid; grid-template-columns: 1fr 1fr; }
+    .article-nav-solo { grid-template-columns: 1fr; }
+    .article-nav-card { padding: 1.5rem 2rem; text-decoration: none; display: block; transition: background 0.15s; }
+    .article-nav-card:hover { background: rgba(247,244,238,0.04); }
+    .article-nav-card.prev { border-right: 1px solid rgba(247,244,238,0.08); }
+    .article-nav-label { font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(247,244,238,0.3); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 6px; }
+    .article-nav-card.next .article-nav-label { justify-content: flex-end; }
+    .article-nav-title { font-family: 'Libre Baskerville', Georgia, serif; font-size: 0.9rem; font-weight: 400; color: rgba(247,244,238,0.8); line-height: 1.35; }
+    .article-nav-card.next .article-nav-title { text-align: right; }
+    .article-nav-meta { font-size: 0.7rem; color: var(--gold); margin-top: 4px; opacity: 0.7; }
+    .article-nav-card.next .article-nav-meta { text-align: right; }
+    .more-articles { border-top: 1px solid rgba(247,244,238,0.1); padding: 2rem; }
+    .more-label { font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(247,244,238,0.3); margin-bottom: 1.25rem; }
+    .more-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .more-card { padding: 1rem; border: 1px solid rgba(247,244,238,0.08); border-radius: 6px; text-decoration: none; display: block; transition: border-color 0.15s, background 0.15s; }
+    .more-card:hover { border-color: rgba(247,244,238,0.18); background: rgba(247,244,238,0.03); }
+    .more-card-eye { font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 4px; opacity: 0.8; }
+    .more-card-title { font-family: 'Libre Baskerville', Georgia, serif; font-size: 0.8rem; color: rgba(247,244,238,0.75); line-height: 1.4; }
+
+    @media (max-width: 900px) {
 </head>
 <body>
 
 <nav>
-  <a href="/">
-    <img class="nav-logo" src="https://images.squarespace-cdn.com/content/v1/65ccf86513ceea51225b3bd5/5dd85de9-93fb-4e21-afb3-f12f2477a64a/Happy-Jack-Media-black-3840-by-2160.png?format=300w" alt="Happy Jack Media" style="height:28px;width:auto;filter:brightness(0) invert(1);" />
-  </a>
+  <a href="/" class="nav-logo">Happy Jack Media</a>
   <ul class="nav-links">
-    <li><a href="https://worldcup.happyjack.media" target="_blank" rel="noopener">World Cup 2026</a></li>
-    <li><a href="/">Home</a></li>
-    <li><a href="/blog" class="active">Blog</a></li>
+    <li><a href="/" class="active">HJM</a></li>
+    <li><a href="https://www.thisisnotadraft.com" target="_blank" rel="noopener">This Is Not A Draft</a></li>
+    <li><a href="https://www.jackblair.net" target="_blank" rel="noopener">Jack Blair</a></li>
   </ul>
-  <div class="nav-social">
-    <a href="https://www.instagram.com/happyjackmedia" target="_blank" rel="noopener" aria-label="Instagram">
+  <div class="nav-right">
+    <a href="https://worldcup.happyjack.media" target="_blank" rel="noopener" class="wc-pill">
+      <span class="live-dot"></span>
+      World Cup 2026
+    </a>
+    <a href="https://www.instagram.com/happyjackmedia" target="_blank" rel="noopener" aria-label="Instagram" class="nav-social-link">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
-        <circle cx="12" cy="12" r="4"/>
-        <circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/>
+        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/>
       </svg>
     </a>
   </div>
@@ -136,6 +163,29 @@
   </div>
 </div>
 
+<div class="article-nav">
+  <div class="article-nav-strip article-nav-solo">
+
+    <a href="/blog/story-circle-documentary-updates-and-more/" class="article-nav-card next">
+      <div class="article-nav-label">Next article <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></div>
+      <div class="article-nav-title">Story Circle, Documentary Updates and More!</div>
+      <div class="article-nav-meta">Behind the Scenes</div>
+    </a>
+  </div>
+  <div class="more-articles">
+    <div class="more-label">More from the journal</div>
+    <div class="more-grid">
+      <a href="/blog/thanksgiving-update/" class="more-card">
+        <div class="more-card-eye">Behind the Scenes</div>
+        <div class="more-card-title">Thanksgiving Update</div>
+      </a>      <a href="/blog/tinad-award-wins/" class="more-card">
+        <div class="more-card-eye">Behind the Scenes</div>
+        <div class="more-card-title">TINAD Award Wins at Chandler Film Festival</div>
+      </a>
+    </div>
+  </div>
+</div>
+
 <footer>
   <div class="footer-inner">
     <div>
@@ -166,4 +216,4 @@
 </footer>
 
 </body>
-</html>
+      </html>
