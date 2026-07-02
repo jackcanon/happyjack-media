@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Jack Media — Stories Worth Remembering</title>
+  <meta name="description" content="Happy Jack Media is an independent documentary studio.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root { --charcoal:#1F2328; --warm-white:#F7F4EE; --copper:#B86A3D; --gold:#C6A15B; }
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+    body{font-family:'Inter',sans-serif;background-color:var(--charcoal);color:var(--warm-white);-webkit-font-smoothing:antialiased;}
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.25rem 3rem;background:rgba(31,35,40,0.96);backdrop-filter:blur(12px);}
+    .nav-links{display:flex;gap:2.5rem;list-style:none;}
+    .nav-links a{color:var(--warm-white);text-decoration:none;font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;opacity:.65;transition:opacity .2s;}
+    .nav-links a:hover{opacity:1;}
+    .nav-social{display:flex;gap:1rem;align-items:center;}
+    .nav-social a{color:var(--warm-white);opacity:.65;transition:opacity .2s;display:flex;}
+    .nav-social a:hover{opacity:1;}
+    .hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:7rem 3rem 3rem;gap:4rem;max-width:1400px;margin:0 auto;}
+    .hero-content h1{font-family:'Libre Baskerville',Georgia,serif;font-size:clamp(2.75rem,4.5vw,5rem);font-weight:400;line-height:1.08;margin-bottom:1.5rem;}
+    .hero-content p{font-size:1rem;line-height:1.75;color:rgba(247,244,238,.7);max-width:460px;margin-bottom:2.25rem;}
+    .btn-copper{display:inline-block;padding:.875rem 2rem;background:var(--copper);color:var(--warm-white);text-decoration:none;font-size:.7rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;border-radius:100px;transition:background .2s;}
+    .btn-copper:hover{background:#a05c34;}
+    .hero-image{height:72vh;max-height:640px;border-radius:6px;overflow:hidden;}
+    .hero-image img{width:100%;height:100%;object-fit:cover;object-position:center 20%;display:block;}
+    .section-divider{height:1px;background:rgba(247,244,238,.08);max-width:1400px;margin:0 auto;}
+    .documentary{background:var(--charcoal);}
+    .documentary-inner{display:grid;grid-template-columns:3fr 2fr;max-width:1400px;margin:0 auto;}
+    .doc-video-wrap{position:relative;padding-bottom:56.25%;height:0;overflow:hidden;background:#000;}
+    .doc-video-wrap iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:none;}
+    .doc-content{display:flex;align-items:center;padding:3rem 3rem 3rem 2.5rem;}
+    .doc-content-inner{border-left:2px solid var(--copper);padding-left:1.5rem;}
+    .doc-eyebrow{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:.75rem;}
+    .doc-content h2{font-family:'Libre Baskerville',Georgia,serif;font-size:2.25rem;font-weight:400;line-height:1.15;margin-bottom:.75rem;}
+    .doc-tagline{font-style:italic;font-family:'Libre Baskerville',Georgia,serif;color:rgba(247,244,238,.72);font-size:1rem;line-height:1.6;margin-bottom:1rem;}
+    .doc-platforms{font-size:.65rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(247,244,238,.32);margin-bottom:1.5rem;}
+    .btn-outline{display:inline-block;padding:.5rem 1.25rem;border:1px solid rgba(247,244,238,.35);border-radius:4px;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--warm-white);text-decoration:none;transition:border-color .2s;}
+    .btn-outline:hover{border-color:rgba(247,244,238,.75);}
+    footer{background:var(--warm-white);color:var(--charcoal);padding:4rem 3rem;}
+    .footer-inner{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr 1fr;gap:4rem;}
+    footer h3{font-size:.65rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;opacity:.4;margin-bottom:1.25rem;}
+    footer ul{list-style:none;}
+    footer ul li{margin-bottom:.6rem;}
+    footer a{color:var(--charcoal);text-decoration:none;font-size:.875rem;opacity:.7;transition:opacity .2s;}
+    footer a:hover{opacity:1;}
+    .newsletter-desc{font-size:.875rem;opacity:.65;line-height:1.6;margin-bottom:1.25rem;}
+    .newsletter-form{display:flex;gap:.5rem;}
+    .newsletter-form input{flex:1;padding:.625rem .875rem;border:1px solid rgba(31,35,40,.2);background:transparent;font-family:'Inter',sans-serif;font-size:.875rem;border-radius:4px;color:var(--charcoal);outline:none;}
+    .newsletter-form button{padding:.625rem 1.25rem;background:var(--charcoal);color:var(--warm-white);border:none;border-radius:4px;font-size:.65rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;font-family:'Inter',sans-serif;}
+    .footer-logo{display:block;margin-bottom:2rem;padding-bottom:2rem;border-bottom:1px solid rgba(31,35,40,.1);}
+    .footer-logo img{height:24px;width:auto;opacity:.5;}
+    @media(max-width:900px){nav{padding:1rem 1.5rem;}.nav-links{display:none;}.hero{grid-template-columns:1fr;padding:5.5rem 1.5rem 2.5rem;gap:2.5rem;min-height:auto;}.hero-image{height:55vw;}.documentary-inner{grid-template-columns:1fr;}.doc-content{padding:2.5rem 1.5rem;}.doc-content-inner{border-left:none;border-top:2px solid var(--copper);padding-left:0;padding-top:1.25rem;}.footer-inner{grid-template-columns:1fr;gap:2.5rem;}.footer{padding:2.5rem 1.5rem;}}
+  </style>
+</head>
+<body>
+<nav>
+  <a href="/"><img src="https://images.squarespace-cdn.com/content/v1/65ccf86513ceea51225b3bd5/5dd85de9-93fb-4e21-afb3-f12f2477a64a/Happy-Jack-Media-black-3840-by-2160.png?format=300w" alt="Happy Jack Media" style="height:28px;width:auto;filter:brightness(0) invert(1);"/></a>
+  <ul class="nav-links">
+    <li><a href="/world-cup-2026">World Cup 2026 Updates</a></li>
+    <li><a href="/">Home</a></li>
+    <li><a href="/blog">Blog</a></li>
+  </ul>
+  <div class="nav-social">
+    <a href="https://www.instagram.com/happyjackmedia" target="_blank" rel="noopener" aria-label="Instagram">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg>
+    </a>
+  </div>
+</nav>
+<section class="hero">
+  <div class="hero-content">
+    <h1>Stories Worth Remembering.</h1>
+    <p>Happy Jack Media is an independent documentary studio. We make films about veterans, communities, and the stories that deserve to be remembered.</p>
+    <a href="/jack-blair" class="btn-copper">Meet Jack Blair</a>
+  </div>
+  <div class="hero-image">
+    <img src="https://images.squarespace-cdn.com/content/v1/65ccf86513ceea51225b3bd5/035fa12d-59b1-47c3-a597-d38c737e5c0a/camphoto_1932422408.jpeg" alt="Jack Blair" loading="eager"/>
+  </div>
+</section>
+<div class="section-divider"></div>
+<section class="documentary">
+  <div class="documentary-inner">
+    <div class="doc-video-wrap">
+      <iframe src="https://www.youtube.com/embed/3mb_F92MfDc?rel=0&modestbranding=1&color=white" title="This Is Not A Draft" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture" allowfullscreen></iframe>
+    </div>
+    <div class="doc-content">
+      <div class="doc-content-inner">
+        <div class="doc-eyebrow">2× Award Winner</div>
+        <h2>This Is Not A Draft</h2>
+        <p class="doc-tagline">“A Post 9/11 Story of Service, Sacrifice &amp; Life After War.”</p>
+        <p class="doc-platforms">Free on YouTube &nbsp;·&nbsp; Fawesome TV &nbsp;·&nbsp; Relay</p>
+        <a href="https://www.thisisnotadraft.com" class="btn-outline" target="_blank" rel="noopener">Watch Free Now</a>
+      </div>
+    </div>
+  </div>
+</section>
+<footer>
+  <div class="footer-inner">
+    <div>
+      <a class="footer-logo" href="/"><img src="https://images.squarespace-cdn.com/content/v1/65ccf86513ceea51225b3bd5/5dd85de9-93fb-4e21-afb3-f12f2477a64a/Happy-Jack-Media-black-3840-by-2160.png?format=300w" alt="Happy Jack Media"/></a>
+      <h3>Explore</h3>
+      <ul><li><a href="/">Home</a></li><li><a href="/reel">Reel</a></li><li><a href="/event-services">Event Services</a></li><li><a href="/shows">Shows</a></li><li><a href="/blog">Blog</a></li><li><a href="/jack-blair">Jack Blair</a></li></ul>
+    </div>
+    <div>
+      <h3>Stay in the Loop</h3>
+      <p class="newsletter-desc">Get updates on new projects, screenings, and stories from the field.</p>
+      <form class="newsletter-form" onsubmit="return false;"><input type="email" placeholder="your@email.com" aria-label="Email"/><button type="submit">Subscribe</button></form>
+    </div>
+    <div>
+      <h3>Follow</h3>
+      <ul><li><a href="https://www.instagram.com/happyjackmedia" target="_blank" rel="noopener">Instagram</a></li><li><a href="https://www.youtube.com/@happyjackmedia" target="_blank" rel="noopener">YouTube</a></li></ul>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
