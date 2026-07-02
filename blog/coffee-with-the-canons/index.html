@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coffee with the Canons — Happy Jack Media</title>
+  <meta name="description" content="Jack and Jennie Canon launch a new vlog series covering two parallel projects: Jennie's first book and Jack's documentary about Post-9/11 veterans.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root { --charcoal: #1F2328; --warm-white: #F7F4EE; --copper: #B86A3D; --gold: #C6A15B; }
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background-color: var(--charcoal); color: var(--warm-white); -webkit-font-smoothing: antialiased; }
+
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 1.25rem 3rem; background: rgba(31,35,40,0.96); backdrop-filter: blur(12px); }
+    .nav-logo img { height: 28px; width: auto; filter: brightness(0) invert(1); }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a { color: var(--warm-white); text-decoration: none; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.65; transition: opacity 0.2s; }
+    .nav-links a:hover, .nav-links a.active { opacity: 1; }
+    .nav-social { display: flex; gap: 1rem; align-items: center; }
+    .nav-social a { color: var(--warm-white); opacity: 0.65; transition: opacity 0.2s; display: flex; }
+    .nav-social a:hover { opacity: 1; }
+
+    .post-hero { padding-top: 6rem; max-height: 520px; overflow: hidden; position: relative; }
+    .post-hero img { width: 100%; height: 520px; object-fit: cover; object-position: center 30%; display: block; }
+    .post-hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(31,35,40,0) 30%, rgba(31,35,40,0.7)); }
+
+    .post-container { max-width: 760px; margin: 0 auto; padding: 3rem 2rem 5rem; }
+
+    .back-link { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--gold); text-decoration: none; font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 2.5rem; opacity: 0.8; transition: opacity 0.2s; }
+    .back-link:hover { opacity: 1; }
+    .back-link svg { width: 14px; height: 14px; }
+
+    .post-eyebrow { font-size: 0.65rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; }
+    .post-title { font-family: 'Libre Baskerville', Georgia, serif; font-size: clamp(1.9rem, 3.5vw, 2.75rem); font-weight: 400; line-height: 1.2; color: var(--warm-white); margin-bottom: 1.25rem; }
+    .post-meta { font-size: 0.75rem; color: rgba(247,244,238,0.45); letter-spacing: 0.06em; margin-bottom: 3rem; padding-bottom: 2rem; border-bottom: 1px solid rgba(247,244,238,0.1); }
+
+    .post-body { font-size: 1.05rem; line-height: 1.85; color: rgba(247,244,238,0.85); }
+    .post-body p { margin-bottom: 1.5rem; }
+    .post-body h2 { font-family: 'Libre Baskerville', Georgia, serif; font-size: 1.5rem; font-weight: 400; color: var(--warm-white); margin: 2.5rem 0 1rem; }
+    .post-body h3 { font-family: 'Libre Baskerville', Georgia, serif; font-size: 1.2rem; font-weight: 400; color: var(--warm-white); margin: 2rem 0 0.75rem; }
+    .post-body a { color: var(--copper); text-decoration: underline; text-underline-offset: 3px; }
+    .post-body a:hover { color: var(--gold); }
+    .post-body blockquote { border-left: 3px solid var(--copper); padding-left: 1.5rem; margin: 2rem 0; font-style: italic; font-family: 'Libre Baskerville', Georgia, serif; color: rgba(247,244,238,0.7); font-size: 1.1rem; line-height: 1.7; }
+    .post-body ul, .post-body ol { padding-left: 1.5rem; margin-bottom: 1.5rem; }
+    .post-body li { margin-bottom: 0.5rem; }
+
+    .cta-box { background: rgba(247,244,238,0.05); border: 1px solid rgba(247,244,238,0.1); border-radius: 6px; padding: 2rem; margin: 3rem 0; text-align: center; }
+    .cta-box p { margin-bottom: 1rem; color: rgba(247,244,238,0.7); }
+    .btn-copper { display: inline-block; padding: 0.875rem 2rem; background: var(--copper); color: var(--warm-white); text-decoration: none; font-size: 0.7rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; border-radius: 100px; transition: background 0.2s, transform 0.15s; }
+    .btn-copper:hover { background: #a05c34; transform: translateY(-1px); text-decoration: none; color: var(--warm-white); }
+
+    footer { background: var(--warm-white); color: var(--charcoal); padding: 4rem 3rem; }
+    .footer-inner { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 4rem; }
+    footer h3 { font-family: 'Inter', sans-serif; font-size: 0.65rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.4; margin-bottom: 1.25rem; }
+    footer ul { list-style: none; }
+    footer ul li { margin-bottom: 0.6rem; }
+    footer a { color: var(--charcoal); text-decoration: none; font-size: 0.875rem; opacity: 0.7; transition: opacity 0.2s; }
+    footer a:hover { opacity: 1; }
+    .footer-logo { display: block; margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 1px solid rgba(31,35,40,0.1); }
+    .footer-logo img { height: 24px; width: auto; opacity: 0.5; }
+
+    @media (max-width: 900px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { display: none; }
+      .post-container { padding: 2rem 1.25rem 4rem; }
+      .footer-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      footer { padding: 2.5rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="/">
+    <img class="nav-logo" src="https://images.squarespace-cdn.com/content/v1/65ccf86513ceea51225b3bd5/5dd85de9-93fb-4e21-afb3-f12f2477a64a/Happy-Jack-Media-black-3840-by-2160.png?format=300w" alt="Happy Jack Media" style="height:28px;width:auto;filter:brightness(0) invert(1);" />
+  </a>
+  <ul class="nav-links">
+    <li><a href="https://worldcup.happyjack.media" target="_blank" rel="noopener">World Cup 2026</a></li>
+    <li><a href="/">Home</a></li>
+    <li><a href="/blog" class="active">Blog</a></li>
+  </ul>
+  <div class="nav-social">
+    <a href="https://www.instagram.com/happyjackmedia" target="_blank" rel="noopener" aria-label="Instagram">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+        <circle cx="12" cy="12" r="4"/>
+        <circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/>
+      </svg>
+    </a>
+  </div>
+</nav>
+
+<div class="post-hero">
+  <img src="https://images.squarespace-cdn.com/content/v1/65ccf86513ceea51225b3bd5/1717011584475-2W52D9DWFIUUJA1I2I2S/IMG_5902.jpeg" alt="Coffee with the Canons — Jack and Jennie" />
+  <div class="post-hero-overlay"></div>
+</div>
+
+<div class="post-container">
+  <a href="/blog" class="back-link">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+    All Posts
+  </a>
+
+  <div class="post-eyebrow">HJM News</div>
+  <h1 class="post-title">Coffee with the Canons</h1>
+  <div class="post-meta">May 30, 2024 &nbsp;·&nbsp; Happy Jack Media</div>
+
+  <div class="post-body">
+    <p>We're starting something new.</p>
+
+    <p>Jack and Jennie Canon are launching a vlog series — <em>Coffee with the Canons</em> — a candid, unpolished look at what it's actually like to work on creative projects in parallel. No highlight reel. Just the work, the conversations, and whatever happens between them.</p>
+
+    <h2>Two Projects, One Kitchen Table</h2>
+
+    <p>Right now, both of us are deep in the most ambitious projects of our lives. Jennie is writing her first book — a process that is, by turns, exhilarating and terrifying and completely unlike anything she's done before. Jack is in the thick of production on <em>This Is Not A Draft</em>, the documentary about Post-9/11 veterans that has been years in the making.</p>
+
+    <p>We figured: why not bring you along? Not the polished version. The real one.</p>
+
+    <h2>What to Expect</h2>
+
+    <p>Each episode of <em>Coffee with the Canons</em> is a conversation — sometimes about the projects themselves, sometimes about the creative process, sometimes about the weird logistical reality of running two creative ventures out of one house. We'll talk about what's working, what isn't, and what we're learning along the way.</p>
+
+    <p>We're not experts. We're people doing the work and figuring it out as we go. We think there's value in that.</p>
+
+    <h2>Come Along</h2>
+
+    <p>Subscribe on YouTube, follow us on Instagram, and check back here for updates. We're just getting started, and we'd love to have you with us.</p>
+
+    <div class="cta-box">
+      <p>Subscribe to follow both projects as they unfold.</p>
+      <a href="https://www.youtube.com/channel/UC7MbK6B3DhChyyQz9DUPqdQ" class="btn-copper" target="_blank" rel="noopener">Subscribe on YouTube</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <a class="footer-logo" href="/">
+        <img src="https://images.squarespace-cdn.com/content/v1/65ccf86513ceea51225b3bd5/5dd85de9-93fb-4e21-afb3-f12f2477a64a/Happy-Jack-Media-black-3840-by-2160.png?format=300w" alt="Happy Jack Media" />
+      </a>
+      <h3>Explore</h3>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/jack-blair">Jack Blair</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3>Follow</h3>
+      <ul>
+        <li><a href="https://www.instagram.com/happyjackmedia" target="_blank" rel="noopener">Instagram</a></li>
+        <li><a href="https://www.youtube.com/channel/UC7MbK6B3DhChyyQz9DUPqdQ" target="_blank" rel="noopener">YouTube</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3>The Film</h3>
+      <ul>
+        <li><a href="https://www.thisisnotadraft.com" target="_blank" rel="noopener">This Is Not A Draft</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
