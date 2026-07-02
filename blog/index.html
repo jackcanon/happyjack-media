@@ -15,60 +15,353 @@
       --copper: #B86A3D;
       --gold: #C6A15B;
     }
+
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
-    body { font-family: 'Inter', sans-serif; background-color: var(--charcoal); color: var(--warm-white); -webkit-font-smoothing: antialiased; }
-    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 1.25rem 3rem; background: rgba(31, 35, 40, 0.96); backdrop-filter: blur(12px); }
-    .nav-logo img { height: 28px; width: auto; filter: brightness(0) invert(1); }
-    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
-    .nav-links a { color: var(--warm-white); text-decoration: none; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.65; transition: opacity 0.2s; }
-    .nav-links a:hover, .nav-links a.active { opacity: 1; }
-    .nav-social { display: flex; gap: 1rem; align-items: center; }
-    .nav-social a { color: var(--warm-white); opacity: 0.65; transition: opacity 0.2s; display: flex; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--charcoal);
+      color: var(--warm-white);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.25rem 3rem;
+      background: rgba(31, 35, 40, 0.96);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+    .nav-logo img {
+      height: 28px;
+      width: auto;
+      filter: brightness(0) invert(1);
+    }
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+    .nav-links a {
+      color: var(--warm-white);
+      text-decoration: none;
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      opacity: 0.65;
+      transition: opacity 0.2s;
+    }
+    .nav-links a:hover,
+    .nav-links a.active { opacity: 1; }
+    .nav-social {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+    .nav-social a {
+      color: var(--warm-white);
+      opacity: 0.65;
+      transition: opacity 0.2s;
+      display: flex;
+    }
     .nav-social a:hover { opacity: 1; }
-    .page-header { padding: 9rem 3rem 3.5rem; max-width: 1400px; margin: 0 auto; border-bottom: 1px solid rgba(247, 244, 238, 0.08); }
-    .page-eyebrow { font-size: 0.65rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; }
-    .page-header h1 { font-family: 'Libre Baskerville', Georgia, serif; font-size: clamp(2.5rem, 4vw, 4rem); font-weight: 400; line-height: 1.1; color: var(--warm-white); max-width: 640px; }
-    .filters { padding: 2rem 3rem; max-width: 1400px; margin: 0 auto; display: flex; gap: 0.625rem; flex-wrap: wrap; }
-    .filter-pill { display: inline-block; padding: 0.375rem 1rem; border: 1px solid rgba(247, 244, 238, 0.18); border-radius: 100px; font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--warm-white); cursor: pointer; transition: all 0.18s; opacity: 0.7; background: transparent; font-family: 'Inter', sans-serif; }
-    .filter-pill:hover, .filter-pill.active { background: var(--copper); border-color: var(--copper); opacity: 1; }
-    .post-grid { max-width: 1400px; margin: 0 auto; padding: 2rem 3rem 6rem; display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
-    .post-card { display: flex; flex-direction: column; border-radius: 8px; overflow: hidden; background: rgba(247, 244, 238, 0.04); border: 1px solid rgba(247, 244, 238, 0.07); transition: border-color 0.2s, transform 0.2s; text-decoration: none; color: inherit; }
-    .post-card:hover { border-color: rgba(247, 244, 238, 0.18); transform: translateY(-3px); }
-    .post-card-image { aspect-ratio: 16 / 9; overflow: hidden; background: rgba(247, 244, 238, 0.06); }
-    .post-card-image img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease; }
-    .post-card:hover .post-card-image img { transform: scale(1.04); }
-    .post-card-body { padding: 1.5rem; flex: 1; display: flex; flex-direction: column; }
-    .post-meta { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.875rem; }
-    .post-tag { font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); font-weight: 500; }
-    .post-date { font-size: 0.65rem; color: rgba(247, 244, 238, 0.38); letter-spacing: 0.04em; }
-    .post-card h2 { font-family: 'Libre Baskerville', Georgia, serif; font-size: 1.2rem; font-weight: 400; line-height: 1.35; color: var(--warm-white); margin-bottom: 0.75rem; }
-    .post-card p { font-size: 0.875rem; line-height: 1.7; color: rgba(247, 244, 238, 0.6); flex: 1; }
-    .post-card-footer { padding: 1rem 1.5rem 1.5rem; display: flex; align-items: center; gap: 0.375rem; font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--copper); border-top: 1px solid rgba(247, 244, 238, 0.06); }
-    .post-card.featured { grid-column: span 2; flex-direction: row; }
-    .post-card.featured .post-card-image { aspect-ratio: auto; width: 46%; flex-shrink: 0; }
-    .post-card.featured .post-card-body { padding: 2rem; }
-    .post-card.featured h2 { font-size: 1.6rem; line-height: 1.25; }
-    footer { background: var(--warm-white); color: var(--charcoal); padding: 4rem 3rem; }
-    .footer-inner { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 4rem; }
-    footer h3 { font-family: 'Inter', sans-serif; font-size: 0.65rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.4; margin-bottom: 1.25rem; }
+
+    /* ── PAGE HEADER ── */
+    .page-header {
+      padding: 9rem 3rem 3.5rem;
+      max-width: 1400px;
+      margin: 0 auto;
+      border-bottom: 1px solid rgba(247, 244, 238, 0.08);
+    }
+    .page-eyebrow {
+      font-size: 0.65rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+    .page-header h1 {
+      font-family: 'Libre Baskerville', Georgia, serif;
+      font-size: clamp(2.5rem, 4vw, 4rem);
+      font-weight: 400;
+      line-height: 1.1;
+      color: var(--warm-white);
+      max-width: 640px;
+    }
+
+    /* ── FILTER PILLS ── */
+    .filters {
+      padding: 2rem 3rem;
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      gap: 0.625rem;
+      flex-wrap: wrap;
+    }
+    .filter-pill {
+      display: inline-block;
+      padding: 0.375rem 1rem;
+      border: 1px solid rgba(247, 244, 238, 0.18);
+      border-radius: 100px;
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--warm-white);
+      cursor: pointer;
+      transition: all 0.18s;
+      opacity: 0.7;
+      background: transparent;
+      font-family: 'Inter', sans-serif;
+    }
+    .filter-pill:hover,
+    .filter-pill.active {
+      background: var(--copper);
+      border-color: var(--copper);
+      opacity: 1;
+    }
+
+    /* ── POST GRID ── */
+    .post-grid {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 2rem 3rem 6rem;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    /* ── POST CARD ── */
+    .post-card {
+      display: flex;
+      flex-direction: column;
+      border-radius: 8px;
+      overflow: hidden;
+      background: rgba(247, 244, 238, 0.04);
+      border: 1px solid rgba(247, 244, 238, 0.07);
+      transition: border-color 0.2s, transform 0.2s;
+      text-decoration: none;
+      color: inherit;
+    }
+    .post-card:hover {
+      border-color: rgba(247, 244, 238, 0.18);
+      transform: translateY(-3px);
+    }
+    .post-card-image {
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      background: rgba(247, 244, 238, 0.06);
+    }
+    .post-card-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+    .post-card:hover .post-card-image img {
+      transform: scale(1.04);
+    }
+    .post-card-body {
+      padding: 1.5rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .post-meta {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 0.875rem;
+    }
+    .post-tag {
+      font-size: 0.6rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 500;
+    }
+    .post-date {
+      font-size: 0.65rem;
+      color: rgba(247, 244, 238, 0.38);
+      letter-spacing: 0.04em;
+    }
+    .post-card h2 {
+      font-family: 'Libre Baskerville', Georgia, serif;
+      font-size: 1.2rem;
+      font-weight: 400;
+      line-height: 1.35;
+      color: var(--warm-white);
+      margin-bottom: 0.75rem;
+    }
+    .post-card p {
+      font-size: 0.875rem;
+      line-height: 1.7;
+      color: rgba(247, 244, 238, 0.6);
+      flex: 1;
+    }
+    .post-card-footer {
+      padding: 1rem 1.5rem 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.375rem;
+      font-size: 0.7rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--copper);
+      border-top: 1px solid rgba(247, 244, 238, 0.06);
+    }
+    .post-card-footer svg { flex-shrink: 0; }
+
+    /* ── FEATURED POST (spans 2 cols) ── */
+    .post-card.featured {
+      grid-column: span 2;
+      flex-direction: row;
+    }
+    .post-card.featured .post-card-image {
+      aspect-ratio: auto;
+      width: 46%;
+      flex-shrink: 0;
+    }
+    .post-card.featured .post-card-body {
+      padding: 2rem;
+    }
+    .post-card.featured h2 {
+      font-size: 1.6rem;
+      line-height: 1.25;
+    }
+
+    /* ── EMPTY STATE ── */
+    .empty-state {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 4rem 2rem;
+      opacity: 0.5;
+    }
+    .empty-state p {
+      font-family: 'Libre Baskerville', Georgia, serif;
+      font-style: italic;
+      font-size: 1.1rem;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--warm-white);
+      color: var(--charcoal);
+      padding: 4rem 3rem;
+    }
+    .footer-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 4rem;
+    }
+    footer h3 {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      opacity: 0.4;
+      margin-bottom: 1.25rem;
+    }
     footer ul { list-style: none; }
     footer ul li { margin-bottom: 0.6rem; }
-    footer a { color: var(--charcoal); text-decoration: none; font-size: 0.875rem; opacity: 0.7; transition: opacity 0.2s; }
+    footer a {
+      color: var(--charcoal);
+      text-decoration: none;
+      font-size: 0.875rem;
+      opacity: 0.7;
+      transition: opacity 0.2s;
+    }
     footer a:hover { opacity: 1; }
-    .newsletter-desc { font-size: 0.875rem; opacity: 0.65; line-height: 1.6; margin-bottom: 1.25rem; }
-    .newsletter-form { display: flex; gap: 0.5rem; }
-    .newsletter-form input { flex: 1; padding: 0.625rem 0.875rem; border: 1px solid rgba(31, 35, 40, 0.2); background: transparent; font-family: 'Inter', sans-serif; font-size: 0.875rem; border-radius: 4px; color: var(--charcoal); outline: none; }
-    .newsletter-form button { padding: 0.625rem 1.25rem; background: var(--charcoal); color: var(--warm-white); border: none; border-radius: 4px; font-size: 0.65rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; font-family: 'Inter', sans-serif; }
-    .footer-logo { display: block; margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 1px solid rgba(31, 35, 40, 0.1); }
-    .footer-logo img { height: 24px; width: auto; opacity: 0.5; }
-    @media (max-width: 1000px) { .post-grid { grid-template-columns: 1fr 1fr; } .post-card.featured { grid-column: span 2; flex-direction: column; } .post-card.featured .post-card-image { width: 100%; aspect-ratio: 16/9; } }
-    @media (max-width: 700px) { nav { padding: 1rem 1.5rem; } .nav-links { display: none; } .page-header { padding: 7rem 1.5rem 2.5rem; } .filters { padding: 1.5rem; } .post-grid { grid-template-columns: 1fr; padding: 1.5rem 1.5rem 4rem; } .post-card.featured { grid-column: span 1; } .footer-inner { grid-template-columns: 1fr; gap: 2.5rem; } footer { padding: 2.5rem 1.5rem; } }
+    .newsletter-desc {
+      font-size: 0.875rem;
+      opacity: 0.65;
+      line-height: 1.6;
+      margin-bottom: 1.25rem;
+    }
+    .newsletter-form {
+      display: flex;
+      gap: 0.5rem;
+    }
+    .newsletter-form input {
+      flex: 1;
+      padding: 0.625rem 0.875rem;
+      border: 1px solid rgba(31, 35, 40, 0.2);
+      background: transparent;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.875rem;
+      border-radius: 4px;
+      color: var(--charcoal);
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .newsletter-form input:focus { border-color: var(--charcoal); }
+    .newsletter-form button {
+      padding: 0.625rem 1.25rem;
+      background: var(--charcoal);
+      color: var(--warm-white);
+      border: none;
+      border-radius: 4px;
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      transition: opacity 0.2s;
+    }
+    .newsletter-form button:hover { opacity: 0.8; }
+    .footer-logo {
+      display: block;
+      margin-bottom: 2rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid rgba(31, 35, 40, 0.1);
+    }
+    .footer-logo img {
+      height: 24px;
+      width: auto;
+      opacity: 0.5;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1000px) {
+      .post-grid { grid-template-columns: 1fr 1fr; }
+      .post-card.featured { grid-column: span 2; flex-direction: column; }
+      .post-card.featured .post-card-image { width: 100%; aspect-ratio: 16/9; }
+    }
+    @media (max-width: 700px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { display: none; }
+      .page-header { padding: 7rem 1.5rem 2.5rem; }
+      .filters { padding: 1.5rem 1.5rem; }
+      .post-grid { grid-template-columns: 1fr; padding: 1.5rem 1.5rem 4rem; }
+      .post-card.featured { grid-column: span 1; }
+      .footer-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      footer { padding: 2.5rem 1.5rem; }
+    }
   </style>
 </head>
 <body>
+
+<!-- Navigation -->
 <nav>
-  <a href="/"><img class="nav-logo" src="https://images.squarespace-cdn.com/content/v1/65ccf86513ceea51225b3bd5/5dd85de9-93fb-4e21-afb3-f12f2477a64a/Happy-Jack-Media-black-3840-by-2160.png?format=300w" alt="Happy Jack Media" style="height:28px;width:auto;filter:brightness(0) invert(1);" /></a>
+  <a href="/">
+    <img
+      class="nav-logo"
+      src="https://images.squarespace-cdn.com/content/v1/65ccf86513ceea51225b3bd5/5dd85de9-93fb-4e21-afb3-f12f2477a64a/Happy-Jack-Media-black-3840-by-2160.png?format=300w"
+      alt="Happy Jack Media"
+      style="height:28px;width:auto;filter:brightness(0) invert(1);"
+    />
+  </a>
   <ul class="nav-links">
     <li><a href="https://worldcup.happyjack.media" target="_blank" rel="noopener">World Cup 2026</a></li>
     <li><a href="/">Home</a></li>
@@ -76,81 +369,255 @@
   </ul>
   <div class="nav-social">
     <a href="https://www.instagram.com/happyjackmedia" target="_blank" rel="noopener" aria-label="Instagram">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+        <circle cx="12" cy="12" r="4"/>
+        <circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/>
+      </svg>
     </a>
   </div>
 </nav>
+
+<!-- Page Header -->
 <header class="page-header">
   <div class="page-eyebrow">Happy Jack Media</div>
   <h1>From the Field.</h1>
 </header>
+
+<!-- Category Filters -->
 <div class="filters">
   <button class="filter-pill active" data-filter="all">All</button>
   <button class="filter-pill" data-filter="tinad">This Is Not A Draft</button>
   <button class="filter-pill" data-filter="worldcup">World Cup 2026</button>
   <button class="filter-pill" data-filter="hjm">HJM News</button>
   <button class="filter-pill" data-filter="bts">Behind the Scenes</button>
+  <button class="filter-pill" data-filter="jackblair">Jack Blair</button>
 </div>
+
+<!-- Posts Grid -->
 <main class="post-grid" id="post-grid">
-  <a class="post-card featured" href="/blog/tinad-award-wins" data-category="tinad">
-    <div class="post-card-image"><img src="https://images.squarespace-cdn.com/content/v1/65ccf86513ceea51225b3bd5/035fa12d-59b1-47c3-a597-d38c737e5c0a/camphoto_1932422408.jpeg" alt="This Is Not A Draft" loading="lazy" /></div>
+
+  <!-- FEATURED POST — newest: World Cup July 2026 -->
+  <a class="post-card featured" href="/blog/world-cup-coverage" data-category="worldcup">
+    <div class="post-card-image">
+      <img
+        src="/blog/images/world-cup-cheers.png"
+        alt="World Cup 2026 watch party"
+        loading="lazy"
+      />
+    </div>
     <div style="display:flex;flex-direction:column;flex:1;">
       <div class="post-card-body" style="flex:1;">
-        <div class="post-meta"><span class="post-tag">This Is Not A Draft</span><span class="post-date">June 2026</span></div>
-        <h2>Two Awards, One Documentary — The Story Behind <em>This Is Not A Draft</em></h2>
-        <p>From the Arizona desert to the Chandler International Film Festival, the journey of making a film about post-9/11 veterans has been anything but ordinary.</p>
+        <div class="post-meta">
+          <span class="post-tag">World Cup 2026</span>
+          <span class="post-date">July 2026</span>
+        </div>
+        <h2>HJM Is Following the 2026 World Cup — Here's How to Follow Along</h2>
+        <p>Live scores, match recaps, standings, and the stories happening off the pitch. Check our real-time scoreboard at worldcup.happyjack.media.</p>
       </div>
-      <div class="post-card-footer">Read more <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+      <div class="post-card-footer">
+        Read more
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </div>
     </div>
   </a>
-  <a class="post-card" href="/blog/world-cup-coverage" data-category="worldcup">
-    <div class="post-card-image"><img src="https://images.squarespace-cdn.com/content/v1/65ccf86513ceea51225b3bd5/5dd85de9-93fb-4e21-afb3-f12f2477a64a/Happy-Jack-Media-black-3840-by-2160.png?format=300w" alt="World Cup 2026" loading="lazy" style="object-fit:contain;padding:2rem;background:#111;" /></div>
+
+  <!-- POST 2 — June 2026 -->
+  <a class="post-card" href="/blog/tinad-award-wins" data-category="tinad">
+    <div class="post-card-image">
+      <img
+        src="https://images.squarespace-cdn.com/content/v1/65ccf86513ceea51225b3bd5/035fa12d-59b1-47c3-a597-d38c737e5c0a/camphoto_1932422408.jpeg"
+        alt="This Is Not A Draft"
+        loading="lazy"
+      />
+    </div>
     <div class="post-card-body">
-      <div class="post-meta"><span class="post-tag">World Cup 2026</span><span class="post-date">July 2026</span></div>
-      <h2>HJM Is Covering the 2026 World Cup — Here’s How to Follow Along</h2>
-      <p>Live scores, match recaps, standings, and the stories happening off the pitch. Check our real-time scoreboard at worldcup.happyjack.media.</p>
+      <div class="post-meta">
+        <span class="post-tag">This Is Not A Draft</span>
+        <span class="post-date">June 2026</span>
+      </div>
+      <h2>Two Awards, One Documentary — The Story Behind <em>This Is Not A Draft</em></h2>
+      <p>From the Arizona desert to the Chandler International Film Festival, the journey of making a film about post-9/11 veterans has been anything but ordinary.</p>
     </div>
-    <div class="post-card-footer">Read more <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+    <div class="post-card-footer">
+      Read more
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </div>
   </a>
-  <a class="post-card" href="/blog/desert-shoot-bts" data-category="bts">
-    <div class="post-card-image"><img src="https://images.squarespace-cdn.com/content/v1/65ccf86513ceea51225b3bd5/035fa12d-59b1-47c3-a597-d38c737e5c0a/camphoto_1932422408.jpeg" alt="Behind the Scenes" loading="lazy" /></div>
+
+  <!-- POST 4 — Nov 23, 2025 -->
+  <a class="post-card" href="/blog/thanksgiving-update" data-category="hjm">
+    <div class="post-card-image">
+      <img
+        src="https://images.squarespace-cdn.com/content/v1/65ccf86513ceea51225b3bd5/035fa12d-59b1-47c3-a597-d38c737e5c0a/camphoto_1932422408.jpeg"
+        alt="Thanksgiving Update"
+        loading="lazy"
+      />
+    </div>
     <div class="post-card-body">
-      <div class="post-meta"><span class="post-tag">Behind the Scenes</span><span class="post-date">May 2026</span></div>
-      <h2>South Mountain at Sunrise — The Desert Shoot</h2>
-      <p>Eight people, two cameras, and a hydration pack. What it took to capture the opening sequence of <em>This Is Not A Draft</em> in the Arizona wilderness.</p>
+      <div class="post-meta">
+        <span class="post-tag">HJM News</span>
+        <span class="post-date">Nov 23, 2025</span>
+      </div>
+      <h2>Thanksgiving Update</h2>
+      <p>Reflecting on a year of growth — filming across the country, refining the three-act structure, and celebrating our selection for the Florence International Film Festival.</p>
     </div>
-    <div class="post-card-footer">Read more <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+    <div class="post-card-footer">
+      Read more
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </div>
   </a>
+
+  <!-- POST 5 — Jul 13, 2024 -->
+  <a class="post-card" href="/blog/story-circle-documentary-updates-and-more" data-category="bts">
+    <div class="post-card-image">
+      <img
+        src="http://static1.squarespace.com/static/65ccf86513ceea51225b3bd5/t/6696b83be3cfde791a803832/1721153601359/CWTC-102+Thumbnail.png?format=1500w"
+        alt="Story Circle"
+        loading="lazy"
+      />
+    </div>
+    <div class="post-card-body">
+      <div class="post-meta">
+        <span class="post-tag">Behind the Scenes</span>
+        <span class="post-date">Jul 13, 2024</span>
+      </div>
+      <h2>Story Circle, Documentary Updates and More!</h2>
+      <p>How Dan Harmon's story circle is shaping <em>This Is Not A Draft</em>, plus how we're staying organized with Milanote — and a big thanks to the crew.</p>
+    </div>
+    <div class="post-card-footer">
+      Read more
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </div>
+  </a>
+
+  <!-- POST 6 — May 30, 2024 -->
+  <a class="post-card" href="/blog/coffee-with-the-canons" data-category="hjm">
+    <div class="post-card-image">
+      <img
+        src="https://images.squarespace-cdn.com/content/v1/65ccf86513ceea51225b3bd5/1717011584475-2W52D9DWFIUUJA1I2I2S/IMG_5902.jpeg"
+        alt="Coffee with the Canons"
+        loading="lazy"
+      />
+    </div>
+    <div class="post-card-body">
+      <div class="post-meta">
+        <span class="post-tag">HJM News</span>
+        <span class="post-date">May 30, 2024</span>
+      </div>
+      <h2>Coffee with the Canons</h2>
+      <p>Jack and Jennie launch a new vlog series covering two parallel projects: Jennie's first book and Jack's documentary about Post-9/11 veterans. Come along for the ride.</p>
+    </div>
+    <div class="post-card-footer">
+      Read more
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </div>
+  </a>
+
+  <!-- POST 7 — Feb 14, 2024 (jackblair.net) -->
+  <a class="post-card" href="https://www.jackblair.net/blog/veteran-stories-podcast" target="_blank" rel="noopener" data-category="jackblair">
+    <div class="post-card-image" style="background:#111;">
+      <img
+        src="https://images.squarespace-cdn.com/content/v1/65ccf9c35d0d700e7680f1a6/1707935165591-BEE9LCS016BSYHD6EI7X/Apple+Podcasts+Logo%283000+x+3000+px%29.png"
+        alt="Veteran Stories Podcast"
+        loading="lazy"
+        style="object-fit:contain;padding:2rem;"
+      />
+    </div>
+    <div class="post-card-body">
+      <div class="post-meta">
+        <span class="post-tag">Jack Blair</span>
+        <span class="post-date">Feb 14, 2024</span>
+      </div>
+      <h2>Veteran Stories Podcast</h2>
+      <p>A new show that reaches out to Veterans and gives them the opportunity to share their stories — deep diving into life after service and the organizations making a difference.</p>
+    </div>
+    <div class="post-card-footer">
+      Read more
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </div>
+  </a>
+
+  <!-- POST 8 — Feb 14, 2024 (jackblair.net) -->
+  <a class="post-card" href="https://www.jackblair.net/blog/cdi5jbktputrhgr6lv4rjgfkktdmi7" target="_blank" rel="noopener" data-category="jackblair">
+    <div class="post-card-image" style="background:#111;">
+      <img
+        src="https://images.squarespace-cdn.com/content/v1/65ccf9c35d0d700e7680f1a6/1707934365179-BGS1KEZZBI2HR4BBKQN5/Apple+Podcast+Logo+3000x750.jpg"
+        alt="The Overland Channel"
+        loading="lazy"
+        style="object-fit:cover;"
+      />
+    </div>
+    <div class="post-card-body">
+      <div class="post-meta">
+        <span class="post-tag">Jack Blair</span>
+        <span class="post-date">Feb 14, 2024</span>
+      </div>
+      <h2>The Overland Channel</h2>
+      <p>An inclusive community for overland enthusiasts to connect, share knowledge, and inspire each other to explore the world by vehicle — responsibly and with enthusiasm.</p>
+    </div>
+    <div class="post-card-footer">
+      Read more
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </div>
+  </a>
+
 </main>
+
+<!-- Footer -->
 <footer>
   <div class="footer-inner">
     <div>
-      <a class="footer-logo" href="/"><img src="https://images.squarespace-cdn.com/content/v1/65ccf86513ceea51225b3bd5/5dd85de9-93fb-4e21-afb3-f12f2477a64a/Happy-Jack-Media-black-3840-by-2160.png?format=300w" alt="Happy Jack Media" /></a>
+      <a class="footer-logo" href="/">
+        <img
+          src="https://images.squarespace-cdn.com/content/v1/65ccf86513ceea51225b3bd5/5dd85de9-93fb-4e21-afb3-f12f2477a64a/Happy-Jack-Media-black-3840-by-2160.png?format=300w"
+          alt="Happy Jack Media"
+        />
+      </a>
       <h3>Explore</h3>
-      <ul><li><a href="/">Home</a></li><li><a href="/blog">Blog</a></li><li><a href="/jack-blair">Jack Blair</a></li></ul>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/reel">Reel</a></li>
+        <li><a href="/event-services">Event Services</a></li>
+        <li><a href="/shows">Shows</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/jack-blair">Jack Blair</a></li>
+      </ul>
     </div>
     <div>
       <h3>Stay in the Loop</h3>
       <p class="newsletter-desc">Get updates on new projects, screenings, and stories from the field.</p>
-      <form class="newsletter-form" onsubmit="return false;"><input type="email" placeholder="your@email.com" /><button type="submit">Subscribe</button></form>
+      <form class="newsletter-form" onsubmit="return false;">
+        <input type="email" placeholder="your@email.com" aria-label="Email address" />
+        <button type="submit">Subscribe</button>
+      </form>
     </div>
     <div>
       <h3>Follow</h3>
-      <ul><li><a href="https://www.instagram.com/happyjackmedia" target="_blank" rel="noopener">Instagram</a></li><li><a href="https://www.youtube.com/@happyjackmedia" target="_blank" rel="noopener">YouTube</a></li></ul>
+      <ul>
+        <li><a href="https://www.instagram.com/happyjackmedia" target="_blank" rel="noopener">Instagram</a></li>
+        <li><a href="https://www.youtube.com/channel/UC7MbK6B3DhChyyQz9DUPqdQ" target="_blank" rel="noopener">YouTube</a></li>
+      </ul>
     </div>
   </div>
 </footer>
+
 <script>
+  // Category filter
   const pills = document.querySelectorAll('.filter-pill');
   const cards = document.querySelectorAll('.post-card');
+
   pills.forEach(pill => {
     pill.addEventListener('click', () => {
       pills.forEach(p => p.classList.remove('active'));
       pill.classList.add('active');
       const filter = pill.dataset.filter;
-      cards.forEach(card => { card.style.display = (filter === 'all' || card.dataset.category === filter) ? '' : 'none'; });
+      cards.forEach(card => {
+        card.style.display = (filter === 'all' || card.dataset.category === filter) ? '' : 'none';
+      });
     });
   });
 </script>
+
 </body>
 </html>
