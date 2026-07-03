@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shows — Happy Jack Media</title>
+  <meta name="description" content="This Is Not A Draft — a documentary about Post-9/11 veterans, directed by Jack Blair. 2× Award Winner. Watch free on YouTube, Fawesome TV, and Relay.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root { --charcoal: #1F2328; --warm-white: #F7F4EE; --copper: #B86A3D; --gold: #C6A15B; }
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background-color: var(--charcoal); color: var(--warm-white); -webkit-font-smoothing: antialiased; }
+
+    /* ── NAV ── */
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 2rem; height: 56px; background: rgba(31,35,40,0.96); backdrop-filter: blur(12px); gap: 1rem; }
+    .nav-logo { color: var(--warm-white); text-decoration: none; font-family: 'Libre Baskerville', Georgia, serif; font-size: 13px; letter-spacing: 0.04em; opacity: 0.95; white-space: nowrap; }
+    .nav-links { display: flex; gap: 0; list-style: none; flex: 1; justify-content: center; }
+    .nav-links a { color: rgba(247,244,238,0.45); text-decoration: none; font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 0 1.1rem; height: 56px; display: flex; align-items: center; border-bottom: 2px solid transparent; transition: color 0.2s; white-space: nowrap; }
+    .nav-links a:hover { color: rgba(247,244,238,0.85); }
+    .nav-links a.active { color: var(--gold); border-bottom-color: var(--gold); }
+    .nav-right { display: flex; align-items: center; gap: 1rem; flex-shrink: 0; }
+    .nav-social-link { color: var(--warm-white); opacity: 0.5; transition: opacity 0.2s; display: flex; }
+    .nav-social-link:hover { opacity: 1; }
+    .wc-pill { display: flex; align-items: center; gap: 6px; background: var(--copper); color: var(--warm-white); font-size: 0.6rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; padding: 5px 12px; border-radius: 100px; text-decoration: none; white-space: nowrap; transition: background 0.2s; }
+    .wc-pill:hover { background: #a05c34; color: var(--warm-white); text-decoration: none; }
+    .live-dot { width: 5px; height: 5px; border-radius: 50%; background: rgba(247,244,238,0.9); flex-shrink: 0; }
+    @media (max-width: 900px) { nav { padding: 0 1.25rem; } }
+
+    /* ── HERO ── */
+    .film-hero { padding-top: 56px; position: relative; background: var(--charcoal); }
+    .film-hero-inner { max-width: 1400px; margin: 0 auto; padding: 5rem 3rem 4rem; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+    .film-hero-eye { font-size: 0.6rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; }
+    .film-hero h1 { font-family: 'Libre Baskerville', Georgia, serif; font-size: clamp(2.5rem, 4vw, 3.75rem); font-weight: 400; line-height: 1.1; color: var(--warm-white); margin-bottom: 1rem; }
+    .film-hero-tagline { font-family: 'Libre Baskerville', Georgia, serif; font-style: italic; font-size: 1.05rem; color: rgba(247,244,238,0.6); margin-bottom: 1.5rem; line-height: 1.5; }
+    .film-awards { display: flex; gap: 0.75rem; margin-bottom: 2rem; flex-wrap: wrap; }
+    .award-badge { font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.375rem 0.875rem; border: 1px solid var(--gold); color: var(--gold); border-radius: 100px; }
+    .film-cta { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn-primary { display: inline-block; padding: 0.75rem 1.75rem; background: var(--copper); color: var(--warm-white); text-decoration: none; font-size: 0.7rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; border-radius: 100px; transition: background 0.2s; }
+    .btn-primary:hover { background: #a05c34; }
+    .btn-outline { display: inline-block; padding: 0.75rem 1.75rem; border: 1px solid rgba(247,244,238,0.3); color: var(--warm-white); text-decoration: none; font-size: 0.7rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; border-radius: 100px; transition: border-color 0.2s; }
+    .btn-outline:hover { border-color: rgba(247,244,238,0.7); }
+    .film-poster { border-radius: 6px; overflow: hidden; }
+    .film-poster img { width: 100%; display: block; aspect-ratio: 16/9; object-fit: cover; }
+
+    /* ── DETAILS STRIP ── */
+    .film-details { background: rgba(247,244,238,0.04); border-top: 1px solid rgba(247,244,238,0.06); border-bottom: 1px solid rgba(247,244,238,0.06); }
+    .film-details-inner { max-width: 1400px; margin: 0 auto; padding: 2rem 3rem; display: flex; gap: 3rem; flex-wrap: wrap; }
+    .detail-item { }
+    .detail-label { font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(247,244,238,0.35); margin-bottom: 0.25rem; }
+    .detail-value { font-size: 0.9rem; color: var(--warm-white); }
+
+    /* ── ABOUT SECTION ── */
+    .film-about { max-width: 800px; margin: 0 auto; padding: 5rem 2rem; }
+    .film-about h2 { font-family: 'Libre Baskerville', Georgia, serif; font-size: 1.75rem; font-weight: 400; color: var(--warm-white); margin-bottom: 1.5rem; }
+    .film-about p { font-size: 1.05rem; line-height: 1.85; color: rgba(247,244,238,0.75); margin-bottom: 1.5rem; }
+
+    /* ── WHERE TO WATCH ── */
+    .watch-section { background: rgba(247,244,238,0.03); border-top: 1px solid rgba(247,244,238,0.06); padding: 4rem 3rem; }
+    .watch-inner { max-width: 1400px; margin: 0 auto; }
+    .watch-inner h2 { font-family: 'Libre Baskerville', Georgia, serif; font-size: 1.5rem; font-weight: 400; color: var(--warm-white); margin-bottom: 2rem; }
+    .platform-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    .platform-card { padding: 1.75rem; border: 1px solid rgba(247,244,238,0.08); border-radius: 6px; text-decoration: none; display: block; transition: border-color 0.2s; }
+    .platform-card:hover { border-color: rgba(247,244,238,0.2); }
+    .platform-name { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--warm-white); margin-bottom: 0.25rem; }
+    .platform-desc { font-size: 0.8rem; color: rgba(247,244,238,0.4); }
+
+    /* ── FOOTER ── */
+    footer { background: var(--warm-white); color: var(--charcoal); padding: 4rem 3rem; }
+    .footer-inner { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 4rem; }
+    footer h3 { font-family: 'Inter', sans-serif; font-size: 0.65rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.4; margin-bottom: 1.25rem; }
+    footer ul { list-style: none; }
+    footer ul li { margin-bottom: 0.6rem; }
+    footer a { color: var(--charcoal); text-decoration: none; font-size: 0.875rem; opacity: 0.7; transition: opacity 0.2s; }
+    footer a:hover { opacity: 1; }
+    .footer-logo { display: block; margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 1px solid rgba(31,35,40,0.1); }
+    .footer-logo img { height: 24px; width: auto; opacity: 0.5; }
+    @media (max-width: 900px) { .footer-inner { grid-template-columns: 1fr; gap: 2.5rem; } footer { padding: 2.5rem 1.5rem; } }
+    @media (max-width: 900px) {
+      .film-hero-inner { grid-template-columns: 1fr; gap: 2rem; padding: 3rem 1.5rem 3rem; }
+      .film-details-inner { padding: 1.5rem; }
+      .film-about { padding: 3rem 1.5rem; }
+      .watch-section { padding: 3rem 1.5rem; }
+      .platform-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">Happy Jack Media</a>
+  <ul class="nav-links">
+    <li><a href="/">HJM</a></li>
+        <li><a href="https://www.thisisnotadraft.com" target="_blank" rel="noopener">This Is Not A Draft</a></li>
+        <li><a href="/jack-blair">Jack Blair</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="https://worldcup.happyjack.media" target="_blank" rel="noopener" class="wc-pill">
+      <span class="live-dot"></span>
+      World Cup 2026
+    </a>
+    <a href="https://www.instagram.com/happyjackmedia" target="_blank" rel="noopener" aria-label="Instagram" class="nav-social-link">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/>
+      </svg>
+    </a>
+  </div>
+</nav>
+
+<div class="film-hero">
+  <div class="film-hero-inner">
+    <div class="film-hero-text">
+      <div class="film-hero-eye">Feature Documentary</div>
+      <h1>This Is Not A Draft</h1>
+      <div class="film-hero-tagline">"A Post 9/11 Story of Service, Sacrifice &amp; Life After War."</div>
+      <div class="film-awards">
+        <span class="award-badge">2× Award Winner</span>
+        <span class="award-badge">Florence Int'l Film Festival</span>
+      </div>
+      <div class="film-cta">
+        <a href="https://www.thisisnotadraft.com" class="btn-primary" target="_blank" rel="noopener">Watch Free Now</a>
+        <a href="/jack-blair" class="btn-outline">Meet the Director</a>
+      </div>
+    </div>
+    <div class="film-poster">
+      <img src="https://images.squarespace-cdn.com/content/v1/65ccf86513ceea51225b3bd5/035fa12d-59b1-47c3-a597-d38c737e5c0a/camphoto_1932422408.jpeg" alt="This Is Not A Draft — documentary still" />
+    </div>
+  </div>
+</div>
+
+<div class="film-details">
+  <div class="film-details-inner">
+    <div class="detail-item"><div class="detail-label">Type</div><div class="detail-value">Feature Documentary</div></div>
+    <div class="detail-item"><div class="detail-label">Director</div><div class="detail-value"><a href="/jack-blair" style="color:inherit">Jack Blair</a></div></div>
+    <div class="detail-item"><div class="detail-label">Status</div><div class="detail-value">Streaming Now</div></div>
+    <div class="detail-item"><div class="detail-label">Awards</div><div class="detail-value">2× Winner — Florence Int'l FF</div></div>
+    <div class="detail-item"><div class="detail-label">Price</div><div class="detail-value">Free</div></div>
+  </div>
+</div>
+
+<div class="film-about">
+  <h2>About the Film</h2>
+  <p><em>This Is Not A Draft</em> follows Post-9/11 veterans as they navigate life after service — the invisible battles, the slow reckonings, the moments of grace. Directed by Jack Blair and produced through Happy Jack Media, the film spent years in the making, filming across the country to capture stories that rarely make it to the screen.</p>
+  <p>Selected for the Florence International Film Festival, where it earned two awards, the documentary is now available to watch free on multiple platforms. No subscription required.</p>
+</div>
+
+<div class="watch-section">
+  <div class="watch-inner">
+    <h2>Watch Free Now</h2>
+    <div class="platform-grid">
+      <a href="https://www.youtube.com/channel/UC7MbK6B3DhChyyQz9DUPqdQ" class="platform-card" target="_blank" rel="noopener">
+        <div class="platform-name">YouTube</div>
+        <div class="platform-desc">Watch free on the Happy Jack Media channel</div>
+      </a>
+      <a href="https://www.fawesome.tv" class="platform-card" target="_blank" rel="noopener">
+        <div class="platform-name">Fawesome TV</div>
+        <div class="platform-desc">Stream free on demand</div>
+      </a>
+      <a href="https://www.relaytv.com" class="platform-card" target="_blank" rel="noopener">
+        <div class="platform-name">Relay</div>
+        <div class="platform-desc">Available free on Relay</div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <a class="footer-logo" href="/">
+        <img src="https://images.squarespace-cdn.com/content/v1/65ccf86513ceea51225b3bd5/5dd85de9-93fb-4e21-afb3-f12f2477a64a/Happy-Jack-Media-black-3840-by-2160.png?format=300w" alt="Happy Jack Media" />
+      </a>
+      <h3>Explore</h3>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/jack-blair">Jack Blair</a></li>
+        <li><a href="/shows">Shows</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3>Follow</h3>
+      <ul>
+        <li><a href="https://www.instagram.com/happyjackmedia" target="_blank" rel="noopener">Instagram</a></li>
+        <li><a href="https://www.youtube.com/channel/UC7MbK6B3DhChyyQz9DUPqdQ" target="_blank" rel="noopener">YouTube</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3>The Film</h3>
+      <ul>
+        <li><a href="https://www.thisisnotadraft.com" target="_blank" rel="noopener">This Is Not A Draft</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>undefined
