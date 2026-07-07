@@ -1,0 +1,26 @@
+{
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "thisisnotadraft.com"
+        }
+      ],
+      "destination": "https://happyjack.media/tinad/$1",
+      "permanent": true
+    },
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.thisisnotadraft.com"
+        }
+      ],
+      "destination": "https://happyjack.media/tinad/$1",
+      "permanent": true
+    }
+  ]
+}
