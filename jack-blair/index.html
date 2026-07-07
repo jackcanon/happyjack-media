@@ -3,19 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jack Blair — Happy Jack Media</title>
-  <meta name="description" content="Jack Blair is an independent filmmaker and the director of This Is Not A Draft, a documentary about Post-9/11 veterans.">
+  <title>Jack Blair — Filmmaker & Live Streamer</title>
+  <meta name="description" content="Jack Blair is an independent documentary filmmaker, live streamer, and US Army veteran. Director of This Is Not A Draft. Founder of Happy Jack Media.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
-    :root { --charcoal: #1F2328; --warm-white: #F7F4EE; --copper: #B86A3D; --gold: #C6A15B; }
+    :root {
+      --charcoal: #1F2328;
+      --warm-white: #F7F4EE;
+      --copper: #B86A3D;
+      --gold: #C6A15B;
+      --muted: rgba(247,244,238,0.55);
+      --subtle: rgba(247,244,238,0.08);
+    }
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
-    body { font-family: 'Inter', sans-serif; background-color: var(--charcoal); color: var(--warm-white); -webkit-font-smoothing: antialiased; }
+    body { font-family: 'Inter', sans-serif; background: var(--charcoal); color: var(--warm-white); -webkit-font-smoothing: antialiased; }
 
     /* ── NAV ── */
-    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 2rem; height: 56px; background: rgba(31,35,40,0.96); backdrop-filter: blur(12px); gap: 1rem; }
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; display: flex; align-items: center; justify-content: space-between; padding: 0 2rem; height: 56px; background: rgba(31,35,40,0.96); backdrop-filter: blur(12px); gap: 1rem; border-bottom: 1px solid rgba(247,244,238,0.06); }
     .nav-logo { color: var(--warm-white); text-decoration: none; font-family: 'Libre Baskerville', Georgia, serif; font-size: 13px; letter-spacing: 0.04em; opacity: 0.95; white-space: nowrap; }
     .nav-links { display: flex; gap: 0; list-style: none; flex: 1; justify-content: center; }
     .nav-links a { color: rgba(247,244,238,0.45); text-decoration: none; font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 0 1.1rem; height: 56px; display: flex; align-items: center; border-bottom: 2px solid transparent; transition: color 0.2s; white-space: nowrap; }
@@ -25,56 +32,132 @@
     .nav-social-link { color: var(--warm-white); opacity: 0.5; transition: opacity 0.2s; display: flex; }
     .nav-social-link:hover { opacity: 1; }
     .wc-pill { display: flex; align-items: center; gap: 6px; background: var(--copper); color: var(--warm-white); font-size: 0.6rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; padding: 5px 12px; border-radius: 100px; text-decoration: none; white-space: nowrap; transition: background 0.2s; }
-    .wc-pill:hover { background: #a05c34; color: var(--warm-white); text-decoration: none; }
+    .wc-pill:hover { background: #a05c34; }
     .live-dot { width: 5px; height: 5px; border-radius: 50%; background: rgba(247,244,238,0.9); flex-shrink: 0; }
-    @media (max-width: 900px) { nav { padding: 0 1.25rem; } }
+
     /* ── HERO ── */
-    .bio-hero { padding-top: 56px; max-height: 560px; overflow: hidden; position: relative; }
-    .bio-hero img { width: 100%; height: 560px; object-fit: cover; object-position: center 20%; display: block; }
-    .bio-hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(31,35,40,0) 30%, rgba(31,35,40,0.85)); }
-    /* ── BIO CONTAINER ── */
-    .bio-container { max-width: 800px; margin: 0 auto; padding: 4rem 2rem 6rem; }
-    .bio-eyebrow { font-size: 0.65rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; }
-    .bio-name { font-family: 'Libre Baskerville', Georgia, serif; font-size: clamp(2.25rem, 4vw, 3.25rem); font-weight: 400; line-height: 1.1; color: var(--warm-white); margin-bottom: 0.5rem; }
-    .bio-role { font-size: 0.8rem; letter-spacing: 0.08em; color: rgba(247,244,238,0.4); text-transform: uppercase; margin-bottom: 2.5rem; padding-bottom: 2.5rem; border-bottom: 1px solid rgba(247,244,238,0.1); }
-    .bio-body { font-size: 1.05rem; line-height: 1.85; color: rgba(247,244,238,0.8); }
+    .hero { position: relative; height: 92vh; min-height: 560px; max-height: 800px; overflow: hidden; display: flex; align-items: flex-end; }
+    .hero-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 25%; }
+    .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(31,35,40,0.2) 0%, rgba(31,35,40,0.5) 50%, rgba(31,35,40,0.95) 100%); }
+    .hero-content { position: relative; z-index: 2; width: 100%; max-width: 900px; margin: 0 auto; padding: 0 2rem 4rem; }
+    .hero-eyebrow { font-size: 0.65rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; }
+    .hero-name { font-family: 'Libre Baskerville', Georgia, serif; font-size: clamp(3rem, 7vw, 5.5rem); font-weight: 400; line-height: 1.0; color: var(--warm-white); margin-bottom: 1rem; }
+    .hero-roles { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+    .hero-role-tag { font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); border: 1px solid rgba(247,244,238,0.2); padding: 6px 14px; border-radius: 100px; }
+
+    /* ── STATS BAR ── */
+    .stats-bar { background: rgba(247,244,238,0.04); border-top: 1px solid rgba(247,244,238,0.08); border-bottom: 1px solid rgba(247,244,238,0.08); }
+    .stats-inner { max-width: 900px; margin: 0 auto; padding: 0 2rem; display: grid; grid-template-columns: repeat(4, 1fr); }
+    .stat { padding: 1.75rem 0; text-align: center; border-right: 1px solid rgba(247,244,238,0.08); }
+    .stat:last-child { border-right: none; }
+    .stat-number { font-family: 'Libre Baskerville', Georgia, serif; font-size: 2rem; font-weight: 400; color: var(--warm-white); line-height: 1; margin-bottom: 0.4rem; }
+    .stat-label { font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+
+    /* ── BIO ── */
+    .bio-section { max-width: 900px; margin: 0 auto; padding: 5rem 2rem; }
+    .section-eyebrow { font-size: 0.65rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.5rem; }
+    .bio-grid { display: grid; grid-template-columns: 3fr 2fr; gap: 5rem; align-items: start; }
+    .bio-body { font-size: 1.05rem; line-height: 1.9; color: rgba(247,244,238,0.8); }
     .bio-body p { margin-bottom: 1.5rem; }
+    .bio-body p:last-child { margin-bottom: 0; }
     .bio-body a { color: var(--copper); text-decoration: underline; text-underline-offset: 3px; }
     .bio-body a:hover { color: var(--gold); }
-    /* ── FILM CALLOUT ── */
-    .film-callout { margin: 3rem 0; padding: 2rem; border-left: 3px solid var(--copper); background: rgba(247,244,238,0.03); }
-    .film-callout-eye { font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.5rem; opacity: 0.8; }
-    .film-callout h2 { font-family: 'Libre Baskerville', Georgia, serif; font-size: 1.5rem; font-weight: 400; color: var(--warm-white); margin-bottom: 0.5rem; }
-    .film-callout p { font-size: 0.95rem; color: rgba(247,244,238,0.65); line-height: 1.7; margin-bottom: 1.25rem; }
-    .btn-copper { display: inline-block; padding: 0.75rem 1.75rem; background: var(--copper); color: var(--warm-white); text-decoration: none; font-size: 0.7rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; border-radius: 100px; transition: background 0.2s; }
-    .btn-copper:hover { background: #a05c34; }
+    .bio-sidebar { border-left: 1px solid rgba(247,244,238,0.1); padding-left: 3rem; }
+    .bio-sidebar h3 { font-size: 0.65rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin-bottom: 1.25rem; }
+    .specialties { list-style: none; margin-bottom: 2.5rem; }
+    .specialties li { font-size: 0.875rem; color: rgba(247,244,238,0.75); padding: 0.55rem 0; border-bottom: 1px solid rgba(247,244,238,0.07); display: flex; align-items: center; gap: 0.6rem; }
+    .specialties li::before { content: ''; width: 4px; height: 4px; border-radius: 50%; background: var(--copper); flex-shrink: 0; }
+    .credential { background: var(--subtle); border-left: 2px solid var(--copper); padding: 1rem 1.25rem; margin-bottom: 0.75rem; border-radius: 0 4px 4px 0; }
+    .credential-title { font-size: 0.8rem; font-weight: 500; color: var(--warm-white); margin-bottom: 0.2rem; }
+    .credential-sub { font-size: 0.7rem; color: var(--muted); }
+
+    /* ── DIVIDER ── */
+    .section-divider { max-width: 900px; margin: 0 auto; padding: 0 2rem; border-top: 1px solid rgba(247,244,238,0.08); }
+
+    /* ── WORK ── */
+    .work-section { max-width: 900px; margin: 0 auto; padding: 5rem 2rem; }
+    .work-section h2 { font-family: 'Libre Baskerville', Georgia, serif; font-size: clamp(1.75rem, 3vw, 2.5rem); font-weight: 400; color: var(--warm-white); margin-bottom: 0.75rem; }
+    .work-section .section-intro { font-size: 0.95rem; color: var(--muted); line-height: 1.7; margin-bottom: 3rem; max-width: 560px; }
+    .work-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5px; background: rgba(247,244,238,0.06); border: 1px solid rgba(247,244,238,0.06); }
+    .project-card { background: var(--charcoal); padding: 2rem; position: relative; transition: background 0.2s; }
+    .project-card:hover { background: rgba(247,244,238,0.03); }
+    .project-card.featured { grid-column: span 2; }
+    .project-card-eye { font-size: 0.58rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--copper); margin-bottom: 0.75rem; }
+    .project-card h3 { font-family: 'Libre Baskerville', Georgia, serif; font-size: 1.2rem; font-weight: 400; color: var(--warm-white); margin-bottom: 0.6rem; line-height: 1.3; }
+    .project-card.featured h3 { font-size: 1.5rem; }
+    .project-card p { font-size: 0.85rem; color: var(--muted); line-height: 1.7; margin-bottom: 1.25rem; }
+    .project-role-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .role-tag { font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(247,244,238,0.4); border: 1px solid rgba(247,244,238,0.12); padding: 4px 10px; border-radius: 100px; }
+    .project-award { display: inline-flex; align-items: center; gap: 6px; background: rgba(198,161,91,0.12); border: 1px solid rgba(198,161,91,0.3); color: var(--gold); font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 5px 10px; border-radius: 100px; margin-bottom: 1rem; }
+    .project-link { display: inline-block; margin-top: 1rem; font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--copper); text-decoration: none; }
+    .project-link:hover { color: var(--gold); }
+    .project-link::after { content: ' →'; }
+
+    /* ── LIVE STREAMING ── */
+    .live-section { background: rgba(247,244,238,0.03); border-top: 1px solid rgba(247,244,238,0.08); border-bottom: 1px solid rgba(247,244,238,0.08); }
+    .live-inner { max-width: 900px; margin: 0 auto; padding: 5rem 2rem; display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+    .live-inner h2 { font-family: 'Libre Baskerville', Georgia, serif; font-size: clamp(1.75rem, 3vw, 2.5rem); font-weight: 400; color: var(--warm-white); margin-bottom: 1rem; }
+    .live-inner p { font-size: 0.95rem; color: var(--muted); line-height: 1.8; margin-bottom: 1.5rem; }
+    .live-events { list-style: none; }
+    .live-events li { display: flex; align-items: flex-start; gap: 1rem; padding: 1rem 0; border-bottom: 1px solid rgba(247,244,238,0.07); }
+    .live-events li:last-child { border-bottom: none; }
+    .live-event-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--copper); flex-shrink: 0; margin-top: 5px; }
+    .live-event-title { font-size: 0.875rem; font-weight: 500; color: var(--warm-white); margin-bottom: 0.2rem; }
+    .live-event-meta { font-size: 0.75rem; color: var(--muted); }
+
+    /* ── CONTACT ── */
+    .contact-section { max-width: 900px; margin: 0 auto; padding: 6rem 2rem; text-align: center; }
+    .contact-section h2 { font-family: 'Libre Baskerville', Georgia, serif; font-size: clamp(1.75rem, 3vw, 2.75rem); font-weight: 400; color: var(--warm-white); margin-bottom: 1rem; }
+    .contact-section p { font-size: 1rem; color: var(--muted); line-height: 1.7; margin-bottom: 2.5rem; max-width: 480px; margin-left: auto; margin-right: auto; }
+    .contact-email { display: inline-block; font-family: 'Libre Baskerville', Georgia, serif; font-size: 1.25rem; color: var(--copper); text-decoration: none; border-bottom: 1px solid rgba(184,106,61,0.4); padding-bottom: 2px; transition: color 0.2s, border-color 0.2s; }
+    .contact-email:hover { color: var(--gold); border-color: rgba(198,161,91,0.4); }
+    .contact-or { font-size: 0.75rem; color: rgba(247,244,238,0.25); margin: 2rem 0; letter-spacing: 0.1em; text-transform: uppercase; }
+    .btn-outline { display: inline-block; padding: 0.85rem 2rem; border: 1px solid rgba(247,244,238,0.25); color: var(--warm-white); text-decoration: none; font-size: 0.7rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; border-radius: 100px; transition: border-color 0.2s, background 0.2s; }
+    .btn-outline:hover { border-color: var(--copper); background: rgba(184,106,61,0.08); }
 
     /* ── FOOTER ── */
     footer { background: var(--warm-white); color: var(--charcoal); padding: 4rem 3rem; }
-    .footer-inner { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 4rem; }
-    footer h3 { font-family: 'Inter', sans-serif; font-size: 0.65rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.4; margin-bottom: 1.25rem; }
+    .footer-inner { max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 4rem; }
+    footer h3 { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.4; margin-bottom: 1.25rem; }
     footer ul { list-style: none; }
     footer ul li { margin-bottom: 0.6rem; }
     footer a { color: var(--charcoal); text-decoration: none; font-size: 0.875rem; opacity: 0.7; transition: opacity 0.2s; }
     footer a:hover { opacity: 1; }
-    .footer-logo { display: block; margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 1px solid rgba(31,35,40,0.1); }
-    .footer-logo img { height: 24px; width: auto; opacity: 0.5; }
-    @media (max-width: 900px) { .footer-inner { grid-template-columns: 1fr; gap: 2.5rem; } footer { padding: 2.5rem 1.5rem; } }
+    .footer-brand { font-family: 'Libre Baskerville', Georgia, serif; font-size: 1.1rem; color: var(--charcoal); display: block; margin-bottom: 0.6rem; opacity: 0.85; }
+    .footer-tagline { font-size: 0.8rem; color: var(--charcoal); opacity: 0.4; margin-bottom: 2rem; }
+
+    /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
-      .bio-hero { max-height: 380px; }
-      .bio-hero img { height: 380px; }
-      .bio-container { padding: 2.5rem 1.5rem 4rem; }
+      nav { padding: 0 1.25rem; }
+      .stats-inner { grid-template-columns: repeat(2, 1fr); }
+      .bio-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .bio-sidebar { border-left: none; padding-left: 0; border-top: 1px solid rgba(247,244,238,0.1); padding-top: 2rem; }
+      .work-grid { grid-template-columns: 1fr; }
+      .project-card.featured { grid-column: span 1; }
+      .live-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      .footer-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      footer { padding: 2.5rem 1.5rem; }
+      .hero-content { padding: 0 1.25rem 3rem; }
+      .bio-section, .work-section, .contact-section { padding: 3.5rem 1.25rem; }
+      .live-inner { padding: 3.5rem 1.25rem; }
+    }
+    @media (max-width: 600px) {
+      .hero-roles { gap: 0.75rem; }
+      .stats-inner { grid-template-columns: repeat(2, 1fr); }
+      .stat { padding: 1.25rem 0; }
+      .stat-number { font-size: 1.5rem; }
     }
   </style>
 </head>
 <body>
 
+<!-- NAV -->
 <nav>
   <a href="/" class="nav-logo">Happy Jack Media</a>
   <ul class="nav-links">
     <li><a href="/">HJM</a></li>
-        <li><a href="/tinad">This Is Not A Draft</a></li>
-        <li><a href="/jack-blair" class="active">Jack Blair</a></li>
+    <li><a href="/tinad">This Is Not A Draft</a></li>
+    <li><a href="/jack-blair" class="active">Jack Blair</a></li>
   </ul>
   <div class="nav-right">
     <a href="https://worldcup.happyjack.media" target="_blank" rel="noopener" class="wc-pill">
@@ -89,45 +172,208 @@
   </div>
 </nav>
 
-<div class="bio-hero">
-  <img src="https://images.squarespace-cdn.com/content/v1/65ccf86513ceea51225b3bd5/035fa12d-59b1-47c3-a597-d38c737e5c0a/camphoto_1932422408.jpeg" alt="Jack Blair — filmmaker" />
-  <div class="bio-hero-overlay"></div>
-</div>
-
-<div class="bio-container">
-  <div class="bio-eyebrow">Filmmaker</div>
-  <h1 class="bio-name">Jack Blair</h1>
-  <div class="bio-role">Director &nbsp;·&nbsp; Happy Jack Media</div>
-
-  <div class="bio-body">
-    <p>Jack Blair is an independent filmmaker and the founder of Happy Jack Media. His work focuses on veterans, communities, and the human stories that tend to get left out of the larger narrative — the ones that deserve to be told carefully, and remembered.</p>
-
-    <p>His debut documentary, <em>This Is Not A Draft</em>, follows Post-9/11 veterans navigating life after service. The film has earned two awards — Best Feature Documentary at the Chandler International Film Festival, and recognition from Hollywood Stage &amp; Script. It is now available free on YouTube, Fawesome TV, and Relay.</p>
-
-    <p>Jack is based in the United States and continues to develop new projects through Happy Jack Media. He also covers stories in sports — most recently, the 2026 FIFA World Cup.</p>
-
-    <div class="film-callout">
-      <div class="film-callout-eye">2× Award Winner &nbsp;·&nbsp; Chandler IFF &amp; Hollywood Stage &amp; Script</div>
-      <h2>This Is Not A Draft</h2>
-      <p>"A Post 9/11 Story of Service, Sacrifice &amp; Life After War." Available free on YouTube, Fawesome TV, and Relay.</p>
-      <a href="/tinad" class="btn-copper">Watch Free Now</a>
+<!-- HERO -->
+<section class="hero">
+  <img class="hero-img" src="https://images.squarespace-cdn.com/content/v1/65ccf86513ceea51225b3bd5/035fa12d-59b1-47c3-a597-d38c737e5c0a/camphoto_1932422408.jpeg" alt="Jack Blair on set" />
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">US Army Veteran  ·  Phoenix, AZ</div>
+    <h1 class="hero-name">Jack Blair</h1>
+    <div class="hero-roles">
+      <span class="hero-role-tag">Documentary Filmmaker</span>
+      <span class="hero-role-tag">Live Streamer</span>
+      <span class="hero-role-tag">Aerial Photographer</span>
+      <span class="hero-role-tag">Founder, Happy Jack Media</span>
     </div>
+  </div>
+</section>
 
-    <p>For professional inquiries, visit <a href="https://www.jackblair.net" target="_blank" rel="noopener">jackblair.net</a>.</p>
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div class="stat">
+      <div class="stat-number">16</div>
+      <div class="stat-label">Years Military Service</div>
+    </div>
+    <div class="stat">
+      <div class="stat-number">2×</div>
+      <div class="stat-label">Award-Winning Film</div>
+    </div>
+    <div class="stat">
+      <div class="stat-number">3+</div>
+      <div class="stat-label">Major Live Events</div>
+    </div>
+    <div class="stat">
+      <div class="stat-number">2026</div>
+      <div class="stat-label">FIFA World Cup Coverage</div>
+    </div>
   </div>
 </div>
 
+<!-- BIO -->
+<section class="bio-section">
+  <div class="section-eyebrow">About</div>
+  <div class="bio-grid">
+    <div class="bio-body">
+      <p>Jack Blair is an independent documentary filmmaker, live streamer, and US Army veteran with 16 years of military service. He is the founder and creative director of Happy Jack Media, where his work centers on veterans, communities, and the human stories that tend to get left out of the larger narrative — the ones that deserve to be told carefully, and remembered.</p>
+
+      <p>After leaving the military, Jack channeled his passion for storytelling into media production, first by building an online community for Overlanding — using nature immersion and off-roading as therapy for veterans with PTSD. That mission to amplify veteran voices grew into a full production career.</p>
+
+      <p>His debut documentary, <em>This Is Not A Draft</em>, follows Post-9/11 veterans navigating life after service. The film earned Best Feature Documentary at the Chandler International Film Festival and recognition from Hollywood Stage &amp; Script. It is now streaming free on YouTube, Fawesome TV, and Relay.</p>
+
+      <p>Beyond documentary work, Jack has served as Production Coordinator on motion pictures, covered major live events as a field streamer and aerial photographer, and hosted the Veteran Stories Podcast. In 2023 he was honored to share his story with ASU's graduating class at the Fall Military Stole Ceremony.</p>
+    </div>
+    <div class="bio-sidebar">
+      <h3>Specialties</h3>
+      <ul class="specialties">
+        <li>Documentary Filmmaking</li>
+        <li>Live Event Streaming</li>
+        <li>Aerial Photography (UAV)</li>
+        <li>Field Production &amp; Logistics</li>
+        <li>Veteran Storytelling</li>
+        <li>Sports &amp; Event Coverage</li>
+        <li>Podcast Hosting</li>
+      </ul>
+
+      <h3>Credentials</h3>
+      <div class="credential">
+        <div class="credential-title">Best Feature Documentary</div>
+        <div class="credential-sub">Chandler International Film Festival</div>
+      </div>
+      <div class="credential">
+        <div class="credential-title">Recognition — Hollywood Stage &amp; Script</div>
+        <div class="credential-sub">This Is Not A Draft</div>
+      </div>
+      <div class="credential">
+        <div class="credential-title">ASU Military Stole Ceremony Speaker</div>
+        <div class="credential-sub">Fall Commencement 2023</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- SELECTED WORK -->
+<section class="work-section">
+  <div class="section-eyebrow">Selected Work</div>
+  <h2>Projects</h2>
+  <p class="section-intro">From award-winning documentaries to live event coverage and podcast production, a cross-discipline body of work built around veterans and community.</p>
+
+  <div class="work-grid">
+    <div class="project-card featured">
+      <div class="project-card-eye">Documentary Film  ·  2023</div>
+      <div class="project-award">⭐ 2× Award Winner</div>
+      <h3>This Is Not A Draft</h3>
+      <p>A feature-length documentary following Post-9/11 veterans as they navigate life after service. Winner of Best Feature Documentary at the Chandler International Film Festival. Now streaming free on YouTube, Fawesome TV, and Relay.</p>
+      <div class="project-role-tags">
+        <span class="role-tag">Director</span>
+        <span class="role-tag">Producer</span>
+        <span class="role-tag">Happy Jack Media</span>
+      </div>
+      <a href="/tinad" class="project-link">Watch the film</a>
+    </div>
+    <div class="project-card">
+      <div class="project-card-eye">Live Sports Coverage  ·  2026</div>
+      <h3>FIFA World Cup 2026</h3>
+      <p>Field coverage of the 2026 FIFA World Cup across host cities in the United States, Canada, and Mexico.</p>
+      <div class="project-role-tags">
+        <span class="role-tag">Field Correspondent</span>
+        <span class="role-tag">Live Streamer</span>
+      </div>
+      <a href="https://worldcup.happyjack.media" target="_blank" rel="noopener" class="project-link">Follow coverage</a>
+    </div>
+    <div class="project-card">
+      <div class="project-card-eye">Live Event Coverage  ·  2023</div>
+      <h3>Overland Expo 2023</h3>
+      <p>Live streamed interviews with vendors and creators at the world's largest overland gathering in Flagstaff, Arizona — attendees from across the globe.</p>
+      <div class="project-role-tags">
+        <span class="role-tag">Live Streamer</span>
+        <span class="role-tag">Host</span>
+      </div>
+    </div>
+    <div class="project-card">
+      <div class="project-card-eye">Aerial &amp; Live Production  ·  2022</div>
+      <h3>OH-Space: Rocket Launch</h3>
+      <p>Logistics and aerial photography for the Office Hours community rocket launch on Jean Dry Lake, Nevada. Aerial footage featured throughout the live stream broadcast.</p>
+      <div class="project-role-tags">
+        <span class="role-tag">Logistics Specialist</span>
+        <span class="role-tag">Aerial Photographer</span>
+      </div>
+    </div>
+    <div class="project-card">
+      <div class="project-card-eye">Trade Show Coverage  ·  2022</div>
+      <h3>SEMA 2022</h3>
+      <p>Media coverage of the Specialty Equipment Market Association trade show in Las Vegas — vendor interviews, product testing, and written articles.</p>
+      <div class="project-role-tags">
+        <span class="role-tag">Videographer</span>
+        <span class="role-tag">Writer</span>
+      </div>
+    </div>
+    <div class="project-card">
+      <div class="project-card-eye">Motion Picture  ·  2024</div>
+      <h3>The Sintern</h3>
+      <p>Feature film production coordinator. Managed cast and crew payroll, film logistics, and on-set problem solving. Delivered on time and on budget.</p>
+      <div class="project-role-tags">
+        <span class="role-tag">Production Coordinator</span>
+        <span class="role-tag">Workforce Motion Pictures</span>
+      </div>
+    </div>
+    <div class="project-card">
+      <div class="project-card-eye">Podcast  ·  Ongoing</div>
+      <h3>Veteran Stories Podcast</h3>
+      <p>A podcast dedicated to capturing and amplifying the stories of veterans and those serving the veteran community. Season 1 ongoing.</p>
+      <div class="project-role-tags">
+        <span class="role-tag">Host</span>
+        <span class="role-tag">Producer</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- LIVE STREAMING -->
+<div class="live-section">
+  <div class="live-inner">
+    <div>
+      <div class="section-eyebrow">Live Production</div>
+      <h2>Built for the Field</h2>
+      <p>Jack's live streaming work spans rocket launches in the Nevada desert to the world's biggest sporting event. A technology-first approach — always testing the latest production systems to get the signal out from wherever the story is happening.</p>
+      <p>Available for live event coverage, multi-camera streaming setups, and field production logistics.</p>
+    </div>
+    <div>
+      <ul class="live-events">
+        <li><span class="live-event-dot"></span><div><div class="live-event-title">FIFA World Cup 2026</div><div class="live-event-meta">Multi-city field coverage · USA, Canada, Mexico</div></div></li>
+        <li><span class="live-event-dot"></span><div><div class="live-event-title">Overland Expo 2023</div><div class="live-event-meta">Live streamed vendor interviews · Flagstaff, AZ</div></div></li>
+        <li><span class="live-event-dot"></span><div><div class="live-event-title">OH-Space Rocket Launch</div><div class="live-event-meta">Aerial photography + logistics · Jean Dry Lake, NV</div></div></li>
+        <li><span class="live-event-dot"></span><div><div class="live-event-title">SEMA 2022</div><div class="live-event-meta">Trade show media coverage · Las Vegas, NV</div></div></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<section class="contact-section">
+  <div class="section-eyebrow">Get In Touch</div>
+  <h2>Work With Jack</h2>
+  <p>Available for documentary projects, live event coverage, aerial photography, and production coordination. Based in Phoenix, AZ — willing to travel.</p>
+  <a href="mailto:jack@happyjack.media" class="contact-email">jack@happyjack.media</a>
+  <div class="contact-or">or</div>
+  <a href="https://www.instagram.com/happyjackmedia" target="_blank" rel="noopener" class="btn-outline">Follow on Instagram</a>
+</section>
+
+<!-- FOOTER -->
 <footer>
   <div class="footer-inner">
     <div>
-      <a class="footer-logo" href="/">
-        <img src="https://images.squarespace-cdn.com/content/v1/65ccf86513ceea51225b3bd5/5dd85de9-93fb-4e21-afb3-f12f2477a64a/Happy-Jack-Media-black-3840-by-2160.png?format=300w" alt="Happy Jack Media" />
-      </a>
+      <span class="footer-brand">Jack Blair</span>
+      <span class="footer-tagline">Filmmaker · Live Streamer · US Army Veteran</span>
       <h3>Explore</h3>
       <ul>
-        <li><a href="/">Home</a></li>
+        <li><a href="/">Happy Jack Media</a></li>
+        <li><a href="/tinad">This Is Not A Draft</a></li>
         <li><a href="/blog">Blog</a></li>
-        <li><a href="/jack-blair">Jack Blair</a></li>
         <li><a href="/shows">Shows</a></li>
       </ul>
     </div>
@@ -139,9 +385,9 @@
       </ul>
     </div>
     <div>
-      <h3>The Film</h3>
+      <h3>Contact</h3>
       <ul>
-        <li><a href="/tinad">This Is Not A Draft</a></li>
+        <li><a href="mailto:jack@happyjack.media">jack@happyjack.media</a></li>
       </ul>
     </div>
   </div>
