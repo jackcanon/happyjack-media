@@ -147,6 +147,35 @@
       .stat { padding: 1.25rem 0; }
       .stat-number { font-size: 1.5rem; }
     }
+
+    /* ── VOLUNTEER / COMMUNITY ── */
+    .volunteer-section { background: rgba(247,244,238,0.02); border-top: 1px solid rgba(247,244,238,0.08); border-bottom: 1px solid rgba(247,244,238,0.08); }
+    .volunteer-inner { max-width: 900px; margin: 0 auto; padding: 5rem 2rem; display: grid; grid-template-columns: 3fr 2fr; gap: 5rem; align-items: start; }
+    .volunteer-text h2 { font-family: 'Libre Baskerville', Georgia, serif; font-size: clamp(1.75rem, 3vw, 2.5rem); font-weight: 400; color: var(--warm-white); margin-bottom: 1rem; }
+    .volunteer-text p { font-size: 0.95rem; color: var(--muted); line-height: 1.8; margin-bottom: 1.25rem; }
+    .volunteer-text p:last-child { margin-bottom: 0; }
+    .volunteer-text a { color: var(--copper); text-decoration: none; }
+    .volunteer-text a:hover { color: var(--gold); }
+    .volunteer-details { border-left: 1px solid rgba(247,244,238,0.1); padding-left: 3rem; }
+    .volunteer-org { margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 1px solid rgba(247,244,238,0.08); }
+    .volunteer-org-name { font-family: 'Libre Baskerville', Georgia, serif; font-size: 1.1rem; color: var(--warm-white); margin-bottom: 0.4rem; }
+    .volunteer-org-loc { font-size: 0.8rem; color: var(--muted); }
+    .volunteer-org-loc a { color: var(--copper); text-decoration: none; }
+    .volunteer-org-loc a:hover { color: var(--gold); }
+    .volunteer-role-item { padding: 1.25rem 0; border-bottom: 1px solid rgba(247,244,238,0.07); }
+    .volunteer-role-item:last-child { border-bottom: none; }
+    .volunteer-role-title { font-size: 0.875rem; font-weight: 500; color: var(--warm-white); margin-bottom: 0.3rem; }
+    .volunteer-role-sub { font-size: 0.78rem; color: var(--muted); font-style: italic; margin-bottom: 0.5rem; }
+    .volunteer-role-link { font-size: 0.68rem; letter-spacing: 0.09em; text-transform: uppercase; color: var(--copper); text-decoration: none; }
+    .volunteer-role-link::after { content: ' →'; }
+    .volunteer-role-link:hover { color: var(--gold); }
+    .volunteer-photo { margin-top: 2.5rem; border-radius: 4px; overflow: hidden; }
+    .volunteer-photo img { width: 100%; display: block; }
+    .volunteer-photo figcaption { font-size: 0.72rem; color: var(--muted); padding: 0.75rem 0 0; font-style: italic; line-height: 1.6; }
+    @media (max-width: 900px) {
+      .volunteer-inner { grid-template-columns: 1fr; gap: 3rem; }
+      .volunteer-details { border-left: none; padding-left: 0; border-top: 1px solid rgba(247,244,238,0.1); padding-top: 2rem; }
+    }
   </style>
 </head>
 <body>
@@ -177,7 +206,7 @@
   <img class="hero-img" src="https://images.squarespace-cdn.com/content/v1/65ccf86513ceea51225b3bd5/035fa12d-59b1-47c3-a597-d38c737e5c0a/camphoto_1932422408.jpeg" alt="Jack Blair on set" />
   <div class="hero-overlay"></div>
   <div class="hero-content">
-    <div class="hero-eyebrow">US Army Veteran  ·  Phoenix, AZ</div>
+    <div class="hero-eyebrow">US Army Veteran &nbsp;·&nbsp; Phoenix, AZ</div>
     <h1 class="hero-name">Jack Blair</h1>
     <div class="hero-roles">
       <span class="hero-role-tag">Documentary Filmmaker</span>
@@ -221,7 +250,9 @@
 
       <p>His debut documentary, <em>This Is Not A Draft</em>, follows Post-9/11 veterans navigating life after service. The film earned Best Feature Documentary at the Chandler International Film Festival and recognition from Hollywood Stage &amp; Script. It is now streaming free on YouTube, Fawesome TV, and Relay.</p>
 
-      <p>Beyond documentary work, Jack has served as Production Coordinator on motion pictures, covered major live events as a field streamer and aerial photographer, and hosted the Veteran Stories Podcast. In 2023 he was honored to share his story with ASU's graduating class at the Fall Military Stole Ceremony.</p>
+      <p>Beyond documentary work, Jack has served as Production Coordinator on motion pictures, covered major live events as a field streamer and aerial photographer, and hosted the Veteran Stories Podcast through 2023. In 2023 he was honored to share his story with ASU's graduating class at the Fall Military Stole Ceremony.</p>
+
+      <p>Jack also volunteers with the <a href="https://azvrc.org" target="_blank" rel="noopener">AZ Veterans Resource Center</a> — Arizona's central hub for veteran support in the East Valley — where he produces their weekly podcast, <em>The Spotlight: Highlighting Veteran Voices</em>, and is contributing to the design of a new veteran center with a dedicated stage and public gathering space for Arizona veterans.</p>
     </div>
     <div class="bio-sidebar">
       <h3>Specialties</h3>
@@ -229,9 +260,9 @@
         <li>Documentary Filmmaking</li>
         <li>Live Event Streaming</li>
         <li>Aerial Photography (UAV)</li>
-        <li>Field Production &amp; Logistics</li>
+        <li>Field Production & Logistics</li>
         <li>Veteran Storytelling</li>
-        <li>Sports &amp; Event Coverage</li>
+        <li>Sports & Event Coverage</li>
         <li>Podcast Hosting</li>
       </ul>
 
@@ -261,8 +292,10 @@
   <p class="section-intro">From award-winning documentaries to live event coverage and podcast production, a cross-discipline body of work built around veterans and community.</p>
 
   <div class="work-grid">
+
+    <!-- Featured: TINAD -->
     <div class="project-card featured">
-      <div class="project-card-eye">Documentary Film  ·  2023</div>
+      <div class="project-card-eye">Documentary Film &nbsp;·&nbsp; 2023</div>
       <div class="project-award">⭐ 2× Award Winner</div>
       <h3>This Is Not A Draft</h3>
       <p>A feature-length documentary following Post-9/11 veterans as they navigate life after service. Winner of Best Feature Documentary at the Chandler International Film Festival. Now streaming free on YouTube, Fawesome TV, and Relay.</p>
@@ -273,8 +306,10 @@
       </div>
       <a href="/tinad" class="project-link">Watch the film</a>
     </div>
+
+    <!-- World Cup -->
     <div class="project-card">
-      <div class="project-card-eye">Live Sports Coverage  ·  2026</div>
+      <div class="project-card-eye">Live Sports Coverage &nbsp;·&nbsp; 2026</div>
       <h3>FIFA World Cup 2026</h3>
       <p>Field coverage of the 2026 FIFA World Cup across host cities in the United States, Canada, and Mexico.</p>
       <div class="project-role-tags">
@@ -283,8 +318,10 @@
       </div>
       <a href="https://worldcup.happyjack.media" target="_blank" rel="noopener" class="project-link">Follow coverage</a>
     </div>
+
+    <!-- Overland Expo -->
     <div class="project-card">
-      <div class="project-card-eye">Live Event Coverage  ·  2023</div>
+      <div class="project-card-eye">Live Event Coverage &nbsp;·&nbsp; 2023</div>
       <h3>Overland Expo 2023</h3>
       <p>Live streamed interviews with vendors and creators at the world's largest overland gathering in Flagstaff, Arizona — attendees from across the globe.</p>
       <div class="project-role-tags">
@@ -292,8 +329,10 @@
         <span class="role-tag">Host</span>
       </div>
     </div>
+
+    <!-- OH-Space -->
     <div class="project-card">
-      <div class="project-card-eye">Aerial &amp; Live Production  ·  2022</div>
+      <div class="project-card-eye">Aerial & Live Production &nbsp;·&nbsp; 2022</div>
       <h3>OH-Space: Rocket Launch</h3>
       <p>Logistics and aerial photography for the Office Hours community rocket launch on Jean Dry Lake, Nevada. Aerial footage featured throughout the live stream broadcast.</p>
       <div class="project-role-tags">
@@ -301,8 +340,10 @@
         <span class="role-tag">Aerial Photographer</span>
       </div>
     </div>
+
+    <!-- SEMA -->
     <div class="project-card">
-      <div class="project-card-eye">Trade Show Coverage  ·  2022</div>
+      <div class="project-card-eye">Trade Show Coverage &nbsp;·&nbsp; 2022</div>
       <h3>SEMA 2022</h3>
       <p>Media coverage of the Specialty Equipment Market Association trade show in Las Vegas — vendor interviews, product testing, and written articles.</p>
       <div class="project-role-tags">
@@ -310,26 +351,63 @@
         <span class="role-tag">Writer</span>
       </div>
     </div>
+
+    <!-- The Sintern -->
     <div class="project-card">
-      <div class="project-card-eye">Motion Picture  ·  2024</div>
+      <div class="project-card-eye">Motion Picture &nbsp;·&nbsp; 2024</div>
       <h3>The Sintern</h3>
-      <p>Feature film production coordinator. Managed cast and crew payroll, film logistics, and on-set problem solving. Delivered on time and on budget.</p>
+      <p>Feature film production coordinator. Managed cast and crew payroll, film logistics, and on-set problem solving. Delivered on time and on budget working alongside producers Adam Collis and Miguel Valenti.</p>
       <div class="project-role-tags">
         <span class="role-tag">Production Coordinator</span>
         <span class="role-tag">Workforce Motion Pictures</span>
       </div>
     </div>
+
+    <!-- Veteran Stories Podcast -->
     <div class="project-card">
-      <div class="project-card-eye">Podcast  ·  Ongoing</div>
+      <div class="project-card-eye">Podcast &nbsp;·&nbsp; 2023</div>
       <h3>Veteran Stories Podcast</h3>
-      <p>A podcast dedicated to capturing and amplifying the stories of veterans and those serving the veteran community. Season 1 ongoing.</p>
+      <p>A podcast dedicated to capturing and amplifying the stories of veterans and those serving the veteran community.</p>
       <div class="project-role-tags">
         <span class="role-tag">Host</span>
         <span class="role-tag">Producer</span>
       </div>
     </div>
+
   </div>
 </section>
+
+<!-- COMMUNITY / AZVRC -->
+<div class="volunteer-section">
+  <div class="volunteer-inner">
+    <div class="volunteer-text">
+      <div class="section-eyebrow">Community &amp; Volunteering</div>
+      <h2>Supporting Arizona's Veterans</h2>
+      <p>Jack volunteers with the <a href="https://azvrc.org" target="_blank" rel="noopener">AZ Veterans Resource Center</a> — Arizona's central hub for veteran connection, care, and community in the East Valley of Phoenix. AZVRC is a veteran-led organization offering trauma-informed case management, peer support, and holistic wellness programs with a mission to help veterans reconnect, rebuild, and rise.</p>
+      <p>As volunteer podcast producer, Jack produces <em>The Spotlight: Highlighting Veteran Voices</em> — a weekly YouTube series that brings attention to veteran stories, community resources, and the organizations working alongside Arizona's veterans. Happy Jack Media is a proud partner of AZVRC.</p>
+      <p>Jack is also actively involved in the design of AZVRC's new veteran center — a permanent facility featuring a dedicated stage and public gathering space where Arizona veterans can come together, share their stories, and build community.</p>
+      <figure class="volunteer-photo">
+        <img src="https://azvrc.org/wp-content/uploads/2026/04/IMG_0713-1024x768.jpeg" alt="Jon T. Good, Nicole Pogue, and Jack Blair at the AZ Veterans Resource Center" />
+        <figcaption>Left to right: Jon T. Good (Producer, <em>This Is Not A Draft</em>), Nicole Pogue (CEO, AZVRC), and Jack Blair — at the AZ Veterans Resource Center, Mesa, AZ.</figcaption>
+      </figure>
+    </div>
+    <div class="volunteer-details">
+      <div class="volunteer-org">
+        <div class="volunteer-org-name">AZ Veterans Resource Center</div>
+        <div class="volunteer-org-loc">Mesa, AZ &nbsp;·&nbsp; <a href="https://azvrc.org" target="_blank" rel="noopener">azvrc.org</a></div>
+      </div>
+      <div class="volunteer-role-item">
+        <div class="volunteer-role-title">Volunteer Podcast Producer</div>
+        <div class="volunteer-role-sub">The Spotlight: Highlighting Veteran Voices</div>
+        <a href="https://www.youtube.com/@AZVeterans" target="_blank" rel="noopener" class="volunteer-role-link">Watch on YouTube</a>
+      </div>
+      <div class="volunteer-role-item">
+        <div class="volunteer-role-title">Veteran Center Design Advisor</div>
+        <div class="volunteer-role-sub">Stage &amp; public gathering space for Arizona veterans</div>
+      </div>
+    </div>
+  </div>
+</div>
 
 <div class="section-divider"></div>
 
@@ -344,10 +422,34 @@
     </div>
     <div>
       <ul class="live-events">
-        <li><span class="live-event-dot"></span><div><div class="live-event-title">FIFA World Cup 2026</div><div class="live-event-meta">Multi-city field coverage · USA, Canada, Mexico</div></div></li>
-        <li><span class="live-event-dot"></span><div><div class="live-event-title">Overland Expo 2023</div><div class="live-event-meta">Live streamed vendor interviews · Flagstaff, AZ</div></div></li>
-        <li><span class="live-event-dot"></span><div><div class="live-event-title">OH-Space Rocket Launch</div><div class="live-event-meta">Aerial photography + logistics · Jean Dry Lake, NV</div></div></li>
-        <li><span class="live-event-dot"></span><div><div class="live-event-title">SEMA 2022</div><div class="live-event-meta">Trade show media coverage · Las Vegas, NV</div></div></li>
+        <li>
+          <span class="live-event-dot"></span>
+          <div>
+            <div class="live-event-title">FIFA World Cup 2026</div>
+            <div class="live-event-meta">Multi-city field coverage · USA, Canada, Mexico</div>
+          </div>
+        </li>
+        <li>
+          <span class="live-event-dot"></span>
+          <div>
+            <div class="live-event-title">Overland Expo 2023</div>
+            <div class="live-event-meta">Live streamed vendor interviews · Flagstaff, AZ</div>
+          </div>
+        </li>
+        <li>
+          <span class="live-event-dot"></span>
+          <div>
+            <div class="live-event-title">OH-Space Rocket Launch</div>
+            <div class="live-event-meta">Aerial photography + logistics · Jean Dry Lake, NV</div>
+          </div>
+        </li>
+        <li>
+          <span class="live-event-dot"></span>
+          <div>
+            <div class="live-event-title">SEMA 2022</div>
+            <div class="live-event-meta">Trade show media coverage · Las Vegas, NV</div>
+          </div>
+        </li>
       </ul>
     </div>
   </div>
