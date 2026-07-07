@@ -161,7 +161,7 @@ h3 {
   position: absolute; inset: 0;
   background:
     linear-gradient(135deg, rgba(184,33,42,0.2) 0%, rgba(8,8,8,0.9) 60%),
-    url('/tinad/tinad-hero.jpg') center/cover no-repeat;
+    url('/tinad/TINAD%20-%20New%20Art%2016x9.png') center/cover no-repeat;
 }
 .hero-content { position: relative; z-index: 1; padding: 0 1.5rem; max-width: 900px; }
 .hero-eyebrow {
