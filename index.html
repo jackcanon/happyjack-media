@@ -1372,6 +1372,39 @@
       formspree('initForm', { formElement: '#hjm-contact', formId: 'xvzjjgaq' });
     </script>
     <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
+    <script>
+      (function(){
+        var DISCORD = 'https://discord.com/api/webhooks/1524499798609232014/ciMq__s_uCW-8twMdyL13C81n1DtBrKtCV8tRxCpAOPmhYIciMGGA8tGiukpFEKGx5I1';
+        var form = document.getElementById('hjm-contact');
+        if (!form) return;
+        form.addEventListener('submit', function(){
+          var name    = (form.querySelector('[name="name"]').value || '').trim();
+          var email   = (form.querySelector('[name="email"]').value || '').trim();
+          var message = (form.querySelector('[name="message"]').value || '').trim();
+          var news    = form.querySelector('[name="newsletter"]').checked ? 'Yes' : 'No';
+          fetch(DISCORD, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              username: 'HJM Website',
+              avatar_url: 'https://images.squarespace-cdn.com/content/v1/65ccf86513ceea51225b3bd5/5dd85de9-93fb-4e21-afb3-f12f2477a64a/Happy-Jack-Media-black-3840-by-2160.png?format=300w',
+              embeds: [{
+                title: '📬 New Contact Form Submission',
+                color: 0xB86A3D,
+                fields: [
+                  { name: 'Name',       value: name    || '—', inline: true },
+                  { name: 'Email',      value: email   || '—', inline: true },
+                  { name: 'Newsletter', value: news,            inline: true },
+                  { name: 'Message',    value: message || '—', inline: false }
+                ],
+                footer: { text: 'happyjack.media' },
+                timestamp: new Date().toISOString()
+              }]
+            })
+          });
+        });
+      })();
+    </script>
   </div>
 </section>
 
