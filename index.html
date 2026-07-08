@@ -744,5 +744,20 @@
   </div>
 </footer>
 
+<!-- Sandbox slide counter — remove before pushing to main -->
+<div id="slide-badge" style="position:fixed;bottom:2rem;right:2rem;z-index:99999;background:#B86A3D;color:#fff;font-family:Inter,sans-serif;font-size:1.4rem;font-weight:700;width:3.5rem;height:3.5rem;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 12px rgba(0,0,0,0.5);pointer-events:none;">1</div>
+<script>
+  (function(){
+    var startTime = Date.now();
+    var totalSlides = 9;
+    var slideDuration = 6000; // ms per slide
+    function update(){
+      var elapsed = Date.now() - startTime;
+      var slide = (Math.floor(elapsed / slideDuration) % totalSlides) + 1;
+      document.getElementById('slide-badge').textContent = slide;
+    }
+    setInterval(update, 200);
+  })();
+</script>
 </body>
 </html>
