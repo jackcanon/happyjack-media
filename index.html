@@ -839,6 +839,132 @@
     .footer-logo { display: block; margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 1px solid rgba(31, 35, 40, 0.1); }
     .footer-logo img { height: 24px; width: auto; opacity: 0.5; }
 
+    /* ── CONTACT FORM ── */
+    .contact-form-section {
+      background: rgba(247, 244, 238, 0.03);
+      border-top: 1px solid rgba(247, 244, 238, 0.07);
+      border-bottom: 1px solid rgba(247, 244, 238, 0.07);
+    }
+    .contact-form-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 6rem 3rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: start;
+    }
+    .contact-form-text .cta-eyebrow {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      opacity: 0.8;
+      margin-bottom: 0.85rem;
+    }
+    .contact-form-text h2 {
+      font-family: 'Libre Baskerville', Georgia, serif;
+      font-size: clamp(2rem, 3vw, 3rem);
+      font-weight: 400;
+      line-height: 1.1;
+      color: var(--warm-white);
+      margin-bottom: 1.25rem;
+    }
+    .contact-form-text p {
+      font-size: 0.95rem;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 0.875rem 1rem;
+      background: rgba(247, 244, 238, 0.05);
+      border: 1px solid rgba(247, 244, 238, 0.15);
+      border-radius: 4px;
+      color: var(--warm-white);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.875rem;
+      outline: none;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .contact-form input::placeholder,
+    .contact-form textarea::placeholder {
+      color: rgba(247, 244, 238, 0.35);
+    }
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      border-color: var(--copper);
+      background: rgba(247, 244, 238, 0.08);
+    }
+    .contact-form textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+    .form-check {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      cursor: pointer;
+    }
+    .form-check input[type="checkbox"] {
+      width: auto;
+      margin-top: 2px;
+      flex-shrink: 0;
+      accent-color: var(--copper);
+    }
+    .form-check span {
+      font-size: 0.8rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+    .contact-form .btn-submit {
+      display: inline-block;
+      padding: 0.95rem 2rem;
+      background: var(--copper);
+      color: var(--warm-white);
+      border: none;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      border-radius: 100px;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+      align-self: flex-start;
+    }
+    .contact-form .btn-submit:hover {
+      background: #a05c34;
+      transform: translateY(-1px);
+    }
+    .form-success {
+      display: none;
+      padding: 1.25rem;
+      background: rgba(198, 161, 91, 0.1);
+      border: 1px solid rgba(198, 161, 91, 0.3);
+      border-radius: 4px;
+      color: var(--gold);
+      font-size: 0.875rem;
+      line-height: 1.6;
+    }
+    @media (max-width: 900px) {
+      .contact-form-inner { grid-template-columns: 1fr; gap: 3rem; padding: 4rem 1.5rem; }
+      .form-row { grid-template-columns: 1fr; }
+    }
+
     /* ── BACK TO TOP ── */
     .back-to-top {
       position: fixed;
@@ -961,7 +1087,7 @@
     <h1>Stories Worth<br>Remembering.</h1>
     <p>We make documentary films and produce live events for veterans, communities, universities, and organizations whose stories deserve to be told.</p>
     <div class="hero-ctas">
-      <a href="mailto:jack@happyjack.media" class="btn-copper">Work With Me</a>
+      <a href="/#contact" class="btn-copper">Work With Me</a>
       <a href="/#work" class="btn-ghost">View Our Work</a>
     </div>
   </div>
@@ -1196,16 +1322,26 @@
 
 <div class="section-divider"></div>
 
-<section class="contact-cta" id="contact">
-  <div class="contact-cta-inner">
-    <div class="contact-cta-text">
+<section class="contact-form-section" id="contact">
+  <div class="contact-form-inner">
+    <div class="contact-form-text">
       <p class="cta-eyebrow">Let&rsquo;s Tell a Story Together</p>
-      <h2>Ready to make something<br><em>worth remembering?</em></h2>
+      <h2>Work With<br>Happy Jack Media</h2>
+      <p>Available for documentary projects, live event coverage, aerial photography, and production coordination. Based in Phoenix, AZ &mdash; willing to travel.</p>
     </div>
-    <div class="contact-cta-action">
-      <a href="mailto:jack@happyjack.media" class="btn-copper">Get in Touch</a>
-      <a href="mailto:jack@happyjack.media" class="contact-note" style="color:inherit;text-decoration:underline;text-underline-offset:3px;">jack@happyjack.media</a>
-    </div>
+    <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+      <div class="form-row">
+        <input type="text" name="name" placeholder="Your Name" required />
+        <input type="email" name="email" placeholder="Your Email" required />
+      </div>
+      <textarea name="message" placeholder="Tell me about your project..." rows="5" required></textarea>
+      <label class="form-check">
+        <input type="checkbox" name="newsletter" value="yes" />
+        <span>Sign me up for occasional updates from Happy Jack Media</span>
+      </label>
+      <button type="submit" class="btn-submit">Send Message</button>
+      <div class="form-success" id="formSuccess">Thanks &mdash; message received. I&rsquo;ll be in touch soon.</div>
+    </form>
   </div>
 </section>
 
@@ -1248,6 +1384,29 @@
     <polyline points="18 15 12 9 6 15"/>
   </svg>
 </a>
+
+<script>
+  // Formspree AJAX submission
+  (function(){
+    var form = document.querySelector('.contact-form');
+    if (!form) return;
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      var data = new FormData(form);
+      fetch(form.action, {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      }).then(function(r){
+        if (r.ok) {
+          form.reset();
+          var msg = document.getElementById('formSuccess');
+          if (msg) { msg.style.display = 'block'; }
+        }
+      });
+    });
+  })();
+</script>
 
 <script>
   (function(){
