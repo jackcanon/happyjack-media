@@ -950,6 +950,21 @@
       background: #a05c34;
       transform: translateY(-1px);
     }
+    .form-field {
+      display: flex;
+      flex-direction: column;
+    }
+    .field-error {
+      font-size: 0.72rem;
+      color: #e07b5a;
+      margin-top: 0.3rem;
+      min-height: 1em;
+    }
+    .form-global-error {
+      font-size: 0.85rem;
+      color: #e07b5a;
+      margin-bottom: 0.5rem;
+    }
     .form-success {
       display: none;
       padding: 1.25rem;
@@ -1329,19 +1344,34 @@
       <h2>Work With<br>Happy Jack Media</h2>
       <p>Available for documentary projects, live event coverage, aerial photography, and production coordination. Based in Phoenix, AZ &mdash; willing to travel.</p>
     </div>
-    <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+    <div data-fs-success class="form-success">Thanks &mdash; message received. I&rsquo;ll be in touch soon.</div>
+    <div data-fs-error class="form-global-error"></div>
+    <form id="hjm-contact" class="contact-form">
       <div class="form-row">
-        <input type="text" name="name" placeholder="Your Name" required />
-        <input type="email" name="email" placeholder="Your Email" required />
+        <div class="form-field">
+          <input type="text" name="name" placeholder="Your Name" required data-fs-field />
+          <span data-fs-error="name" class="field-error"></span>
+        </div>
+        <div class="form-field">
+          <input type="email" name="email" placeholder="Your Email" required data-fs-field />
+          <span data-fs-error="email" class="field-error"></span>
+        </div>
       </div>
-      <textarea name="message" placeholder="Tell me about your project..." rows="5" required></textarea>
+      <div class="form-field">
+        <textarea name="message" placeholder="Tell me about your project..." rows="5" required data-fs-field></textarea>
+        <span data-fs-error="message" class="field-error"></span>
+      </div>
       <label class="form-check">
         <input type="checkbox" name="newsletter" value="yes" />
         <span>Sign me up for occasional updates from Happy Jack Media</span>
       </label>
-      <button type="submit" class="btn-submit">Send Message</button>
-      <div class="form-success" id="formSuccess">Thanks &mdash; message received. I&rsquo;ll be in touch soon.</div>
+      <button type="submit" class="btn-submit" data-fs-submit-btn>Send Message</button>
     </form>
+    <script>
+      window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
+      formspree('initForm', { formElement: '#hjm-contact', formId: 'xvzjjgaq' });
+    </script>
+    <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
   </div>
 </section>
 
@@ -1384,29 +1414,6 @@
     <polyline points="18 15 12 9 6 15"/>
   </svg>
 </a>
-
-<script>
-  // Formspree AJAX submission
-  (function(){
-    var form = document.querySelector('.contact-form');
-    if (!form) return;
-    form.addEventListener('submit', function(e){
-      e.preventDefault();
-      var data = new FormData(form);
-      fetch(form.action, {
-        method: 'POST',
-        body: data,
-        headers: { 'Accept': 'application/json' }
-      }).then(function(r){
-        if (r.ok) {
-          form.reset();
-          var msg = document.getElementById('formSuccess');
-          if (msg) { msg.style.display = 'block'; }
-        }
-      });
-    });
-  })();
-</script>
 
 <script>
   (function(){
