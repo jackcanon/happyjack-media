@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arizona Veterans Events – AZ Veterans Resource Center</title>
+  <meta name="description" content="Upcoming events for Arizona veterans — community gatherings, support groups, resources, and more, sourced from AZVeterans.com." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:       #0D2045;
+      --navy-mid:   #1B3566;
+      --navy-light: #243d73;
+      --amber:      #E8971A;
+      --amber-dark: #C47A0E;
+      --amber-pale: #FEF3DC;
+      --white:      #FFFFFF;
+      --gray-bg:    #F4F7FB;
+      --gray-mid:   #E2E8F0;
+      --text-dark:  #111827;
+      --text-mid:   #374151;
+      --text-muted: #6B7280;
+      --radius:     8px;
+      --radius-lg:  14px;
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', system-ui, sans-serif; color: var(--text-dark); background: var(--white); line-height: 1.6; }
+
+    /* ── NAV ── */
+    header { position: sticky; top: 0; z-index: 100; background: var(--navy); box-shadow: 0 2px 20px rgba(0,0,0,0.3); }
+    .nav { display: flex; align-items: center; justify-content: space-between; height: 70px; max-width: 1160px; margin: 0 auto; padding: 0 24px; }
+    .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+    .nav-logo img { height: 38px; width: auto; }
+    .nav-logo-text { display: flex; flex-direction: column; }
+    .nav-logo-name { font-size: 0.85rem; font-weight: 700; color: var(--white); line-height: 1.1; }
+    .nav-logo-tag { font-size: 0.68rem; color: rgba(255,255,255,0.55); letter-spacing: 0.06em; text-transform: uppercase; }
+    .nav-links { display: flex; align-items: center; gap: 4px; list-style: none; }
+    .nav-links a { color: rgba(255,255,255,0.78); text-decoration: none; font-size: 0.88rem; font-weight: 500; padding: 8px 14px; border-radius: var(--radius); transition: all 0.15s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--white); background: rgba(255,255,255,0.1); }
+    .nav-ctas { display: flex; align-items: center; gap: 10px; }
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 13px 28px; border-radius: var(--radius); font-size: 0.95rem; font-weight: 600; text-decoration: none; cursor: pointer; transition: all 0.18s ease; border: 2px solid transparent; white-space: nowrap; }
+    .btn-primary { background: var(--amber); color: var(--navy); border-color: var(--amber); }
+    .btn-primary:hover { background: var(--amber-dark); border-color: var(--amber-dark); }
+    .btn-outline-white { background: transparent; color: var(--white); border-color: rgba(255,255,255,0.7); }
+    .btn-outline-white:hover { background: rgba(255,255,255,0.12); border-color: var(--white); }
+    .nav-ctas .btn { padding: 9px 20px; font-size: 0.85rem; }
+    @media (max-width: 860px) { .nav-links, .nav-ctas { display: none; } }
+
+    /* ── PAGE HERO ── */
+    .page-hero {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+      padding: 56px 0 48px;
+      text-align: center;
+    }
+    .page-hero .eyebrow { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--amber); margin-bottom: 12px; }
+    .page-hero h1 { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(1.8rem, 3.5vw, 2.6rem); color: var(--white); margin-bottom: 14px; }
+    .page-hero p { color: rgba(255,255,255,0.72); max-width: 560px; margin: 0 auto; font-size: 1rem; }
+    .source-badge { display: inline-flex; align-items: center; gap: 6px; margin-top: 18px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); padding: 6px 14px; border-radius: 100px; font-size: 0.78rem; color: rgba(255,255,255,0.7); }
+    .source-badge a { color: var(--amber); text-decoration: none; font-weight: 600; }
+    .source-badge a:hover { text-decoration: underline; }
+
+    /* ── CONTROLS ── */
+    .controls { background: var(--white); border-bottom: 1px solid var(--gray-mid); padding: 16px 0; position: sticky; top: 70px; z-index: 90; }
+    .controls-inner { max-width: 1160px; margin: 0 auto; padding: 0 24px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+    .filter-label { font-size: 0.8rem; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em; flex-shrink: 0; }
+    .filter-pills { display: flex; gap: 8px; flex-wrap: wrap; }
+    .filter-pill { padding: 6px 14px; border-radius: 100px; font-size: 0.82rem; font-weight: 600; border: 1.5px solid var(--gray-mid); background: var(--white); color: var(--text-mid); cursor: pointer; transition: all 0.15s; }
+    .filter-pill:hover { border-color: var(--navy); color: var(--navy); }
+    .filter-pill.active { background: var(--navy); color: var(--white); border-color: var(--navy); }
+    .controls-right { margin-left: auto; display: flex; align-items: center; gap: 10px; }
+    #search-input { padding: 7px 14px; border-radius: var(--radius); border: 1.5px solid var(--gray-mid); font-size: 0.88rem; font-family: inherit; width: 220px; transition: border-color 0.15s; }
+    #search-input:focus { outline: none; border-color: var(--navy); }
+
+    /* ── MAIN LAYOUT ── */
+    .container { max-width: 1160px; margin: 0 auto; padding: 0 24px; }
+    .events-page { padding: 40px 0 80px; }
+
+    /* ── DATE GROUP ── */
+    .date-group { margin-bottom: 40px; }
+    .date-heading {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+    .date-heading-box {
+      background: var(--navy);
+      color: var(--white);
+      border-radius: var(--radius);
+      padding: 8px 16px;
+      text-align: center;
+      min-width: 64px;
+      flex-shrink: 0;
+    }
+    .date-heading-month { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--amber); }
+    .date-heading-day { font-size: 1.6rem; font-weight: 800; line-height: 1; }
+    .date-heading-weekday { font-size: 0.78rem; color: rgba(255,255,255,0.65); }
+    .date-heading-line { flex: 1; height: 1px; background: var(--gray-mid); }
+    .date-heading-count { font-size: 0.78rem; color: var(--text-muted); flex-shrink: 0; }
+
+    /* ── EVENT CARDS ── */
+    .events-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 16px; }
+
+    .event-card {
+      background: var(--white);
+      border: 1px solid var(--gray-mid);
+      border-radius: var(--radius-lg);
+      padding: 20px 22px;
+      transition: all 0.2s ease;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .event-card:hover { border-color: transparent; box-shadow: 0 8px 32px rgba(13,32,69,0.12); transform: translateY(-2px); }
+    .event-card-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
+    .event-time { font-size: 0.78rem; font-weight: 700; color: var(--amber-dark); background: var(--amber-pale); padding: 3px 8px; border-radius: 4px; white-space: nowrap; flex-shrink: 0; }
+    .event-free { font-size: 0.72rem; font-weight: 700; color: #166534; background: #dcfce7; padding: 3px 8px; border-radius: 4px; }
+    .event-cost { font-size: 0.72rem; font-weight: 700; color: #7c3aed; background: #ede9fe; padding: 3px 8px; border-radius: 4px; }
+    .event-virtual { font-size: 0.72rem; font-weight: 700; color: #0369a1; background: #e0f2fe; padding: 3px 8px; border-radius: 4px; }
+    .event-title { font-size: 1rem; font-weight: 700; color: var(--navy); line-height: 1.3; }
+    .event-organizer { font-size: 0.8rem; color: var(--text-muted); }
+    .event-venue { font-size: 0.83rem; color: var(--text-mid); display: flex; align-items: flex-start; gap: 6px; }
+    .event-venue svg { flex-shrink: 0; margin-top: 2px; }
+    .event-actions { display: flex; gap: 8px; margin-top: 4px; }
+    .event-link { font-size: 0.82rem; font-weight: 600; color: var(--navy); text-decoration: none; border: 1.5px solid var(--gray-mid); padding: 5px 12px; border-radius: var(--radius); transition: all 0.15s; }
+    .event-link:hover { background: var(--navy); color: var(--white); border-color: var(--navy); }
+    .event-link.primary { background: var(--amber); color: var(--navy); border-color: var(--amber); }
+    .event-link.primary:hover { background: var(--amber-dark); border-color: var(--amber-dark); }
+
+    /* ── STATES ── */
+    .loading-state { text-align: center; padding: 80px 0; color: var(--text-muted); }
+    .loading-spinner { width: 40px; height: 40px; border: 3px solid var(--gray-mid); border-top-color: var(--navy); border-radius: 50%; animation: spin 0.7s linear infinite; margin: 0 auto 16px; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .empty-state { text-align: center; padding: 80px 0; }
+    .empty-state h3 { color: var(--navy); margin-bottom: 8px; }
+    .empty-state p { color: var(--text-muted); font-size: 0.9rem; }
+    .error-state { background: #fef2f2; border: 1px solid #fecaca; border-radius: var(--radius-lg); padding: 24px; text-align: center; color: #991b1b; margin: 40px 0; }
+
+    /* ── LOAD MORE ── */
+    .load-more-wrap { text-align: center; margin-top: 48px; }
+    .load-more-wrap .meta { font-size: 0.82rem; color: var(--text-muted); margin-bottom: 14px; }
+    #load-more-btn { background: var(--navy); color: var(--white); border: none; padding: 14px 36px; border-radius: var(--radius); font-size: 0.95rem; font-weight: 600; cursor: pointer; font-family: inherit; transition: background 0.15s; }
+    #load-more-btn:hover { background: var(--navy-mid); }
+    #load-more-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+    /* ── FOOTER ── */
+    footer { background: #070F22; color: rgba(255,255,255,0.55); padding: 32px 0; text-align: center; font-size: 0.82rem; }
+    footer a { color: var(--amber); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+<!-- ── HEADER ── -->
+<header>
+  <nav class="nav">
+    <a href="/azvrc/" class="nav-logo">
+      <img src="https://azvrc.org/wp-content/uploads/2025/10/cropped-icon_wht-1.png" alt="AZVRC Logo" />
+      <div class="nav-logo-text">
+        <span class="nav-logo-name">AZ Veterans Resource Center</span>
+        <span class="nav-logo-tag">Reconnect · Rebuild · Rise</span>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="/azvrc/#about">About Us</a></li>
+      <li><a href="/azvrc/#programs">Programs</a></li>
+      <li><a href="/azvrc/events/" class="active">Events</a></li>
+      <li><a href="/azvrc/#partners">Partners</a></li>
+      <li><a href="/azvrc/#contact">Contact</a></li>
+    </ul>
+    <div class="nav-ctas">
+      <a href="https://azvrc.org/get-help/" class="btn btn-outline-white">Get Help</a>
+      <a href="https://givebutter.com/iRHiQV" class="btn btn-primary" target="_blank" rel="noopener">Donate</a>
+    </div>
+  </nav>
+</header>
+
+<!-- ── PAGE HERO ── -->
+<div class="page-hero">
+  <div class="container">
+    <p class="eyebrow">Arizona Veterans Community</p>
+    <h1>Upcoming Veterans Events</h1>
+    <p>Statewide events — support groups, community gatherings, resources, and more — updated automatically.</p>
+    <div class="source-badge">
+      Live data from <a href="https://azveterans.com/events/" target="_blank" rel="noopener">AZVeterans.com</a>
+      &nbsp;·&nbsp; <span id="event-count-badge">Loading…</span>
+    </div>
+  </div>
+</div>
+
+<!-- ── CONTROLS ── -->
+<div class="controls">
+  <div class="controls-inner">
+    <span class="filter-label">Filter:</span>
+    <div class="filter-pills">
+      <button class="filter-pill active" data-filter="all">All Events</button>
+      <button class="filter-pill" data-filter="virtual">Virtual</button>
+      <button class="filter-pill" data-filter="east-valley">East Valley</button>
+      <button class="filter-pill" data-filter="phoenix">Phoenix</button>
+      <button class="filter-pill" data-filter="free">Free</button>
+    </div>
+    <div class="controls-right">
+      <input type="search" id="search-input" placeholder="Search events…" aria-label="Search events" />
+    </div>
+  </div>
+</div>
+
+<!-- ── EVENTS LIST ── -->
+<main class="events-page">
+  <div class="container">
+    <div id="events-container">
+      <div class="loading-state">
+        <div class="loading-spinner"></div>
+        <p>Loading Arizona veterans events…</p>
+      </div>
+    </div>
+    <div class="load-more-wrap" id="load-more-wrap" style="display:none;">
+      <p class="meta" id="load-more-meta"></p>
+      <button id="load-more-btn">Load More Events</button>
+    </div>
+  </div>
+</main>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="container">
+    <p>Event data sourced from <a href="https://azveterans.com/events/" target="_blank" rel="noopener">AZVeterans.com</a> · Updated live on every page load</p>
+    <p style="margin-top:8px;">© 2026 AZ Veterans Resource Center · <a href="/azvrc/">Back to Home</a></p>
+  </div>
+</footer>
+
+<script>
+// ── CONFIG ──
+const API_BASE = '/api/az-events'; // Vercel proxy
+const FALLBACK = 'https://azveterans.com/wp-json/tribe/events/v1/events'; // direct (may work if CORS open)
+const PER_PAGE = 24;
+
+let currentPage = 1;
+let totalPages = 1;
+let totalEvents = 0;
+let allLoadedEvents = [];
+let activeFilter = 'all';
+let searchQuery = '';
+
+// ── FETCH ──
+async function fetchEvents(page) {
+  const today = new Date().toISOString().split('T')[0];
+  const params = new URLSearchParams({ per_page: PER_PAGE, page, start_date: today + ' 00:00:00' });
+
+  // Try proxy first, fall back to direct
+  for (const base of [API_BASE, FALLBACK]) {
+    try {
+      const r = await fetch(`${base}?${params}`);
+      if (!r.ok) continue;
+      return await r.json();
+    } catch (e) { /* try next */ }
+  }
+  throw new Error('Unable to reach events API');
+}
+
+// ── FORMAT HELPERS ──
+function formatTime(dateStr) {
+  if (!dateStr) return '';
+  const d = new Date(dateStr.replace(' ', 'T'));
+  return d.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true });
+}
+
+function formatDateKey(dateStr) {
+  return dateStr.split(' ')[0]; // "2026-07-07"
+}
+
+function formatDateHeading(dateStr) {
+  const d = new Date(dateStr.replace(' ', 'T') + '+07:00');
+  // Use UTC since AZ is MST (UTC-7)
+  const parts = dateStr.split(' ')[0].split('-');
+  const local = new Date(parseInt(parts[0]), parseInt(parts[1]) - 1, parseInt(parts[2]));
+  return {
+    month: local.toLocaleDateString('en-US', { month: 'short' }).toUpperCase(),
+    day: local.getDate(),
+    weekday: local.toLocaleDateString('en-US', { weekday: 'long' })
+  };
+}
+
+function getVenueText(event) {
+  const v = event.venue;
+  if (!v || !v.venue) {
+    return event.is_virtual ? 'Virtual Event' : '';
+  }
+  const parts = [v.venue];
+  if (v.city) parts.push(v.city);
+  return parts.join(' · ');
+}
+
+function isVirtual(event) {
+  const v = event.venue;
+  return event.is_virtual || (v && v.venue && v.venue.toLowerCase().includes('virtual'));
+}
+
+function matchesFilter(event) {
+  if (activeFilter === 'all') return true;
+  if (activeFilter === 'virtual') return isVirtual(event);
+  if (activeFilter === 'free') return !event.cost || event.cost === '';
+  const city = (event.venue && event.venue.city || '').toLowerCase();
+  if (activeFilter === 'east-valley') {
+    return ['mesa', 'gilbert', 'chandler', 'tempe', 'scottsdale', 'queen creek', 'ahwatukee'].some(c => city.includes(c));
+  }
+  if (activeFilter === 'phoenix') {
+    return city.includes('phoenix') || city.includes('glendale') || city.includes('peoria') || city.includes('avondale');
+  }
+  return true;
+}
+
+function matchesSearch(event) {
+  if (!searchQuery) return true;
+  const q = searchQuery.toLowerCase();
+  return (
+    (event.title || '').toLowerCase().includes(q) ||
+    (event.venue && event.venue.venue || '').toLowerCase().includes(q) ||
+    (event.venue && event.venue.city || '').toLowerCase().includes(q) ||
+    (event.organizer && event.organizer[0] && event.organizer[0].organizer || '').toLowerCase().includes(q)
+  );
+}
+
+// ── RENDER ──
+function renderEvents(events) {
+  const filtered = events.filter(e => matchesFilter(e) && matchesSearch(e));
+
+  if (filtered.length === 0) {
+    return `<div class="empty-state">
+      <h3>No events found</h3>
+      <p>Try changing the filter or search term, or <a href="https://azveterans.com/events/" target="_blank" rel="noopener">browse all events on AZVeterans.com</a>.</p>
+    </div>`;
+  }
+
+  // Group by date
+  const byDate = {};
+  for (const event of filtered) {
+    const key = formatDateKey(event.start_date);
+    if (!byDate[key]) byDate[key] = [];
+    byDate[key].push(event);
+  }
+
+  let html = '';
+  for (const [dateKey, dayEvents] of Object.entries(byDate)) {
+    const { month, day, weekday } = formatDateHeading(dateKey + ' 00:00:00');
+    html += `<div class="date-group">
+      <div class="date-heading">
+        <div class="date-heading-box">
+          <div class="date-heading-month">${month}</div>
+          <div class="date-heading-day">${day}</div>
+          <div class="date-heading-weekday">${weekday}</div>
+        </div>
+        <div class="date-heading-line"></div>
+        <span class="date-heading-count">${dayEvents.length} event${dayEvents.length !== 1 ? 's' : ''}</span>
+      </div>
+      <div class="events-grid">`;
+
+    for (const event of dayEvents) {
+      const startTime = formatTime(event.start_date);
+      const endTime = event.end_date ? formatTime(event.end_date) : '';
+      const timeStr = endTime ? `${startTime} – ${endTime}` : startTime;
+      const venue = getVenueText(event);
+      const virtual = isVirtual(event);
+      const free = !event.cost || event.cost === '';
+      const organizer = event.organizer && event.organizer[0] ? event.organizer[0].organizer : '';
+      const moreUrl = event.website || event.url;
+
+      const badge = virtual
+        ? `<span class="event-virtual">Virtual</span>`
+        : (free ? `<span class="event-free">Free</span>` : `<span class="event-cost">${event.cost}</span>`);
+
+      html += `<div class="event-card">
+        <div class="event-card-top">
+          <span class="event-time">${timeStr}</span>
+          ${badge}
+        </div>
+        <div class="event-title">${event.title}</div>
+        ${organizer ? `<div class="event-organizer">By ${organizer}</div>` : ''}
+        ${venue ? `<div class="event-venue">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          ${venue}
+        </div>` : ''}
+        <div class="event-actions">
+          ${moreUrl ? `<a href="${moreUrl}" class="event-link primary" target="_blank" rel="noopener">More Info →</a>` : ''}
+          <a href="${event.url}" class="event-link" target="_blank" rel="noopener">AZVeterans.com</a>
+        </div>
+      </div>`;
+    }
+
+    html += `</div></div>`;
+  }
+
+  return html;
+}
+
+function rerender() {
+  document.getElementById('events-container').innerHTML = renderEvents(allLoadedEvents);
+}
+
+// ── LOAD ──
+async function loadPage(page) {
+  const btn = document.getElementById('load-more-btn');
+  if (btn) btn.disabled = true;
+
+  try {
+    const data = await fetchEvents(page);
+    totalPages = data.total_pages || 1;
+    totalEvents = data.total || 0;
+
+    document.getElementById('event-count-badge').textContent =
+      `${totalEvents.toLocaleString()} upcoming events`;
+
+    allLoadedEvents = allLoadedEvents.concat(data.events || []);
+    document.getElementById('events-container').innerHTML = renderEvents(allLoadedEvents);
+
+    const loadMoreWrap = document.getElementById('load-more-wrap');
+    const loaded = allLoadedEvents.length;
+    if (page < totalPages) {
+      loadMoreWrap.style.display = 'block';
+      document.getElementById('load-more-meta').textContent =
+        `Showing ${loaded} of ${totalEvents.toLocaleString()} events`;
+    } else {
+      loadMoreWrap.style.display = 'none';
+    }
+
+    currentPage = page;
+  } catch (err) {
+    document.getElementById('events-container').innerHTML =
+      `<div class="error-state">
+        <strong>Couldn't load events.</strong> Please check back shortly or
+        <a href="https://azveterans.com/events/" target="_blank" rel="noopener">visit AZVeterans.com directly</a>.
+        <br><small style="opacity:0.7;margin-top:6px;display:block;">${err.message}</small>
+      </div>`;
+  } finally {
+    if (btn) btn.disabled = false;
+  }
+}
+
+// ── EVENTS ──
+document.getElementById('load-more-btn')?.addEventListener('click', () => {
+  loadPage(currentPage + 1);
+});
+
+document.querySelectorAll('.filter-pill').forEach(pill => {
+  pill.addEventListener('click', () => {
+    document.querySelectorAll('.filter-pill').forEach(p => p.classList.remove('active'));
+    pill.classList.add('active');
+    activeFilter = pill.dataset.filter;
+    document.getElementById('events-container').innerHTML = renderEvents(allLoadedEvents);
+  });
+});
+
+let searchTimeout;
+document.getElementById('search-input').addEventListener('input', e => {
+  clearTimeout(searchTimeout);
+  searchTimeout = setTimeout(() => {
+    searchQuery = e.target.value.trim();
+    rerender();
+  }, 250);
+});
+
+// ── INIT ──
+loadPage(1);
+</script>
+
+</body>
+</html>
