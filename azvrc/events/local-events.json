@@ -1,0 +1,18 @@
+[
+  {
+    "title": "AZ Veterans Resource Center Grand Reopening",
+    "start_date": "2026-12-01 10:00:00",
+    "end_date": "2026-12-01 14:00:00",
+    "cost": "",
+    "venue": {
+      "venue": "AZ Veterans Resource Center",
+      "city": "Mesa",
+      "address": "1833 W Main St, Suite 103",
+      "zip": "85201"
+    },
+    "url": "https://azvrc.org",
+    "website": "https://azvrc.org",
+    "organizer": [{ "organizer": "AZ Veterans Resource Center" }],
+    "description": "Join us for the grand reopening of the AZ Veterans Resource Center following construction. Details coming soon."
+  }
+]
