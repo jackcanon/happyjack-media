@@ -148,26 +148,51 @@
       display: block;
     }
 
-    /* 5-slide crossfade: 6s per slide = 30s total cycle */
+    /* 9-slide crossfade: 6s per slide = 54s total cycle */
     @keyframes hero-fade-first {
-      0%    { opacity: 1; }
-      16.7% { opacity: 1; }
-      20%   { opacity: 0; }
-      96.7% { opacity: 0; }
-      100%  { opacity: 1; }
+      0%     { opacity: 1; }
+      11.11% { opacity: 1; }
+      12.96% { opacity: 0; }
+      98.15% { opacity: 0; }
+      100%   { opacity: 1; }
     }
     @keyframes hero-fade {
-      0%    { opacity: 0; }
-      3.3%  { opacity: 1; }
-      16.7% { opacity: 1; }
-      20%   { opacity: 0; }
-      100%  { opacity: 0; }
+      0%     { opacity: 0; }
+      1.85%  { opacity: 1; }
+      11.11% { opacity: 1; }
+      12.96% { opacity: 0; }
+      100%   { opacity: 0; }
     }
-    .hero-slide:nth-child(1) { animation: hero-fade-first 30s infinite; }
-    .hero-slide:nth-child(2) { animation: hero-fade 30s 6s infinite; }
-    .hero-slide:nth-child(3) { animation: hero-fade 30s 12s infinite; }
-    .hero-slide:nth-child(4) { animation: hero-fade 30s 18s infinite; }
-    .hero-slide:nth-child(5) { animation: hero-fade 30s 24s infinite; }
+    .hero-slide:nth-child(1) { animation: hero-fade-first 54s infinite; }
+    .hero-slide:nth-child(2) { animation: hero-fade 54s 6s infinite; }
+    .hero-slide:nth-child(3) { animation: hero-fade 54s 12s infinite; }
+    .hero-slide:nth-child(4) { animation: hero-fade 54s 18s infinite; }
+    .hero-slide:nth-child(5) { animation: hero-fade 54s 24s infinite; }
+    .hero-slide:nth-child(6) { animation: hero-fade 54s 30s infinite; }
+    .hero-slide:nth-child(7) { animation: hero-fade 54s 36s infinite; }
+    .hero-slide:nth-child(8) { animation: hero-fade 54s 42s infinite; }
+    .hero-slide:nth-child(9) { animation: hero-fade 54s 48s infinite; }
+
+    /* Sandbox slide number badges */
+    .slide-num {
+      position: absolute;
+      top: 1.2rem;
+      right: 1.2rem;
+      z-index: 10;
+      background: rgba(0,0,0,0.65);
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      width: 2.4rem;
+      height: 2.4rem;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid rgba(255,255,255,0.4);
+      pointer-events: none;
+    }
 
     /* Gradient overlay: stays on top of all slides */
     .hero-bg::after {
@@ -600,11 +625,15 @@
 <!-- Hero -->
 <section class="hero">
   <div class="hero-bg">
-    <div class="hero-slide"><img src="/hero-bts7.jpg" alt="Jack Blair at camera on set" loading="eager"></div>
-    <div class="hero-slide"><img src="/hero-bts37.jpg" alt="Jack Blair operating cinema jib" loading="lazy"></div>
-    <div class="hero-slide"><img src="/hero-img4128.jpg" alt="Jack Blair filming at ASU stadium" loading="lazy"></div>
-    <div class="hero-slide"><img src="/hero-img3371.jpg" alt="Steadicam operator on location" loading="lazy"></div>
-    <div class="hero-slide"><img src="/hero-bts52.jpg" alt="Happy Jack Media crew filming" loading="lazy"></div>
+    <div class="hero-slide"><span class="slide-num">1</span><img src="/hero-bts7.jpg" alt="Jack Blair at camera on set" loading="eager"></div>
+    <div class="hero-slide"><span class="slide-num">2</span><img src="/hero-bts37.jpg" alt="Jack Blair operating cinema jib" loading="lazy"></div>
+    <div class="hero-slide"><span class="slide-num">3</span><img src="/hero-img4128.jpg" alt="Jack Blair filming at ASU stadium" loading="lazy"></div>
+    <div class="hero-slide"><span class="slide-num">4</span><img src="/hero-img3371.jpg" alt="Steadicam operator on location" loading="lazy"></div>
+    <div class="hero-slide"><span class="slide-num">5</span><img src="/hero-bts52.jpg" alt="Happy Jack Media crew filming" loading="lazy"></div>
+    <div class="hero-slide"><span class="slide-num">6</span><img src="/hero-papago.jpg" alt="Three-camera setup at Papago Park with red buttes" loading="lazy"></div>
+    <div class="hero-slide"><span class="slide-num">7</span><img src="/hero-stadium.jpg" alt="Camera crew on ASU stadium sideline" loading="lazy"></div>
+    <div class="hero-slide"><span class="slide-num">8</span><img src="/hero-flaginterview.jpg" alt="Silhouetted camera operator filming American flag interview" loading="lazy"></div>
+    <div class="hero-slide"><span class="slide-num">9</span><img src="/hero-pool.jpg" alt="Dual camera setup at desert pool location" loading="lazy"></div>
   </div>
   <div class="hero-content">
     <p class="hero-eyebrow">Happy Jack Media &mdash; Independent Documentary Studio</p>
