@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>HJM Is Following the 2026 World Cup — Here's How to Follow Along — Happy Jack Media</title>
-  <meta name="description" content="Live scores, match recaps, standings, and the stories happening off the pitch. Follow the 2026 World Cup with Happy Jack Media.">
+  <title>We Vibe-Coded a World Cup Tracker (And Then It Got Personal) — Happy Jack Media</title>
+  <meta name="description" content="How we used AI to build a real-time World Cup tracker, survived Scotland's group stage exit, watched the USA get humbled 4-1 by Belgium, and why we're riding with Mbappe and France all the way to the final.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -94,6 +94,10 @@
     .more-card-eye { font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 4px; opacity: 0.8; }
     .more-card-title { font-family: 'Libre Baskerville', Georgia, serif; font-size: 0.8rem; color: rgba(247,244,238,0.75); line-height: 1.4; }
 
+    .post-body figure { margin: 2.5rem 0 3rem; }
+    .post-body figure img { width: 100%; border-radius: 4px; display: block; }
+    .post-body figcaption { font-size: 0.75rem; color: rgba(247,244,238,0.38); margin-top: 0.65rem; font-style: italic; text-align: center; letter-spacing: 0.02em; line-height: 1.5; }
+
     @media (max-width: 900px) {
       .article-nav-strip { grid-template-columns: 1fr; }
       .article-nav-card.prev { border-right: none; border-bottom: 1px solid rgba(247,244,238,0.08); }
@@ -124,7 +128,7 @@
 </nav>
 
 <div class="post-hero">
-  <img src="/blog/images/world-cup-cheers.png" alt="World Cup 2026 coverage — Happy Jack Media" />
+  <img src="/blog/images/world-cup/golden-hour-soccer.jpg" alt="World Cup 2026 — Happy Jack Media" />
   <div class="post-hero-overlay"></div>
 </div>
 
@@ -134,30 +138,108 @@
     All Posts
   </a>
 
-  <div class="post-eyebrow">World Cup 2026</div>
-  <h1 class="post-title">HJM Is Following the 2026 World Cup — Here's How to Follow Along</h1>
-  <div class="post-meta">July 2026 &nbsp;·&nbsp; Happy Jack Media</div>
+  <div class="post-eyebrow">World Cup 2026 &nbsp;·&nbsp; Vibe-Coding</div>
+  <h1 class="post-title">We Vibe-Coded a World Cup Tracker (And Then It Got Personal)</h1>
+  <div class="post-meta">July 8, 2026 &nbsp;·&nbsp; Jack Blair &nbsp;·&nbsp; Happy Jack Media</div>
 
   <div class="post-body">
-    <p>The FIFA World Cup 2026 is here, and we're on the ground following every match, every storyline, and every moment worth remembering.</p>
+    <p>Let me be upfront about something: I am not a football journalist. I am not traveling to any of the 16 host cities. I am not on the ground in Dallas or New York or Los Angeles filing match reports. I'm a filmmaker sitting at my desk, increasingly obsessed with a tournament I've been watching from my couch — and at some point I decided the best way to channel that energy was to build something.</p>
 
-    <p>This is the first World Cup hosted across three countries — the United States, Canada, and Mexico — and it's shaping up to be one of the most expansive sporting events in history. With 48 teams competing across 16 host cities, the scale alone is unlike anything we've seen.</p>
+    <p>So I did. With a lot of help from AI.</p>
 
-    <h2>Follow Along in Real Time</h2>
+    <h2>The Tracker Was Born Out of Pure Excitement</h2>
 
-    <p>We built a dedicated hub at <a href="https://worldcup.happyjack.media" target="_blank" rel="noopener">worldcup.happyjack.media</a> where you can find live scores, match recaps, updated standings, and the off-pitch stories that tend to get buried in the highlights reel.</p>
+    <p>When the 2026 World Cup draw happened and Scotland's name came out — Scotland, who hadn't been to a World Cup since France '98 — something clicked. This tournament suddenly felt personal. The family was fired up. Group chats were buzzing. And I realized pretty quickly that half the people I was going to be watching with had no idea what a group stage was, what "goal difference" meant, or why a draw could sometimes feel like a win.</p>
 
-    <p>It's the stuff we find most interesting — what's happening in the stands, the fan culture colliding across languages and borders, and the human stories that only surface when you're paying close attention.</p>
+    <p>That's where the idea for the tracker came from. Not a tool for the diehards — they've got ESPN and BBC Sport. This was for the family members watching their first World Cup, the ones asking "wait, so why did they just celebrate a tie?" I wanted something simple, clean, and genuinely useful for people who were new to all of this.</p>
 
-    <h2>Why We're Covering This</h2>
+    <h2>What Vibe-Coding Actually Looks Like</h2>
 
-    <p>Documentary is our natural home, and the World Cup is one of the few events on earth that generates the kind of genuine, unscripted drama that makes for compelling storytelling. We're not a sports outlet — we're storytellers who happen to love football. That lens changes what we look at and what we think is worth sharing.</p>
+    <p>I've been using AI tools in my production work for a while now, but this project was the first time I leaned into what people are calling "vibe-coding" — basically describing what you want, iterating rapidly, and letting the AI handle the heavy lifting on the code while you focus on the design decisions and the user experience.</p>
 
-    <p>Head over to <a href="https://worldcup.happyjack.media" target="_blank" rel="noopener">worldcup.happyjack.media</a> and follow along. We'll be updating it throughout the tournament.</p>
+    <p>The process went something like this: I'd describe a feature — "I want a live scoreboard that updates automatically and shows which teams are advancing" — and Claude would generate the HTML, CSS, and JavaScript. I'd look at it in the browser, think about how my non-soccer-literate family would interpret it, and then describe the next iteration. "Can we make the advancement status more obvious? Can we add a little explainer tooltip on what 'GD' means?"</p>
+
+    <p>What I genuinely didn't expect was how quickly it moved. The first working prototype — a live scoreboard pulling real match data, formatted cleanly, readable on a phone — came together in an afternoon. That would have taken me weeks to build from scratch, if I even could have built it at all. The iteration cycle was fast enough that I could watch a match, notice something confusing about the display, and fix it before the next game kicked off.</p>
+
+    <blockquote>"The iteration cycle was fast enough that I could watch a match, notice something confusing about the display, and fix it before the next game kicked off."</blockquote>
+
+    <p>Over the course of the group stage, the tracker evolved from a basic scoreboard into something with live standings, match schedules, group advancement indicators, and contextual notes to help newcomers understand what they were looking at. It became its own little project — one I'm genuinely proud of, even if it started as a weekend experiment.</p>
+
+    <p>You can still check it out at <a href="https://worldcup.happyjack.media" target="_blank" rel="noopener">worldcup.happyjack.media</a>.</p>
+
+    <h2>Scotland. Oh, Scotland.</h2>
+
+    <p>I need to talk about this because it genuinely hurt.</p>
+
+    <p>Scotland qualifying for this World Cup was already a miracle worth celebrating — their first tournament since France 1998, twenty-eight years of hurt finally ending. The family was electric. There was real belief that this expanded 48-team format gave Scotland a genuine path through the group stage. All they had to do was avoid finishing bottom.</p>
+
+    <p>They did not avoid finishing bottom.</p>
+
+    <p>A 3-0 loss to Brazil in their final group match — Vinícius Jr. scoring twice, Matheus Cunha adding a third — was the kind of scoreline that doesn't tell the whole story, but also kind of does. Scotland fought. They competed. But Brazil were in a different league, and that was that. Even the expanded format's grace of qualifying eight third-place teams couldn't save them. Scotland were out, Steve Clarke resigned, and we were left refreshing the group table hoping the math would somehow change.</p>
+
+    <p>It did not change.</p>
+
+    <p>This is football. This is Scotland. And yet somehow it still stings every time.</p>
+
+    <h2>The USA: A Host Nation Moment That Wasn't</h2>
+
+    <p>Look — I wanted the US to do well. When you're hosting a World Cup for the first time in three decades, on home soil, with the whole country suddenly paying attention, you want the home side to deliver something to remember. A quarterfinal run. A giant-killing. Something to put on the poster.</p>
+
+    <p>Instead: Belgium 4, USA 1. In Seattle. In the Round of 16.</p>
+
+    <p>Malik Tillman equalized with a brilliant free kick and for about ten minutes it felt like maybe, maybe this was the moment. Then De Ketelaere scored. Then Vanaken. Then Lukaku in stoppage time, just to really drive the point home. The US were outclassed in a way that was difficult to watch, and all three host nations — the US, Canada, and Mexico — went home before the quarterfinals. The entire co-hosting experiment knocked out in the same round.</p>
+
+    <p>My son Cole and I watched that match in a pub in New York City. The atmosphere in the first half — when Malik Tillman's free kick went in and it felt like anything was possible — was genuinely electric. People were on their feet. The pub was loud. We looked at each other like, <em>okay, this might actually happen.</em> And then it didn't. Thoroughly didn't. We stayed until the final whistle, shook our heads, and went to find somewhere to eat and talk about what we'd just witnessed.</p>
+
+    <figure>
+      <img src="/blog/images/world-cup/pub-jack-cole.jpg" alt="Jack and Cole at a pub in New York City watching USA vs Belgium" loading="lazy" />
+      <figcaption>Cole and me at a pub in New York City, watching USA vs Belgium. The pints survived. Our hopes did not.</figcaption>
+    </figure>
+
+    <p>It's not a disaster for American soccer — the sport is genuinely growing here and the tournament itself has been a massive success. But as a fan sitting in that pub, watching that 4-1 scoreline finalize in real time, it was a deflating afternoon.</p>
+
+    <h2>But Then There's Mbappe</h2>
+
+    <p>And this is where the tournament has given us something to actually look forward to.</p>
+
+    <p>Kylian Mbappé has been extraordinary. Seven goals in the tournament. Tied at the top of the Golden Boot table. A penalty against Paraguay in the Round of 16 that sent France through, and now a quarterfinal date with Morocco — a rematch of the 2022 semifinal — at Foxborough on Thursday.</p>
+
+    <p>We are fully on the France train. There's something about watching Mbappe at a World Cup that makes even the most casual observer lean forward. He's chasing Messi's all-time scoring record with the kind of focus and inevitability that makes you feel like you're watching history happen in real time. Ousmane Dembele has been electric too — a hat-trick against Norway in the groups felt like a statement. France are dangerous in a way that's genuinely exciting to follow.</p>
+
+    <p>After Scotland's exit and the USA's early goodbye, this is where our hope lives. Allez les Bleus.</p>
+
+    <figure>
+      <img src="/blog/images/world-cup/mbappe-lego.jpg" alt="Kylian Mbappe LEGO set with Arc de Triomphe and minifig" loading="lazy" />
+      <figcaption>We built this before the tournament started. It's been watching over us from the shelf ever since.</figcaption>
+    </figure>
+
+    <h2>The Family Watching Experience</h2>
+
+    <p>Some World Cups you watch alone, on a laptop, in a quiet room. This one has been something else entirely.</p>
+
+    <p>We actually started getting ready before the first match kicked off. My son and I built the official Mbappe Lego set together — yes, there is a Lego Mbappe set, complete with the Arc de Triomphe, a tiny #10 minifig, and the Ballon d'Or trophy in miniature — and it's been sitting on the shelf in the living room ever since. Our little pre-tournament ritual. Our declaration of intent.</p>
+
+    <p>The tracker has genuinely become the center of the family group chat. I built it for exactly this reason — for the family members who show up excited but aren't totally sure what a group stage is, or why a 0-0 draw can sometimes be cause for relief rather than disappointment. Watching that actually work in real time has been more satisfying than I expected. People checking the standings on their phones and immediately understanding where their team is. Fewer "wait, so are they out?" messages. The tracker doing its job.</p>
+
+    <p>My daughter Avy has been all in from day one. She's been playing herself this spring — CR Sports, Spring 2026 — and there's something that clicks once you've actually been on a pitch. She's been asking tactical questions I'm not entirely qualified to answer, and I've been absolutely loving the attempt.</p>
+
+    <figure>
+      <img src="/blog/images/world-cup/avy-soccer-team.jpg" alt="Avy Pearson, CR Sports Spring 2026 soccer team photo" loading="lazy" />
+      <figcaption>Avy Pearson, CR Sports Spring 2026. Already asking about press systems and I couldn't be prouder.</figcaption>
+    </figure>
+
+    <p>For a lot of us in the family, this is the first World Cup we've really followed closely — not just caught a final by accident, but actually tracked, watched, argued about. That's the thing about a tournament this size. It creates a shared calendar. Everyone knows when the big matches are. The group chat is active in a way it usually isn't. And even when your team goes home early (Scotland, I'm looking at you), the tournament keeps going and there's always something new to discuss.</p>
+
+    <figure>
+      <img src="/blog/images/world-cup/pub-family-group.jpg" alt="Jack in FIFA World Cup jersey at pub with family" loading="lazy" />
+      <figcaption>I had the FIFA jersey on. We came dressed for the occasion.</figcaption>
+    </figure>
+
+    <p><em>[Jack is adding more here — there's a lot more to this story and he'll fill it in shortly.]</em></p>
 
     <div class="cta-box">
-      <p>Live scores, standings, and match recaps — all in one place.</p>
-      <a href="https://worldcup.happyjack.media" class="btn-copper" target="_blank" rel="noopener">Go to the World Cup Hub</a>
+      <p>The live tracker — built for football fans and football newcomers alike.</p>
+      <a href="https://worldcup.happyjack.media" class="btn-copper" target="_blank" rel="noopener">Open the World Cup Tracker</a>
     </div>
   </div>
 </div>
