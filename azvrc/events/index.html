@@ -205,6 +205,7 @@
       <button class="filter-pill" data-filter="east-valley">East Valley</button>
       <button class="filter-pill" data-filter="phoenix">Phoenix</button>
       <button class="filter-pill" data-filter="free">Free</button>
+      <button class="filter-pill" data-filter="azvrc">★ AZVRC</button>
     </div>
     <div class="controls-right">
       <input type="search" id="search-input" placeholder="Search events…" aria-label="Search events" />
@@ -307,6 +308,7 @@ function matchesFilter(event) {
   if (activeFilter === 'all') return true;
   if (activeFilter === 'virtual') return isVirtual(event);
   if (activeFilter === 'free') return !event.cost || event.cost === '';
+  if (activeFilter === 'azvrc') return event._local === true;
   const city = (event.venue && event.venue.city || '').toLowerCase();
   if (activeFilter === 'east-valley') {
     return ['mesa', 'gilbert', 'chandler', 'tempe', 'scottsdale', 'queen creek', 'ahwatukee'].some(c => city.includes(c));
