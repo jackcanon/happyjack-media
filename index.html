@@ -173,26 +173,36 @@
     .hero-slide:nth-child(8) { animation: hero-fade 54s 42s infinite; }
     .hero-slide:nth-child(9) { animation: hero-fade 54s 48s infinite; }
 
-    /* Sandbox slide number badges */
+    /* Sandbox slide number badges — direct children of .hero-bg, above overlay */
     .slide-num {
       position: absolute;
-      top: 1.2rem;
-      right: 1.2rem;
-      z-index: 10;
-      background: rgba(0,0,0,0.65);
+      top: 1.5rem;
+      right: 1.5rem;
+      z-index: 15;
+      opacity: 0;
+      background: rgba(0,0,0,0.72);
       color: #fff;
       font-family: 'Inter', sans-serif;
-      font-size: 1.1rem;
+      font-size: 1rem;
       font-weight: 700;
-      width: 2.4rem;
-      height: 2.4rem;
+      width: 2.2rem;
+      height: 2.2rem;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      border: 2px solid rgba(255,255,255,0.4);
+      border: 2px solid rgba(255,255,255,0.5);
       pointer-events: none;
     }
+    .sn-1 { animation: hero-fade-first 54s infinite; }
+    .sn-2 { animation: hero-fade 54s 6s infinite; }
+    .sn-3 { animation: hero-fade 54s 12s infinite; }
+    .sn-4 { animation: hero-fade 54s 18s infinite; }
+    .sn-5 { animation: hero-fade 54s 24s infinite; }
+    .sn-6 { animation: hero-fade 54s 30s infinite; }
+    .sn-7 { animation: hero-fade 54s 36s infinite; }
+    .sn-8 { animation: hero-fade 54s 42s infinite; }
+    .sn-9 { animation: hero-fade 54s 48s infinite; }
 
     /* Gradient overlay: stays on top of all slides */
     .hero-bg::after {
@@ -625,15 +635,24 @@
 <!-- Hero -->
 <section class="hero">
   <div class="hero-bg">
-    <div class="hero-slide"><span class="slide-num">1</span><img src="/hero-bts7.jpg" alt="Jack Blair at camera on set" loading="eager"></div>
-    <div class="hero-slide"><span class="slide-num">2</span><img src="/hero-bts37.jpg" alt="Jack Blair operating cinema jib" loading="lazy"></div>
-    <div class="hero-slide"><span class="slide-num">3</span><img src="/hero-img4128.jpg" alt="Jack Blair filming at ASU stadium" loading="lazy"></div>
-    <div class="hero-slide"><span class="slide-num">4</span><img src="/hero-img3371.jpg" alt="Steadicam operator on location" loading="lazy"></div>
-    <div class="hero-slide"><span class="slide-num">5</span><img src="/hero-bts52.jpg" alt="Happy Jack Media crew filming" loading="lazy"></div>
-    <div class="hero-slide"><span class="slide-num">6</span><img src="/hero-papago.jpg" alt="Three-camera setup at Papago Park with red buttes" loading="lazy"></div>
-    <div class="hero-slide"><span class="slide-num">7</span><img src="/hero-stadium.jpg" alt="Camera crew on ASU stadium sideline" loading="lazy"></div>
-    <div class="hero-slide"><span class="slide-num">8</span><img src="/hero-flaginterview.jpg" alt="Silhouetted camera operator filming American flag interview" loading="lazy"></div>
-    <div class="hero-slide"><span class="slide-num">9</span><img src="/hero-pool.jpg" alt="Dual camera setup at desert pool location" loading="lazy"></div>
+    <div class="hero-slide"><img src="/hero-bts7.jpg" alt="Jack Blair at camera on set" loading="eager"></div>
+    <div class="hero-slide"><img src="/hero-bts37.jpg" alt="Jack Blair operating cinema jib" loading="lazy"></div>
+    <div class="hero-slide"><img src="/hero-img4128.jpg" alt="Jack Blair filming at ASU stadium" loading="lazy"></div>
+    <div class="hero-slide"><img src="/hero-img3371.jpg" alt="Steadicam operator on location" loading="lazy"></div>
+    <div class="hero-slide"><img src="/hero-bts52.jpg" alt="Happy Jack Media crew filming" loading="lazy"></div>
+    <div class="hero-slide"><img src="/hero-papago.jpg" alt="Three-camera setup at Papago Park with red buttes" loading="lazy"></div>
+    <div class="hero-slide"><img src="/hero-stadium.jpg" alt="Camera crew on ASU stadium sideline" loading="lazy"></div>
+    <div class="hero-slide"><img src="/hero-flaginterview.jpg" alt="Silhouetted camera operator filming American flag interview" loading="lazy"></div>
+    <div class="hero-slide"><img src="/hero-pool.jpg" alt="Dual camera setup at desert pool location" loading="lazy"></div>
+    <span class="slide-num sn-1">1</span>
+    <span class="slide-num sn-2">2</span>
+    <span class="slide-num sn-3">3</span>
+    <span class="slide-num sn-4">4</span>
+    <span class="slide-num sn-5">5</span>
+    <span class="slide-num sn-6">6</span>
+    <span class="slide-num sn-7">7</span>
+    <span class="slide-num sn-8">8</span>
+    <span class="slide-num sn-9">9</span>
   </div>
   <div class="hero-content">
     <p class="hero-eyebrow">Happy Jack Media &mdash; Independent Documentary Studio</p>
