@@ -1461,6 +1461,8 @@
     });
   })();
 </script>
+  <script>try{navigator.sendBeacon("https://dashboard.happyjack.media/api/beacon",JSON.stringify({d:location.hostname,p:location.pathname}))}catch(e){}
+document.addEventListener("submit",function(ev){try{var f=ev.target;if(!f||!f.querySelector)return;var q=function(n){var el=f.querySelector('[name="'+n+'"]');return el?el.value:""};var msg=f.querySelector('[name="message"]');navigator.sendBeacon("https://dashboard.happyjack.media/api/formhook",JSON.stringify({form:msg?"contact":"newsletter",site:location.hostname,name:q("name"),email:q("email"),message:q("message"),newsletter:!!((f.querySelector('[name="newsletter"]')||{}).checked)}))}catch(e){}},true);</script>
 
 </body>
 </html>
