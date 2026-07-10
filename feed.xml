@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+  <title>Happy Jack Media Blog</title>
+  <link>https://happyjack.media/blog/</link>
+  <description>Stories, updates, and behind-the-scenes from Happy Jack Media, an independent documentary studio.</description>
+  <language>en-us</language>
+  <atom:link href="https://happyjack.media/feed.xml" rel="self" type="application/rss+xml"/>
+
+  <item>
+    <title>The Summer My Family Fell in Love with the World Cup</title>
+    <link>https://happyjack.media/blog/world-cup-coverage/</link>
+    <guid>https://happyjack.media/blog/world-cup-coverage/</guid>
+    <description>From a packed pub beneath the Empire State Building to camping in the mountains on the Fourth of July — how the 2026 World Cup became a family story.</description>
+    <pubDate>Fri, 10 Jul 2026 12:00:00 GMT</pubDate>
+  </item>
+
+  <item>
+    <title>Thanksgiving Update</title>
+    <link>https://happyjack.media/blog/thanksgiving-update/</link>
+    <guid>https://happyjack.media/blog/thanksgiving-update/</guid>
+    <description>Reflecting on a year of movement — filming across the country, refining the three-act structure, and celebrating selection for the Florence International Film Festival.</description>
+    <pubDate>Sun, 23 Nov 2025 12:00:00 GMT</pubDate>
+  </item>
+
+  <item>
+    <title>Story Circle, Documentary Updates and More!</title>
+    <link>https://happyjack.media/blog/story-circle-documentary-updates-and-more/</link>
+    <guid>https://happyjack.media/blog/story-circle-documentary-updates-and-more/</guid>
+    <description>How Dan Harmon's story circle is shaping This Is Not A Draft, plus how we're staying organized with Milanote — and a big thanks to the crew.</description>
+    <pubDate>Sat, 13 Jul 2024 12:00:00 GMT</pubDate>
+  </item>
+
+  <item>
+    <title>Coffee with the Canons</title>
+    <link>https://happyjack.media/blog/coffee-with-the-canons/</link>
+    <guid>https://happyjack.media/blog/coffee-with-the-canons/</guid>
+    <description>Jack and Jennie Canon launch a new vlog series covering two parallel projects: Jennie's first book and Jack's documentary about Post-9/11 veterans.</description>
+    <pubDate>Thu, 30 May 2024 12:00:00 GMT</pubDate>
+  </item>
+
+</channel>
+</rss>
