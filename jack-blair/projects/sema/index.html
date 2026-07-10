@@ -8,7 +8,14 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
-    :root { --charcoal: #1F2328; --warm-white: #F7F4EE; --copper: #B86A3D; --gold: #C6A15B; --muted: rgba(247,244,238,0.55); --subtle: rgba(247,244,238,0.08); }
+    :root {
+      --charcoal: #1F2328;
+      --warm-white: #F7F4EE;
+      --copper: #B86A3D;
+      --gold: #C6A15B;
+      --muted: rgba(247,244,238,0.55);
+      --subtle: rgba(247,244,238,0.08);
+    }
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body { font-family: 'Inter', sans-serif; background: var(--charcoal); color: var(--warm-white); -webkit-font-smoothing: antialiased; }
@@ -117,8 +124,10 @@
       .carousel-slide img { height: 220px; }
     }
   </style>
+<script>function loadScript(a){var b=document.getElementsByTagName("head")[0],c=document.createElement("script");c.type="text/javascript",c.src="https://tracker.metricool.com/resources/be.js",c.onreadystatechange=a,c.onload=a,b.appendChild(c)}loadScript(function(){beTracker.t({hash:"2435b7671d87ab031e9be06f41d3ab17"})});</script>
 </head>
 <body>
+
 <nav>
   <a href="/" class="nav-logo">Happy Jack Media</a>
   <ul class="nav-links">
@@ -138,7 +147,12 @@
     </a>
   </div>
 </nav>
+
 <div class="project-hero no-image">
+  <!-- To add a hero image, remove class "no-image" and uncomment:
+  <img class="project-hero-img" src="YOUR_HERO_IMAGE_URL" alt="...">
+  <div class="project-hero-overlay"></div>
+  -->
   <div class="project-hero-content">
     <a href="/jack-blair" class="breadcrumb">Jack Blair</a>
     <div class="project-eyebrow">Trade Show Coverage &nbsp;·&nbsp; 2022</div>
@@ -146,29 +160,72 @@
     <p class="project-subtitle">Media coverage of the Specialty Equipment Market Association trade show in Las Vegas — vendor interviews, product reveals, and the pulse of the automotive aftermarket.</p>
   </div>
 </div>
+
 <div class="project-meta">
   <div class="project-meta-inner">
-    <div class="meta-item"><div class="meta-label">Category</div><div class="meta-value">Trade Show Coverage</div></div>
-    <div class="meta-item"><div class="meta-label">Year</div><div class="meta-value">2022</div></div>
-    <div class="meta-item"><div class="meta-label">Role</div><div class="meta-value">Videographer &amp; Writer</div></div>
-    <div class="meta-item"><div class="meta-label">Status</div><div class="meta-value">Completed</div></div>
+    <div class="meta-item">
+      <div class="meta-label">Category</div>
+      <div class="meta-value">Trade Show Coverage</div>
+    </div>
+    <div class="meta-item">
+      <div class="meta-label">Year</div>
+      <div class="meta-value">2022</div>
+    </div>
+    <div class="meta-item">
+      <div class="meta-label">Role</div>
+      <div class="meta-value">Videographer &amp; Writer</div>
+    </div>
+    <div class="meta-item">
+      <div class="meta-label">Status</div>
+      <div class="meta-value">Completed</div>
+    </div>
   </div>
 </div>
+
 <div class="article-wrap">
+
   <div class="prose lead">
-    <p><!-- LEAD PARAGRAPH: SEMA is one of the biggest trade shows in the world — set the scene. --></p>
-    <p><!-- BODY: Your role at SEMA, which brands/booths you visited, the type of content you created. --></p>
+    <p><!-- LEAD PARAGRAPH: SEMA is one of the biggest trade shows in the world — set the scene. What was it like arriving at the Las Vegas Convention Center? --></p>
+    <p><!-- BODY: Your role at SEMA — what you were covering, which brands/booths you visited, the type of content you created. --></p>
     <p><!-- BODY: A specific interview, product, or moment from the show that stood out. --></p>
   </div>
+
   <hr class="article-divider">
+
   <div class="carousel-section">
     <div class="section-label">Photos</div>
     <div class="carousel-placeholder">
       <div class="carousel-placeholder-icon">📷</div>
       <div class="carousel-placeholder-text">Photos coming soon</div>
     </div>
+    <!-- Uncomment and populate when photos are ready:
+    <div class="carousel-container" data-carousel>
+      <div class="carousel-track">
+        <figure class="carousel-slide">
+          <img src="PHOTO_URL_1" alt="Caption 1" loading="lazy">
+          <figcaption>Caption for photo 1</figcaption>
+        </figure>
+        <figure class="carousel-slide">
+          <img src="PHOTO_URL_2" alt="Caption 2" loading="lazy">
+          <figcaption>Caption for photo 2</figcaption>
+        </figure>
+      </div>
+      <div class="carousel-nav">
+        <div class="carousel-dots"></div>
+        <div style="display:flex;align-items:center;gap:1rem;">
+          <span class="carousel-count"></span>
+          <div class="carousel-arrows">
+            <button class="carousel-btn" data-prev aria-label="Previous">&#8249;</button>
+            <button class="carousel-btn" data-next aria-label="Next">&#8250;</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    -->
   </div>
+
   <hr class="article-divider">
+
   <div class="video-section">
     <div class="section-label">Watch</div>
     <div class="video-placeholder">
@@ -177,20 +234,36 @@
         <div class="video-placeholder-text">Video coming soon</div>
       </div>
     </div>
+    <!-- Uncomment and replace VIDEO_ID when ready:
+    <div class="video-wrap" data-video>
+      <iframe
+        src="https://www.youtube.com/embed/VIDEO_ID?autoplay=1&mute=1&loop=1&playlist=VIDEO_ID&rel=0&modestbranding=1&enablejsapi=1"
+        allow="autoplay; encrypted-media; picture-in-picture"
+        allowfullscreen
+        title="SEMA 2022 — Show Floor Coverage"
+      ></iframe>
+    </div>
+    <p class="video-caption">Caption for video</p>
+    -->
   </div>
+
   <hr class="article-divider">
+
   <div class="prose">
-    <h3><!-- SECTION HEADING --></h3>
-    <p><!-- More body copy. --></p>
-    <p><!-- Additional body copy. --></p>
+    <h3><!-- SECTION HEADING — e.g. 'Standout Builds' or 'The Show Floor' --></h3>
+    <p><!-- More body copy — reflections on the automotive industry, the overlap between off-roading/overlanding and SEMA, what you took away. --></p>
+    <p><!-- Additional body copy --></p>
   </div>
+
   <div class="pull-quote">
     <blockquote>
-      <p><!-- Pull quote. --></p>
-      <cite><!-- Attribution --></cite>
+      <p><!-- "A memorable quote from the project or experience." --></p>
+      <cite><!-- — Attribution --></cite>
     </blockquote>
   </div>
+
 </div>
+
 <div class="project-nav">
   <div class="project-nav-inner">
     <div class="project-nav-item prev">
@@ -203,6 +276,7 @@
     </div>
   </div>
 </div>
+
 <footer>
   <div class="footer-inner">
     <div>
@@ -224,10 +298,13 @@
     </div>
     <div>
       <h3>Contact</h3>
-      <ul><li><a href="mailto:jack@happyjack.media">jack@happyjack.media</a></li></ul>
+      <ul>
+        <li><a href="mailto:jack@happyjack.media">jack@happyjack.media</a></li>
+      </ul>
     </div>
   </div>
 </footer>
+
 <script>
   document.querySelectorAll('[data-carousel]').forEach(container => {
     const track = container.querySelector('.carousel-track');
@@ -269,5 +346,6 @@
     observer.observe(iframe);
   });
 </script>
+
 </body>
 </html>

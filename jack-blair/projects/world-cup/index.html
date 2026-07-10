@@ -156,6 +156,7 @@
       .carousel-slide img { height: 220px; }
     }
   </style>
+<script>function loadScript(a){var b=document.getElementsByTagName("head")[0],c=document.createElement("script");c.type="text/javascript",c.src="https://tracker.metricool.com/resources/be.js",c.onreadystatechange=a,c.onload=a,b.appendChild(c)}loadScript(function(){beTracker.t({hash:"2435b7671d87ab031e9be06f41d3ab17"})});</script>
 </head>
 <body>
 
@@ -306,6 +307,31 @@
     </blockquote>
   </div>
 
+  <!-- PHOTO CAROUSEL 2 (optional — remove if only one set of photos) -->
+  <!--
+  <div class="carousel-section">
+    <div class="section-label">Behind the Scenes</div>
+    <div class="carousel-container" data-carousel>
+      <div class="carousel-track">
+        <figure class="carousel-slide">
+          <img src="BTS_PHOTO_1" alt="..." loading="lazy">
+          <figcaption>...</figcaption>
+        </figure>
+      </div>
+      <div class="carousel-nav">
+        <div class="carousel-dots"></div>
+        <div style="display:flex;align-items:center;gap:1rem;">
+          <span class="carousel-count"></span>
+          <div class="carousel-arrows">
+            <button class="carousel-btn" data-prev>‹</button>
+            <button class="carousel-btn" data-next>›</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  -->
+
 </div><!-- /article-wrap -->
 
 <!-- PROJECT NAV -->
@@ -400,9 +426,11 @@
   });
 
   // ── VIDEO AUTOPLAY ON SCROLL ──
+  // Videos use autoplay=1&mute=1 in src — IntersectionObserver pauses/resumes via postMessage
   document.querySelectorAll('[data-video] iframe').forEach(iframe => {
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
+        // YouTube player API play/pause via postMessage
         const cmd = entry.isIntersecting ? '{"event":"command","func":"playVideo","args":""}' : '{"event":"command","func":"pauseVideo","args":""}';
         try { iframe.contentWindow.postMessage(cmd, '*'); } catch(e) {}
       });
