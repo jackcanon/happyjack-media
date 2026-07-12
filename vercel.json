@@ -24,5 +24,15 @@
       "destination": "https://happyjack.media/jack-blair/$1",
       "permanent": true
     }
+  ],
+  "rewrites": [
+    {
+      "source": "/bow",
+      "destination": "https://beards-of-war-bow.vercel.app/bow"
+    },
+    {
+      "source": "/bow/:path*",
+      "destination": "https://beards-of-war-bow.vercel.app/bow/:path*"
+    }
   ]
 }
