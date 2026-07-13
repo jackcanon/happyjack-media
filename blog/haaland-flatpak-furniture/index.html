@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Haaland v England, Dad v Flat-Pack Furniture — Happy Jack Media</title>
+  <meta name="description" content="A new puppy, an unfinished duplex kennel, missed lunch, and Norway's first World Cup quarterfinal in 28 years — all in one Saturday afternoon.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root { --charcoal: #1F2328; --warm-white: #F7F4EE; --copper: #B86A3D; --gold: #C6A15B; }
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background-color: var(--charcoal); color: var(--warm-white); -webkit-font-smoothing: antialiased; }
+    .post-hero { padding-top: 56px; max-height: 520px; overflow: hidden; position: relative; }
+    .post-hero img { width: 100%; height: 520px; object-fit: cover; object-position: center 40%; display: block; }
+    .post-hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(31,35,40,0) 30%, rgba(31,35,40,0.7)); }
+
+    .post-container { max-width: 760px; margin: 0 auto; padding: 3rem 2rem 5rem; }
+
+    .back-link { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--gold); text-decoration: none; font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 2.5rem; opacity: 0.8; transition: opacity 0.2s; }
+    .back-link:hover { opacity: 1; }
+    .back-link svg { width: 14px; height: 14px; }
+
+    .post-eyebrow { font-size: 0.65rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; }
+    .post-title { font-family: 'Libre Baskerville', Georgia, serif; font-size: clamp(1.9rem, 3.5vw, 2.75rem); font-weight: 400; line-height: 1.2; color: var(--warm-white); margin-bottom: 1.25rem; }
+    .post-meta { font-size: 0.75rem; color: rgba(247,244,238,0.45); letter-spacing: 0.06em; margin-bottom: 3rem; padding-bottom: 2rem; border-bottom: 1px solid rgba(247,244,238,0.1); }
+
+    .post-body { font-size: 1.05rem; line-height: 1.85; color: rgba(247,244,238,0.85); }
+    .post-body p { margin-bottom: 1.5rem; }
+    .post-body h2 { font-family: 'Libre Baskerville', Georgia, serif; font-size: 1.5rem; font-weight: 400; color: var(--warm-white); margin: 2.5rem 0 1rem; }
+    .post-body h3 { font-family: 'Libre Baskerville', Georgia, serif; font-size: 1.2rem; font-weight: 400; color: var(--warm-white); margin: 2rem 0 0.75rem; }
+    .post-body a { color: var(--gold); text-decoration: underline; text-underline-offset: 3px; }
+    .post-body a:hover { color: var(--warm-white); }
+    .post-body blockquote { border-left: 3px solid var(--copper); padding-left: 1.5rem; margin: 2rem 0; font-style: italic; font-family: 'Libre Baskerville', Georgia, serif; color: rgba(247,244,238,0.7); font-size: 1.1rem; line-height: 1.7; }
+    .post-body ul, .post-body ol { padding-left: 1.5rem; margin-bottom: 1.5rem; }
+    .post-body li { margin-bottom: 0.5rem; }
+
+    .cta-box { background: rgba(247,244,238,0.05); border: 1px solid rgba(247,244,238,0.1); border-radius: 6px; padding: 2rem; margin: 3rem 0; text-align: center; }
+    .cta-box p { margin-bottom: 1rem; color: rgba(247,244,238,0.7); }
+    .btn-copper { display: inline-block; padding: 0.875rem 2rem; background: var(--copper); color: #fff; text-decoration: none; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; border-radius: 100px; transition: background 0.2s, transform 0.15s; }
+    .btn-copper:hover { background: #a05c34; transform: translateY(-1px); text-decoration: none; color: var(--warm-white); }
+
+    footer { background: var(--warm-white); color: var(--charcoal); padding: 4rem 3rem; }
+    .footer-inner { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 4rem; }
+    footer h3 { font-family: 'Inter', sans-serif; font-size: 0.65rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.4; margin-bottom: 1.25rem; }
+    footer ul { list-style: none; }
+    footer ul li { margin-bottom: 0.6rem; }
+    footer a { color: var(--charcoal); text-decoration: none; font-size: 0.875rem; opacity: 0.7; transition: opacity 0.2s; }
+    footer a:hover { opacity: 1; }
+    .footer-logo { display: block; margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 1px solid rgba(31,35,40,0.1); }
+    .footer-logo img { height: 24px; width: auto; opacity: 0.5; }
+
+    @media (max-width: 900px) {
+      nav { padding: 0 1.25rem; }
+      .post-container { padding: 2rem 1.25rem 4rem; }
+      .footer-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      footer { padding: 2.5rem 1.5rem; }
+    }
+
+    /* ── Unified nav ── */
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 2rem; height: 56px; background: rgba(31,35,40,0.96); backdrop-filter: blur(12px); gap: 1rem; }
+    .nav-logo { color: var(--warm-white); text-decoration: none; font-family: 'Libre Baskerville', Georgia, serif; font-size: 13px; letter-spacing: 0.04em; opacity: 0.95; white-space: nowrap; }
+    .nav-links { display: flex; gap: 0; list-style: none; flex: 1; justify-content: center; }
+    .nav-links a { color: rgba(247,244,238,0.45); text-decoration: none; font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 0 1.1rem; height: 56px; display: flex; align-items: center; border-bottom: 2px solid transparent; transition: color 0.2s; white-space: nowrap; }
+    .nav-links a:hover { color: rgba(247,244,238,0.85); }
+    .nav-links a.active { color: var(--gold); border-bottom-color: var(--gold); }
+    .nav-right { display: flex; align-items: center; gap: 1rem; flex-shrink: 0; }
+    .nav-social-link { color: var(--warm-white); opacity: 0.5; transition: opacity 0.2s; display: flex; }
+    .nav-social-link:hover { opacity: 1; }
+    .wc-pill { display: flex; align-items: center; gap: 6px; background: var(--copper); color: var(--warm-white); font-size: 0.6rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; padding: 5px 12px; border-radius: 100px; text-decoration: none; white-space: nowrap; transition: background 0.2s; }
+    .wc-pill:hover { background: #a05c34; color: var(--warm-white); text-decoration: none; }
+    .live-dot { width: 5px; height: 5px; border-radius: 50%; background: rgba(247,244,238,0.9); flex-shrink: 0; }
+    /* ── Article nav ── */
+    .article-nav { border-top: 1px solid rgba(247,244,238,0.1); }
+    .article-nav-strip { display: grid; grid-template-columns: 1fr 1fr; }
+    .article-nav-solo { grid-template-columns: 1fr; }
+    .article-nav-card { padding: 1.5rem 2rem; text-decoration: none; display: block; transition: background 0.15s; }
+    .article-nav-card:hover { background: rgba(247,244,238,0.04); }
+    .article-nav-card.prev { border-right: 1px solid rgba(247,244,238,0.08); }
+    .article-nav-label { font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(247,244,238,0.3); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 6px; }
+    .article-nav-card.next .article-nav-label { justify-content: flex-end; }
+    .article-nav-title { font-family: 'Libre Baskerville', Georgia, serif; font-size: 0.9rem; font-weight: 400; color: rgba(247,244,238,0.8); line-height: 1.35; }
+    .article-nav-card.next .article-nav-title { text-align: right; }
+    .article-nav-meta { font-size: 0.7rem; color: var(--gold); margin-top: 4px; opacity: 0.7; }
+    .article-nav-card.next .article-nav-meta { text-align: right; }
+    .more-articles { border-top: 1px solid rgba(247,244,238,0.1); padding: 2rem; }
+    .more-label { font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(247,244,238,0.3); margin-bottom: 1.25rem; }
+    .more-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .more-card { padding: 1rem; border: 1px solid rgba(247,244,238,0.08); border-radius: 6px; text-decoration: none; display: block; transition: border-color 0.15s, background 0.15s; }
+    .more-card:hover { border-color: rgba(247,244,238,0.18); background: rgba(247,244,238,0.03); }
+    .more-card-eye { font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 4px; opacity: 0.8; }
+    .more-card-title { font-family: 'Libre Baskerville', Georgia, serif; font-size: 0.8rem; color: rgba(247,244,238,0.75); line-height: 1.4; }
+
+    .post-body figure { margin: 2.5rem 0 3rem; }
+    .post-body figure img { width: 100%; border-radius: 4px; display: block; }
+    .post-body figcaption { font-size: 0.75rem; color: rgba(247,244,238,0.38); margin-top: 0.65rem; font-style: italic; text-align: center; letter-spacing: 0.02em; line-height: 1.5; }
+
+    .getty-embed-wrap { margin: 2.5rem auto 3rem; text-align: center; }
+    .getty-embed-wrap .gie-single { display: block; margin-top: 0.5rem; }
+
+    @media (max-width: 900px) {
+      .article-nav-strip { grid-template-columns: 1fr; }
+      .article-nav-card.prev { border-right: none; border-bottom: 1px solid rgba(247,244,238,0.08); }
+      .more-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+<script>function loadScript(a){var b=document.getElementsByTagName("head")[0],c=document.createElement("script");c.type="text/javascript",c.src="https://tracker.metricool.com/resources/be.js",c.onreadystatechange=a,c.onload=a,b.appendChild(c)}loadScript(function(){beTracker.t({hash:"2435b7671d87ab031e9be06f41d3ab17"})});</script>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">Happy Jack Media</a>
+  <ul class="nav-links">
+    <li><a href="/" class="active">HJM</a></li>
+    <li><a href="/tinad" target="_blank" rel="noopener">This Is Not A Draft</a></li>
+    <li><a href="https://www.jackblair.net" target="_blank" rel="noopener">Jack Blair</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="https://worldcup.happyjack.media" target="_blank" rel="noopener" class="wc-pill">
+      <span class="live-dot"></span>
+      World Cup 2026
+    </a>
+    <a href="https://www.instagram.com/happyjackmedia" target="_blank" rel="noopener" aria-label="Instagram" class="nav-social-link">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/>
+      </svg>
+    </a>
+  </div>
+</nav>
+
+<div class="post-hero">
+  <img src="/blog/images/haaland-flatpak/kennel-build-hero.jpg" alt="Cole and Jack building a duplex dog kennel ahead of the Norway v England World Cup match" />
+  <div class="post-hero-overlay"></div>
+</div>
+
+<div class="post-container">
+  <a href="/blog" class="back-link">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+    All Posts
+  </a>
+
+  <div class="post-eyebrow">World Cup 2026</div>
+  <h1 class="post-title">Haaland v England, Dad v Flat-Pack Furniture</h1>
+  <div class="post-meta">July 13, 2026 &nbsp;·&nbsp; Jack Blair &nbsp;·&nbsp; Happy Jack Media</div>
+
+  <div class="post-body">
+    <p>It was the weekend, and those big boxes weren't going to put themselves together.</p>
+
+    <p>We recently adopted a new pup. Her name is Belle, or Bellatrix depending on how she's behaving that day. That's a nod to Helena Bonham Carter, whose portrayal of Bellatrix was awesome acting and also, apparently, good inspiration for naming a dog.</p>
+
+    <figure>
+      <img src="/blog/images/haaland-flatpak/belle-daisy-couch.jpg" alt="Belle the black Lab puppy and Daisy together with a football-shaped toy" loading="lazy" />
+      <figcaption>Belle (right) and Daisy, mid-tournament, unbothered by the deadline ticking down in the garage.</figcaption>
+    </figure>
+
+    <p>Cole and I were frantically trying to build the new duplex kennel we'd gotten for Daisy and Belle to sleep in. We had a deadline. The Norway&ndash;England match started at 2 p.m., and we wanted to watch from our local pub so we could cheer on Haaland and the rest of the Norwegian team.</p>
+
+    <p>Flat-pack furniture is the bane of every suburban dad's existence. I hate it so much I've been known to build bed frames and desks myself just to avoid it. But sometimes designing and building the thing from scratch takes even longer, and I submit to the particular hell of trying to read LEGO instructions for modern furniture.</p>
+
+    <figure>
+      <img src="/blog/images/haaland-flatpak/kennel-build-detail.jpg" alt="The finished barn-door style duplex kennel with both dogs inside" loading="lazy" />
+      <figcaption>The duplex kennel, eventually finished &mdash; barn doors and all.</figcaption>
+    </figure>
+
+    <p>At 1:45, Jennie was ready to go. I could not find the metal bar that made up the barn doors for the new dog bed.</p>
+
+    <p>We had skipped lunch. We were hungry, hot and working against a clock that did not care about us. After a summer of travel, work and lots of parenting, I was running on empty. I couldn't finish the build. The pub was no longer happening.</p>
+
+    <p>So we descended dejectedly to watch from home. The kennel was unfinished, nobody had eaten and we had missed the national anthems, the kids walking out with the players and, most importantly to Jennie, the Viking Row.</p>
+
+    <p>But we still had hope in our hearts.</p>
+
+    <p>Erling Haaland had become a source of inspiration for our family during this World Cup. Jennie calls him a Green Flag Guy. You know the type: talented without needing to remind everyone, kind without making a performance of it, and comfortable being a little goofy. Keanu Reeves. Henry Cavill. Now Erling Haaland.</p>
+
+    <p>Green Flag Guys have felt in short supply lately. For a week, Haaland had filled our feeds with smiles, kindness and the kind of uncomplicated positivity we were badly in need of. Norway had waited 28 years to return to the World Cup, then beat Brazil to reach its first quarterfinal. We were ready to believe the run had one more chapter in it.</p>
+
+    <div class="getty-embed-wrap">
+      <a id='FQCgFoOoRxxJ-ahY9_Pm0A' class='gie-single' href='https://www.gettyimages.com/detail/2269564905' target='_blank' style='color:#a7a7a7;text-decoration:none;font-weight:normal !important;border:none;display:inline-block;'>Embed from Getty Images</a><script>window.gie=window.gie||function(c){(gie.q=gie.q||[]).push(c)};gie(function(){gie.widgets.load({id:'FQCgFoOoRxxJ-ahY9_Pm0A',sig:'TTv98gGRnRpTl-uFQdFjhoxfE-3SXLRVgQ25MAyUVwI=',w:'594px',h:'420px',items:'2269564905',caption: true ,tld:'com',is360: false })});</script><script src='//embed-cdn.gettyimages.com/widgets.js' charset='utf-8' async></script>
+    </div>
+
+    <p>For the first half hour, the match gave us just enough reason.</p>
+
+    <p>In the 33rd minute, John Stones made a mistake at the back and suddenly Haaland was close to being through. England survived. Three minutes later, Andreas Schjelderup sent what looked like a cross sailing toward the far post. Jordan Pickford watched it too long. The ball clipped the post and went in.</p>
+
+    <p>Norway were ahead.</p>
+
+    <p>The kennel was still unfinished. Lunch still had not happened. None of that mattered anymore.</p>
+
+    <p>Just before halftime, Norway had the chance that will probably haunt them for a while. Alexander S&oslash;rloth broke through with Haaland running beside him. It was two Norwegian attackers against one English defender. Make the pass and Haaland might make it 2&ndash;0.</p>
+
+    <p>S&oslash;rloth didn't make the pass.</p>
+
+    <p>We yelled at the television, which did not improve his decision-making. A few minutes later, Jude Bellingham scored at the other end.</p>
+
+    <p>That's football. One moment you're shouting at a man in Miami to pass the ball. The next, you're wondering how Norway's lead disappeared before you had time to enjoy it.</p>
+
+    <p>As soon as play stopped, we rushed out to find lunch. We grabbed Chipotle for the family and hurried home, stomachs rumbling, excited by a match that still felt full of possibilities.</p>
+
+    <p>As we dug into our late lunches, the second half became the sort of match where every corner feels like it might change your life. In the 75th minute, Kristoffer Ajer rose above everyone and sent a header against the crossbar. For half a second, we were already celebrating.</p>
+
+    <p>The ball came back out. The score stayed 1&ndash;1.</p>
+
+    <p>Extra time felt less like hope and more like trying to keep hope alive.</p>
+
+    <p>Three minutes into it, Norway goalkeeper &Oslash;rjan Nyland spilled a long-range shot. Bellingham reached the rebound first and put England ahead. Of course it was Bellingham. I proudly shout "Anyone But England" at every opportunity, but the truth is that he had a great day and England took the chances Norway left open.</p>
+
+    <p>Norway kept trying. Haaland ran until there was nothing left and was eventually substituted, exhausted. The whistle came with England ahead 2&ndash;1. Norway's first World Cup quarterfinal was over.</p>
+
+    <p>The kennel was still unfinished. Norway were out and by any reasonable measure, the afternoon had not gone to plan.</p>
+
+    <figure>
+      <img src="/blog/images/haaland-flatpak/tartan-army-hike.jpg" alt="Jack in a Tartan Army shirt on an outdoor walk with family and the dog" loading="lazy" />
+      <figcaption>Tartan Army kit, on brand for a household that shouts "Anyone But England" at every opportunity.</figcaption>
+    </figure>
+
+    <p>But for a couple of hours, our family had something positive to hold onto together. We shouted at the television. We believed Norway might actually do it. We watched a very large Norwegian remind us that kindness, joy and being a genuinely decent human can still cut through all the other noise filling our feeds.</p>
+
+    <p>The World Cup has done that for our family and our community. It has given us something to talk about, something to hope for and a sport that anyone can play at almost any level. It has created moments when everything else can sit unfinished for a while.</p>
+
+    <p>Norway didn't win. Haaland didn't score. The fairy tale ended one match earlier than we wanted it to.</p>
+
+    <p>But on a hot Saturday, at the end of a long summer, they gave our family something good to hang onto.</p>
+
+    <p>We needed that more than we needed Norway to win.</p>
+
+    <p>My favorite soundtrack of the summer, though, is still our five-year-old singing "No Scotland, No Party" in a deep, throaty Scottish brogue.</p>
+
+    <div class="cta-box">
+      <p>Following every match, every storyline, and every off-pitch moment of the 2026 World Cup.</p>
+      <a href="https://worldcup.happyjack.media" class="btn-copper" target="_blank" rel="noopener">Open the World Cup Tracker</a>
+    </div>
+  </div>
+</div>
+
+<div class="article-nav">
+  <div class="article-nav-strip">
+    <a href="/blog/world-cup-coverage/" class="article-nav-card prev">
+      <div class="article-nav-label"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg> Previous article</div>
+      <div class="article-nav-title">The Summer My Family Fell in Love with the World Cup</div>
+      <div class="article-nav-meta">World Cup 2026</div>
+    </a>
+  </div>
+  <div class="more-articles">
+    <div class="more-label">More from the journal</div>
+    <div class="more-grid">
+      <a href="/blog/coffee-with-the-canons/" class="more-card">
+        <div class="more-card-eye">HJM News</div>
+        <div class="more-card-title">Coffee with the Canons</div>
+      </a>
+      <a href="/blog/story-circle-documentary-updates-and-more/" class="more-card">
+        <div class="more-card-eye">Behind the Scenes</div>
+        <div class="more-card-title">Story Circle, Documentary Updates and More!</div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <a class="footer-logo" href="/">
+        <img src="https://images.squarespace-cdn.com/content/v1/65ccf86513ceea51225b3bd5/5dd85de9-93fb-4e21-afb3-f12f2477a64a/Happy-Jack-Media-black-3840-by-2160.png?format=300w" alt="Happy Jack Media" />
+      </a>
+      <h3>Explore</h3>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/jack-blair">Jack Blair</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3>Follow</h3>
+      <ul>
+        <li><a href="https://www.instagram.com/happyjackmedia" target="_blank" rel="noopener">Instagram</a></li>
+        <li><a href="https://www.youtube.com/channel/UC7MbK6B3DhChyyQz9DUPqdQ" target="_blank" rel="noopener">YouTube</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3>The Film</h3>
+      <ul>
+        <li><a href="/tinad" target="_blank" rel="noopener">This Is Not A Draft</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
