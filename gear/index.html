@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gear We Use — Happy Jack Media</title>
+<meta name="description" content="The cameras, audio, and support gear Happy Jack Media actually runs in the field — from This Is Not A Draft to ASU sideline coverage.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --charcoal: #1F2328;
+    --warm-white: #F7F4EE;
+    --copper: #B86A3D;
+    --gold: #C6A15B;
+    --muted: rgba(247,244,238,0.55);
+    --subtle: rgba(247,244,238,0.08);
+  }
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', sans-serif; background: var(--charcoal); color: var(--warm-white); -webkit-font-smoothing: antialiased; }
+
+  /* ── NAV (mirrors jack-blair / tinad subpages) ── */
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; display: flex; align-items: center; justify-content: space-between; padding: 0 2rem; height: 56px; background: rgba(31,35,40,0.96); backdrop-filter: blur(12px); gap: 1rem; border-bottom: 1px solid rgba(247,244,238,0.06); }
+  .nav-logo { color: var(--warm-white); text-decoration: none; font-family: 'Libre Baskerville', Georgia, serif; font-size: 13px; letter-spacing: 0.04em; opacity: 0.95; white-space: nowrap; }
+  .nav-links { display: flex; gap: 0; list-style: none; flex: 1; justify-content: center; }
+  .nav-links a { color: rgba(247,244,238,0.45); text-decoration: none; font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 0 1.1rem; height: 56px; display: flex; align-items: center; border-bottom: 2px solid transparent; transition: color 0.2s; white-space: nowrap; }
+  .nav-links a:hover { color: rgba(247,244,238,0.85); }
+  .nav-links a.active { color: var(--gold); border-bottom-color: var(--gold); }
+  .nav-right { display: flex; align-items: center; gap: 1rem; flex-shrink: 0; }
+  .nav-social-link { color: var(--warm-white); opacity: 0.5; transition: opacity 0.2s; display: flex; }
+  .nav-social-link:hover { opacity: 1; }
+
+  /* ── PAGE HERO ── */
+  .hero { position: relative; padding: 9rem 2rem 4rem; max-width: 900px; margin: 0 auto; }
+  .hero-eyebrow { font-size: 0.65rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; }
+  .hero h1 { font-family: 'Libre Baskerville', Georgia, serif; font-size: clamp(2.25rem, 5.5vw, 3.5rem); font-weight: 400; line-height: 1.1; color: var(--warm-white); margin-bottom: 1.25rem; max-width: 650px; }
+  .hero p { font-size: 1rem; line-height: 1.8; color: rgba(247,244,238,0.72); max-width: 620px; }
+
+  /* ── DISCLOSURE CALLOUT ── */
+  .disclosure { max-width: 900px; margin: 0 auto 3.5rem; padding: 0 2rem; }
+  .disclosure-box { background: var(--subtle); border-left: 2px solid var(--copper); border-radius: 0 4px 4px 0; padding: 1rem 1.5rem; font-size: 0.82rem; line-height: 1.7; color: rgba(247,244,238,0.68); }
+  .disclosure-box strong { color: var(--warm-white); font-weight: 500; }
+
+  /* ── CATEGORY SECTION ── */
+  .gear-section { max-width: 900px; margin: 0 auto; padding: 3rem 2rem; }
+  .gear-section-head { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 1.75rem; border-bottom: 1px solid rgba(247,244,238,0.1); padding-bottom: 1rem; }
+  .gear-section-head h2 { font-family: 'Libre Baskerville', Georgia, serif; font-size: clamp(1.4rem, 2.6vw, 1.85rem); font-weight: 400; color: var(--warm-white); }
+  .gear-section-head span { font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); white-space: nowrap; margin-left: 1.5rem; }
+
+  .gear-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5px; background: rgba(247,244,238,0.06); border: 1px solid rgba(247,244,238,0.06); }
+  .gear-card { background: var(--charcoal); padding: 1.75rem; display: flex; flex-direction: column; transition: background 0.2s; }
+  .gear-card:hover { background: rgba(247,244,238,0.03); }
+  .gear-card.placeholder { background: rgba(247,244,238,0.015); border: 1px dashed rgba(247,244,238,0.15); align-items: center; justify-content: center; text-align: center; min-height: 140px; }
+  .gear-card.placeholder p { font-size: 0.75rem; color: rgba(247,244,238,0.35); letter-spacing: 0.05em; text-transform: uppercase; }
+  .gear-card-name { font-family: 'Libre Baskerville', Georgia, serif; font-size: 1.15rem; font-weight: 400; color: var(--warm-white); margin-bottom: 0.6rem; line-height: 1.3; }
+  .gear-card-note { font-size: 0.85rem; color: var(--muted); line-height: 1.7; margin-bottom: 1.25rem; flex: 1; }
+  .gear-card-note em { color: rgba(247,244,238,0.8); font-style: normal; }
+  .btn-copper-sm { display: inline-flex; align-self: flex-start; align-items: center; gap: 6px; padding: 0.6rem 1.25rem; background: var(--copper); color: var(--warm-white); text-decoration: none; font-size: 0.65rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; border-radius: 100px; transition: background 0.2s; }
+  .btn-copper-sm:hover { background: #a05c34; }
+  .pending-link { display: inline-block; align-self: flex-start; font-size: 0.65rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(247,244,238,0.35); border: 1px dashed rgba(247,244,238,0.25); padding: 0.55rem 1.1rem; border-radius: 100px; }
+
+  .section-note { font-size: 0.7rem; color: rgba(247,244,238,0.3); margin-top: 0.75rem; font-style: italic; }
+
+  /* ── FOOTER (mirrors site pattern) ── */
+  footer { background: var(--warm-white); color: var(--charcoal); padding: 4rem 3rem; margin-top: 2rem; }
+  .footer-inner { max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 4rem; }
+  footer h3 { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.4; margin-bottom: 1.25rem; }
+  footer ul { list-style: none; }
+  footer ul li { margin-bottom: 0.6rem; }
+  footer a { color: var(--charcoal); text-decoration: none; font-size: 0.875rem; opacity: 0.7; transition: opacity 0.2s; }
+  footer a:hover { opacity: 1; }
+  .footer-brand { font-family: 'Libre Baskerville', Georgia, serif; font-size: 1.1rem; color: var(--charcoal); display: block; margin-bottom: 0.6rem; opacity: 0.85; }
+  .footer-tagline { font-size: 0.8rem; color: var(--charcoal); opacity: 0.4; margin-bottom: 2rem; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    nav { padding: 0 1.25rem; }
+    .nav-links { display: none; }
+    .hero { padding: 7rem 1.25rem 3rem; }
+    .disclosure, .gear-section { padding: 0 1.25rem; }
+    .gear-grid { grid-template-columns: 1fr; }
+    .footer-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+    footer { padding: 2.5rem 1.5rem; }
+  }
+  @media (max-width: 600px) {
+    .gear-section-head { flex-direction: column; align-items: flex-start; gap: 0.35rem; }
+    .gear-section-head span { margin-left: 0; }
+  }
+</style>
+<script>function loadScript(a){var b=document.getElementsByTagName("head")[0],c=document.createElement("script");c.type="text/javascript",c.src="https://tracker.metricool.com/resources/be.js",c.onreadystatechange=a,c.onload=a,b.appendChild(c)}loadScript(function(){beTracker.t({hash:"2435b7671d87ab031e9be06f41d3ab17"})});</script>
+<link rel="alternate" type="application/rss+xml" title="Happy Jack Media Blog" href="https://happyjack.media/feed.xml">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CW0Y9082XN"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-CW0Y9082XN');
+</script>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">Happy Jack Media</a>
+  <ul class="nav-links">
+    <li><a href="/">HJM</a></li>
+    <li><a href="/tinad">This Is Not A Draft</a></li>
+    <li><a href="/jack-blair">Jack Blair</a></li>
+    <li><a href="/gear" class="active">Gear</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="https://www.instagram.com/happyjackmedia" target="_blank" rel="noopener" aria-label="Instagram" class="nav-social-link">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/>
+      </svg>
+    </a>
+  </div>
+</nav>
+
+<section class="hero">
+  <p class="hero-eyebrow">Field-Tested</p>
+  <h1>Gear We Use</h1>
+  <p>The cameras, audio, and support gear behind <em>This Is Not A Draft</em>, ASU sideline coverage, and every shoot in between. Nothing on this page is here because a brand paid for it — it's here because it's actually been on a set with us.</p>
+</section>
+
+<div class="disclosure">
+  <div class="disclosure-box">
+    <strong>Heads up:</strong> some links below are affiliate links — most through Amazon Associates, a few through other retailers. If you buy through one, Happy Jack Media earns a small commission at no extra cost to you — it helps fund the next shoot. As an Amazon Associate, we earn from qualifying purchases. We only list gear we've personally run.
+  </div>
+</div>
+
+<section class="gear-section">
+  <div class="gear-section-head">
+    <h2>Cameras &amp; Lenses</h2>
+    <span>The A-cam and the glass</span>
+  </div>
+  <div class="gear-grid">
+    <div class="gear-card">
+      <div class="gear-card-name">Sony FX6</div>
+      <div class="gear-card-note">Our main camera on every HJM production — from the ASU Sun Devils sideline to living-room interviews for <em>This Is Not A Draft</em>.</div>
+      <a class="btn-copper-sm" href="https://amzn.to/3YhJ0sR" target="_blank" rel="noopener sponsored">Shop This →</a>
+    </div>
+    <div class="gear-card">
+      <div class="gear-card-name">Sony A7IV</div>
+      <div class="gear-card-note">What we shoot all of our portrait photos on, and a solid option for a C cam.</div>
+      <a class="btn-copper-sm" href="https://amzn.to/3MPm41n" target="_blank" rel="noopener sponsored">Shop This →</a>
+    </div>
+    <div class="gear-card">
+      <div class="gear-card-name">Sony FX30</div>
+      <div class="gear-card-note">We love running the FX30 on gimbals and as a B cam for interviews or livestreams — beautiful image, and it matches up great with the FX6.</div>
+      <a class="btn-copper-sm" href="https://amzn.to/4oTeZud" target="_blank" rel="noopener sponsored">Shop This →</a>
+    </div>
+    <div class="gear-card">
+      <div class="gear-card-name">Sigma 24-70mm F2.8</div>
+      <div class="gear-card-note">We love Sigma lenses for the value — great autofocus, beautiful bokeh, almost half the cost of Sony glass at roughly 75% of the quality.</div>
+      <a class="btn-copper-sm" href="https://amzn.to/4wIeR4Z" target="_blank" rel="noopener sponsored">Shop This →</a>
+    </div>
+    <div class="gear-card">
+      <div class="gear-card-name">Sony 70-200mm F2.8</div>
+      <div class="gear-card-note">Perfect for getting close-ups from a distance. Can't argue with the quality of a Sony lens.</div>
+      <a class="btn-copper-sm" href="https://amzn.to/3SP8kqF" target="_blank" rel="noopener sponsored">Shop This →</a>
+    </div>
+    <div class="gear-card">
+      <div class="gear-card-name">SmallRig Cage &amp; Cine Rig</div>
+      <div class="gear-card-note">Cage-and-rig setup with a cine lens for handheld coverage — the exact rig from our warehouse b-roll days on <em>This Is Not A Draft</em>.</div>
+      <span class="pending-link">Link coming in v2</span>
+    </div>
+  </div>
+</section>
+
+<section class="gear-section">
+  <div class="gear-section-head">
+    <h2>Audio</h2>
+    <span>What gets recorded on set</span>
+  </div>
+  <div class="gear-grid">
+    <div class="gear-card">
+      <div class="gear-card-name">Sound Devices MixPre-6 II</div>
+      <div class="gear-card-note">Our field recorder for interviews and multi-mic shoots — running lavs and a boom at the same time without missing a take.</div>
+      <a class="btn-copper-sm" href="https://amzn.to/4bpwvSJ" target="_blank" rel="noopener sponsored">Shop This →</a>
+    </div>
+    <div class="gear-card">
+      <div class="gear-card-name">Orca Bags Audio Bag</div>
+      <div class="gear-card-note">Keeps the sound cart mobile and organized — desert hillside shoots, stadium sidelines, wherever the mixer needs to travel.</div>
+      <a class="btn-copper-sm" href="https://amzn.to/4f1DpQx" target="_blank" rel="noopener sponsored">Shop This →</a>
+    </div>
+    <div class="gear-card">
+      <div class="gear-card-name">Sanken COS-11D</div>
+      <div class="gear-card-note">Hands-down one of the most depended-upon lavalier mics for documentary and ENG work. We love the sound out of this mic.</div>
+      <a class="btn-copper-sm" href="https://www.bhphotovideo.com/c/product/606469-REG/Sanken_COS_11D_PT_BK_EW_COS_11XPT_Omnidirectional_Lavalier_Microphone.html" target="_blank" rel="noopener sponsored">Shop This →</a>
+    </div>
+    <div class="gear-card">
+      <div class="gear-card-name">Sennheiser MKH-416</div>
+      <div class="gear-card-note">Our go-to shotgun mic for outdoor productions. Exceptionally clear, focused audio with excellent off-axis rejection — ideal for interviews, documentary work, and run-and-gun shoots.</div>
+      <a class="btn-copper-sm" href="https://amzn.to/4bk6fcs" target="_blank" rel="noopener sponsored">Shop This →</a>
+    </div>
+    <div class="gear-card">
+      <div class="gear-card-name">Sennheiser MKH-50</div>
+      <div class="gear-card-note">Second shotgun option in the kit — same series as the 416, for when we need a different pickup pattern.</div>
+      <a class="btn-copper-sm" href="https://amzn.to/4aN7ot0" target="_blank" rel="noopener sponsored">Shop This →</a>
+    </div>
+  </div>
+</section>
+
+<section class="gear-section">
+  <div class="gear-section-head">
+    <h2>Support &amp; Stabilization</h2>
+    <span>Sticks, sliders, and rigs</span>
+  </div>
+  <div class="gear-grid">
+    <div class="gear-card">
+      <div class="gear-card-name">Manfrotto Fluid Head Tripod</div>
+      <div class="gear-card-note">Our go-to sticks for locked-off interviews — kitchen shoots, home interviews, wherever the FX6 needs to sit rock-still.</div>
+      <a class="btn-copper-sm" href="https://www.bhphotovideo.com/c/product/1022506-REG/manfrotto_mvh500ah_flat_base_fluid.html" target="_blank" rel="noopener sponsored">Shop This →</a>
+    </div>
+    <div class="gear-card">
+      <div class="gear-card-name">FreeSpeed Carbon Fiber Video Tripod</div>
+      <div class="gear-card-note">Second set of sticks for multi-camera setups — an affordable option for getting locked off. We run these for livestreaming and interviews, not so much live sports.</div>
+      <a class="btn-copper-sm" href="https://amzn.to/4wE1ZfY" target="_blank" rel="noopener sponsored">Shop This →</a>
+    </div>
+    <div class="gear-card">
+      <div class="gear-card-name">Steadicam Vest</div>
+      <div class="gear-card-note">Stabilization for walk-and-talk coverage — this is what got us smooth hallway walkthroughs at ASU.</div>
+      <a class="btn-copper-sm" href="https://amzn.to/4eWnCCs" target="_blank" rel="noopener sponsored">Shop This →</a>
+    </div>
+    <div class="gear-card">
+      <div class="gear-card-name">EZFX Jib</div>
+      <div class="gear-card-note">For the reveal shots — we used this on some of the most emotional moments in <em>This Is Not A Draft</em>. Fair warning: 50% of the shot is the operator.</div>
+      <span class="pending-link">Link coming in v2</span>
+    </div>
+    <div class="gear-card">
+      <div class="gear-card-name">Dolly Track</div>
+      <div class="gear-card-note">Smooth push-ins for sit-down interviews in tighter rooms — used on the living-room interview setups.</div>
+      <a class="btn-copper-sm" href="https://amzn.to/4hc8Bhf" target="_blank" rel="noopener sponsored">Shop This →</a>
+    </div>
+    <div class="gear-card">
+      <div class="gear-card-name">DJI RS4 Pro</div>
+      <div class="gear-card-note">When you want buttery smooth, this is the go-to. Ran it for our parade shots and on the pitch for the World Cup soccer coverage.</div>
+      <a class="btn-copper-sm" href="https://amzn.to/4vsZ6xK" target="_blank" rel="noopener sponsored">Shop This →</a>
+    </div>
+  </div>
+</section>
+
+<section class="gear-section">
+  <div class="gear-section-head">
+    <h2>Lighting</h2>
+    <span>What lights the interview</span>
+  </div>
+  <div class="gear-grid">
+    <div class="gear-card">
+      <div class="gear-card-name">Aputure 600C</div>
+      <div class="gear-card-note">Our go-to key light for indoor sit-down interviews.</div>
+      <a class="btn-copper-sm" href="https://amzn.to/4gDaJyn" target="_blank" rel="noopener sponsored">Shop This →</a>
+    </div>
+    <div class="gear-card placeholder">
+      <p>+ Add softbox / modifier<br>(v2)</p>
+    </div>
+  </div>
+</section>
+
+<section class="gear-section">
+  <div class="gear-section-head">
+    <h2>Bags &amp; Field Kit</h2>
+    <span>How it all travels</span>
+  </div>
+  <div class="gear-grid">
+    <div class="gear-card">
+      <div class="gear-card-name">Sakku Camera Bag</div>
+      <div class="gear-card-note">How the FX6 travels between setups without getting knocked around — garage shoots, warehouse days, on the road.</div>
+      <span class="pending-link">Link coming in v2</span>
+    </div>
+    <div class="gear-card placeholder">
+      <p>+ Add travel case / backpack<br>(v2)</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <span class="footer-brand">Happy Jack Media</span>
+      <span class="footer-tagline">Gear We Use</span>
+      <h3>Explore</h3>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/tinad">This Is Not A Draft</a></li>
+        <li><a href="/jack-blair">Jack Blair</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3>Follow</h3>
+      <ul>
+        <li><a href="https://www.instagram.com/happyjackmedia" target="_blank" rel="noopener">Instagram</a></li>
+        <li><a href="https://www.youtube.com/channel/UC7MbK6B3DhChyyQz9DUPqdQ" target="_blank" rel="noopener">YouTube</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3>Contact</h3>
+      <ul>
+        <li><a href="mailto:jack@happyjack.media">jack@happyjack.media</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
